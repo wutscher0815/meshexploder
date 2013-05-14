@@ -911,13 +911,22 @@ protected:
 
 	virtual const void GetOffset(TriangleMesh &mesh)
 	{
+
 		bool dynamic=GetPlugin().GetProperty("DynamicOffset");
+
+
 
 		if(!dynamic){
 			ideal_offset[0]=GetPlugin().GetProperty("Offset");
 			ideal_offset[1]=-((float)GetPlugin().GetProperty("Offset"));
 
 		}else{
+
+			const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
+			const Matrix matMeshTransformation = mesMesh.GetProperty("Transformation",Matrix());
+
+			const Matrix modelView=matViewingTransformation*matMeshTransformation;
+
 			Box selectbounds=Box();
 
 			for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
@@ -931,8 +940,34 @@ protected:
 					selectbounds+=iteGroup.GetGroupBounds();
 				}
 			}
+			selectbounds.transform(&modelView);
+
+			Vector xMin, xMax;
+
+			xMin=selectbounds.GetCorner(0,0,0);
+			xMax=xMin;
+
+			for(int i=0;i<2;i++){
+				for(int j=0;j<2;j++){
+					for(int k=0;k<2;k++){
+						Vector corner=selectbounds.GetCorner(i,j,k);
+						if(corner.getX()<xMin.GetX())
+							xMin=corner;
+						if(corner.getX()>xMin.GetX())
+							xMax=corner;
+					}
+				}
+			}
+		
+			Vector viewpoint=-(modelView*Vector(0.0f,0.0f,0.0f,1.0f);
+			Vector tomin= xmin-viewpoint;
+			Vector planeNormal=Vector(0.0f,1.0f,0.0f).GetCross(Vector(tomin.GetX(),Vector(tomin.GetY(),Vector(tomin.GetZ());
+
+
 
 		}
+
+
 		if(ideal_offset[0]==current_offset[0]&&ideal_offset[1]==current_offset[1])
 			return;
 
