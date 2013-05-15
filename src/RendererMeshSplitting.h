@@ -237,7 +237,7 @@ virtual void display(Canvas & canCanvas)
 	glMultMatrixf(matViewingTransformation.Get());
 	glMultMatrixf(matMeshTransformation.Get());
 
-	glBeginQuery(GL_ANY_SAMPLES_PASSED, queryID[0]);
+	glBeginQuery(GL_SAMPLES_PASSED, queryID[0]);
 
 	// Selected part(s)
 	m_shaShader.SetOption("overlay","true");
@@ -246,30 +246,19 @@ virtual void display(Canvas & canCanvas)
 	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
 	renderMesh(*pMesh, true, true);
 	m_shaShader.release();
-	glEndQuery(GL_ANY_SAMPLES_PASSED);
+	glEndQuery(GL_SAMPLES_PASSED);
 	queryState=0;
+
+	
 
 	while(queryState != GL_TRUE)
 	{
 		glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT_AVAILABLE, &queryState);
 	}
 	//Das Ergebnis aufschreiben
-	glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT, &pixelCount[0]);
-
-
-
-
+	glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT, &pixelCount[0]);	
+	
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
-
-	// Selected part(s)
-	m_shaShader.SetOption("overlay","false");
-	m_shaShader.SetOption("split","false");
-	m_shaShader.bind();
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, true, false);
-	m_shaShader.release();
-
 
 	// first half of model
 	glPushMatrix();
@@ -285,6 +274,7 @@ virtual void display(Canvas & canCanvas)
 
 	// second half of model
 	glPopMatrix();
+	glPushMatrix();
 	glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
 	m_shaShader.SetOption("overlay","false");
 	m_shaShader.SetOption("split","true");
@@ -295,9 +285,31 @@ virtual void display(Canvas & canCanvas)
 	renderMesh(*pMesh, false, false);
 	m_shaShader.release();
 
+	glBeginQuery(GL_SAMPLES_PASSED, queryID[1]);
+
+
+	// Selected part(s)
+	glPopMatrix();
+	m_shaShader.SetOption("overlay","false");
+	m_shaShader.SetOption("split","false");
+	m_shaShader.bind();
+	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+	renderMesh(*pMesh, true, false);
+	m_shaShader.release();
+
+	glEndQuery(GL_SAMPLES_PASSED);
+	queryState=0;
+	while(queryState != GL_TRUE)
+	{
+		glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT_AVAILABLE, &queryState);
+	}
+	//Das Ergebnis aufschreiben
+	glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT, &pixelCount[1]);
+
+	printf("Samples passed: %i %i\n",pixelCount[0],pixelCount[1]);
 	//DRAW MODEL END
 
-	glBeginQuery(GL_ANY_SAMPLES_PASSED, queryID[1]);
+	
 	// DRAW PLANE
 	glLoadIdentity();
 	glLoadMatrixf(matViewingTransformation.Get());
@@ -319,15 +331,6 @@ virtual void display(Canvas & canCanvas)
 	glVertex3f(-1,  1, 0);
 	glEnd();
 
-	glEndQuery(GL_ANY_SAMPLES_PASSED);
-	queryState=0;
-
-	while(queryState != GL_TRUE)
-	{
-		glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT_AVAILABLE, &queryState);
-	}
-	//Das Ergebnis aufschreiben
-	glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT, &pixelCount[1]);
 	glDeleteQueries(2, queryID);
 
 	//DRAW PLANE END
@@ -923,7 +926,7 @@ protected:
 		}else{
 
 			const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
-			const Matrix matMeshTransformation = mesMesh.GetProperty("Transformation",Matrix());
+			const Matrix matMeshTransformation = mesh.GetProperty("Transformation",Matrix());
 
 			const Matrix modelView=matViewingTransformation*matMeshTransformation;
 
@@ -940,7 +943,7 @@ protected:
 					selectbounds+=iteGroup.GetGroupBounds();
 				}
 			}
-			selectbounds.transform(&modelView);
+			selectbounds.transform(modelView);
 
 			Vector xMin, xMax;
 
@@ -951,17 +954,17 @@ protected:
 				for(int j=0;j<2;j++){
 					for(int k=0;k<2;k++){
 						Vector corner=selectbounds.GetCorner(i,j,k);
-						if(corner.getX()<xMin.GetX())
+						if(corner.GetX() < xMin.GetX())
 							xMin=corner;
-						if(corner.getX()>xMin.GetX())
+						if(corner.GetX() > xMin.GetX())
 							xMax=corner;
 					}
 				}
 			}
 		
-			Vector viewpoint=-(modelView*Vector(0.0f,0.0f,0.0f,1.0f);
-			Vector tomin= xmin-viewpoint;
-			Vector planeNormal=Vector(0.0f,1.0f,0.0f).GetCross(Vector(tomin.GetX(),Vector(tomin.GetY(),Vector(tomin.GetZ());
+			Vector viewpoint=-(modelView*Vector(0.0f,0.0f,0.0f));
+			Vector tomin= xMin-viewpoint;
+			Vector planeNormal=Vector(0.0f,1.0f,0.0f).GetCross(Vector(tomin.GetX(),tomin.GetY(),tomin.GetZ()));
 
 
 
