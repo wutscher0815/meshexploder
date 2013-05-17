@@ -114,10 +114,10 @@ virtual void display(Canvas & canCanvas)
 {
 
 
-	GLuint queryID[]={0,0};
+	GLuint queryID[]={0,0,0,0,0,0};
 	GLuint queryState;
 
-	glGenQueries(2, queryID);
+	glGenQueries(6, queryID);
 
 
 	const Matrix matProjectionTransformation = GetPlugin().GetProperty("Projection Transformation");
@@ -236,7 +236,7 @@ virtual void display(Canvas & canCanvas)
 	glMultMatrixf(matViewingTransformation.Get());
 	glMultMatrixf(matMeshTransformation.Get());
 
-	glBeginQuery(GL_SAMPLES_PASSED, queryID[0]);
+	this->startQuery(queryID[0]);
 
 	// Selected part(s)
 	m_shaShader.SetOption("overlay","true");
@@ -245,21 +245,46 @@ virtual void display(Canvas & canCanvas)
 	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
 	renderMesh(*pMesh, true, true);
 	m_shaShader.release();
-	glEndQuery(GL_SAMPLES_PASSED);
-	queryState=0;
 
+	this->endQuery(queryID[0],&occlusions[0]);
+
+
+		// first half of model
+	this->startQuery(queryID[3]);
+	glPushMatrix();
+	glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
+	m_shaShader.SetOption("overlay","true");
+	m_shaShader.SetOption("split","true");
+	m_shaShader.bind();
+	glUniform3f(m_shaShader.GetUniformLocation("uNormal"), planeNormal.GetX(), planeNormal.GetY(), planeNormal.GetZ());
+	glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+	renderMesh(*pMesh, false, true);
+	m_shaShader.release();
+
+	this->endQuery(queryID[3],&occlusions[3]);
 	
-
-	while(queryState != GL_TRUE)
-	{
-		glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT_AVAILABLE, &queryState);
-	}
-	//Das Ergebnis aufschreiben
-	glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT, &occlusions[0]);	
+	// second half of model
+	glPopMatrix();
+	glPushMatrix();
+	this->startQuery(queryID[5]);
+	glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+	m_shaShader.SetOption("overlay","true");
+	m_shaShader.SetOption("split","true");
+	m_shaShader.bind();
+	glUniform3f(m_shaShader.GetUniformLocation("uNormal"), -planeNormal.GetX(), -planeNormal.GetY(), -planeNormal.GetZ());
+	glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+	renderMesh(*pMesh, false, true);
+	m_shaShader.release();
+	this->endQuery(queryID[5],&occlusions[5]);
 	
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
+	
 	// first half of model
+	this->startQuery(queryID[2]);
+	glPopMatrix();
 	glPushMatrix();
 	glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
 	m_shaShader.SetOption("overlay","false");
@@ -270,10 +295,12 @@ virtual void display(Canvas & canCanvas)
 	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
 	renderMesh(*pMesh, false, false);
 	m_shaShader.release();
+	this->endQuery(queryID[2],&occlusions[2]);
 
 	// second half of model
 	glPopMatrix();
 	glPushMatrix();
+	this->startQuery(queryID[4]);
 	glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
 	m_shaShader.SetOption("overlay","false");
 	m_shaShader.SetOption("split","true");
@@ -283,29 +310,22 @@ virtual void display(Canvas & canCanvas)
 	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
 	renderMesh(*pMesh, false, false);
 	m_shaShader.release();
-
-	glBeginQuery(GL_SAMPLES_PASSED, queryID[1]);
+	this->endQuery(queryID[4],&occlusions[4]);
+	
 
 
 	// Selected part(s)
 	glPopMatrix();
+	this->startQuery(queryID[1]);
 	m_shaShader.SetOption("overlay","false");
 	m_shaShader.SetOption("split","false");
 	m_shaShader.bind();
 	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
 	renderMesh(*pMesh, true, false);
 	m_shaShader.release();
+	this->endQuery(queryID[1],&occlusions[1]);
 
-	glEndQuery(GL_SAMPLES_PASSED);
-	queryState=0;
-	while(queryState != GL_TRUE)
-	{
-		glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT_AVAILABLE, &queryState);
-	}
-	//Das Ergebnis aufschreiben
-	glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT, &occlusions[1]);
-
-	//printf("Samples passed: %i %i\n",occlusions[0],occlusions[1]);
+	printf("Samples passed: %i %i %i %i %i %i\n",occlusions[0],occlusions[1],occlusions[2],occlusions[3],occlusions[4],occlusions[5]);
 	//DRAW MODEL END
 
 	
@@ -330,7 +350,7 @@ virtual void display(Canvas & canCanvas)
 	glVertex3f(-1,  1, 0);
 	glEnd();
 
-	glDeleteQueries(2, queryID);
+	glDeleteQueries(6, queryID);
 
 	//DRAW PLANE END
 
@@ -1013,6 +1033,23 @@ protected:
 		}
 	};
 
+	void startQuery(GLuint id){
+		glBeginQuery(GL_SAMPLES_PASSED, id);
+	};
+
+	void endQuery(GLuint id, GLuint *result){
+		glEndQuery(GL_SAMPLES_PASSED);
+		GLuint queryState=0;
+
+		while(queryState != GL_TRUE)
+		{
+			glGetQueryObjectuiv(id, GL_QUERY_RESULT_AVAILABLE, &queryState);
+		}
+		//Das Ergebnis aufschreiben
+		glGetQueryObjectuiv(id, GL_QUERY_RESULT, result);	
+	};
+
+
 	float abs(float x){
 		if(x<0.0f)
 			return -x;
@@ -1058,6 +1095,6 @@ private:
 	Vector m_kLastMouseDownPosition;
 	float ideal_offset[2];
 	float current_offset[2];
-	GLuint occlusions[2];
+	GLuint occlusions[6];
 
 };
