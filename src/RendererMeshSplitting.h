@@ -116,7 +116,6 @@ virtual void display(Canvas & canCanvas)
 
 	GLuint queryID[]={0,0};
 	GLuint queryState;
-	GLuint pixelCount[]={0,0};
 
 	glGenQueries(2, queryID);
 
@@ -256,7 +255,7 @@ virtual void display(Canvas & canCanvas)
 		glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT_AVAILABLE, &queryState);
 	}
 	//Das Ergebnis aufschreiben
-	glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT, &pixelCount[0]);	
+	glGetQueryObjectuiv(queryID[0], GL_QUERY_RESULT, &occlusions[0]);	
 	
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
@@ -304,9 +303,9 @@ virtual void display(Canvas & canCanvas)
 		glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT_AVAILABLE, &queryState);
 	}
 	//Das Ergebnis aufschreiben
-	glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT, &pixelCount[1]);
+	glGetQueryObjectuiv(queryID[1], GL_QUERY_RESULT, &occlusions[1]);
 
-	printf("Samples passed: %i %i\n",pixelCount[0],pixelCount[1]);
+	//printf("Samples passed: %i %i\n",occlusions[0],occlusions[1]);
 	//DRAW MODEL END
 
 	
@@ -432,8 +431,13 @@ protected:
 
 	virtual void propertyModified(const Variant & varVariant, const Observable::Event & eveEvent)
 	{
+		bool dynamic=GetPlugin().GetProperty("DynamicOffset");
 
-		GetPlugin().update();
+		if(dynamic){
+			ideal_offset[0]=0.0f;
+			ideal_offset[1]=0.0f;
+			GetPlugin().update();
+		}
 	};
 
 	virtual void meshModified (const Variant & varVariant, const Observable::Event & eveEvent)
@@ -804,7 +808,7 @@ protected:
 		const Vector vecPlaneTranslation = GetPlugin().GetProperty("Plane Translation");
 		const Vector vecPlaneRotationVector = GetPlugin().GetProperty("Plane Rotation Vector");
 		const float vecPlaneRotationAngle = GetPlugin().GetProperty("Plane Rotation Angle");
-		const float offset = GetPlugin().GetProperty("Offset");
+		//const float offset = GetPlugin().GetProperty("Offset");
 
 		glMatrixMode(GL_PROJECTION);
 		glLoadMatrixf(matProjectionTransformation.Get());
@@ -822,7 +826,9 @@ protected:
 		planeNormal.normalize();
 
 		//translate model with offset
-		Vector modelTranslation = planeNormal * offset;
+		Vector modelTranslationA = planeNormal * current_offset[0];
+		Vector modelTranslationB = planeNormal * current_offset[1];
+
 
 		glLoadIdentity();
 
@@ -866,7 +872,7 @@ protected:
 
 		// first half of model
 		glPushMatrix();
-		glTranslatef(modelTranslation.GetX(), modelTranslation.GetY(), modelTranslation.GetZ());
+		glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
 		m_shaShader.SetOption("overlay","true");
 		m_shaShader.SetOption("split","true");
 		m_shaShader.bind();
@@ -877,7 +883,7 @@ protected:
 
 		// second half of model
 		glPopMatrix();
-		glTranslatef(-modelTranslation.GetX(), -modelTranslation.GetY(), -modelTranslation.GetZ());
+		glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
 		m_shaShader.SetOption("overlay","true");
 		m_shaShader.SetOption("split","true");
 		m_shaShader.bind();
@@ -916,69 +922,88 @@ protected:
 	{
 
 		bool dynamic=GetPlugin().GetProperty("DynamicOffset");
-
-
+		float speed;
 
 		if(!dynamic){
 			ideal_offset[0]=GetPlugin().GetProperty("Offset");
 			ideal_offset[1]=-((float)GetPlugin().GetProperty("Offset"));
-
+			speed=GetPlugin().GetProperty("Speed");
 		}else{
 
-			const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
-			const Matrix matMeshTransformation = mesh.GetProperty("Transformation",Matrix());
+			//	/*const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
+			//	const Matrix matMeshTransformation = mesh.GetProperty("Transformation",Matrix());
 
-			const Matrix modelView=matViewingTransformation*matMeshTransformation;
+			//	const Matrix modelView=matViewingTransformation*matMeshTransformation;
 
-			Box selectbounds=Box();
+			//	Box selectbounds=Box();
 
-			for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
-			{
-				TriangleMesh::Iterator iteGroup = *i;
+			//	for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
+			//	{
+			//		TriangleMesh::Iterator iteGroup = *i;
 
-				const std::string & strGroupName = iteGroup.GetGroupName();
-				const std::string & strSelection = GetPlugin().GetProperty("Selection");
+			//		const std::string & strGroupName = iteGroup.GetGroupName();
+			//		const std::string & strSelection = GetPlugin().GetProperty("Selection");
 
-				if (strGroupName.compare(strSelection)==0){
-					selectbounds+=iteGroup.GetGroupBounds();
-				}
-			}
-			selectbounds.transform(modelView);
+			//		if (strGroupName.compare(strSelection)==0){
+			//			selectbounds+=iteGroup.GetGroupBounds();
+			//		}
+			//	}
+			//	selectbounds.transform(modelView);
 
-			Vector xMin, xMax;
+			//	Vector xMin, xMax;
 
-			xMin=selectbounds.GetCorner(0,0,0);
-			xMax=xMin;
+			//	xMin=selectbounds.GetCorner(0,0,0);
+			//	xMax=xMin;
 
-			for(int i=0;i<2;i++){
-				for(int j=0;j<2;j++){
-					for(int k=0;k<2;k++){
-						Vector corner=selectbounds.GetCorner(i,j,k);
-						if(corner.GetX() < xMin.GetX())
-							xMin=corner;
-						if(corner.GetX() > xMin.GetX())
-							xMax=corner;
-					}
-				}
-			}
+			//	for(int i=0;i<2;i++){
+			//		for(int j=0;j<2;j++){
+			//			for(int k=0;k<2;k++){
+			//				Vector corner=selectbounds.GetCorner(i,j,k);
+			//				if(corner.GetX() < xMin.GetX())
+			//					xMin=corner;
+			//				if(corner.GetX() > xMin.GetX())
+			//					xMax=corner;
+			//			}
+			//		}
+			//	}
+			//
+			//	Vector viewpoint=-(modelView*Vector(0.0f,0.0f,0.0f));
+			//	Vector tomin= xMin-viewpoint;
+			//	Vector planeNormal=Vector(0.0f,1.0f,0.0f).GetCross(Vector(tomin.GetX(),tomin.GetY(),tomin.GetZ()));*/
+
+			float ratio = occlusions[0]- occlusions[1];
 		
-			Vector viewpoint=-(modelView*Vector(0.0f,0.0f,0.0f));
-			Vector tomin= xMin-viewpoint;
-			Vector planeNormal=Vector(0.0f,1.0f,0.0f).GetCross(Vector(tomin.GetX(),tomin.GetY(),tomin.GetZ()));
+			if (ratio>0){
+				ratio/=occlusions[0];
+				ideal_offset[0]=15.0f;
+				ideal_offset[1]=-15.0f;
+				speed=GetPlugin().GetProperty("Speed");
+				speed*=ratio;
+			}else{
+				if(ideal_offset[0]==15.0f){
+					speed=GetPlugin().GetProperty("Speed");
+					ideal_offset[0]=current_offset[0];
+					ideal_offset[1]=current_offset[1];
+					return;
+				}else{
+					if(ideal_offset[0]==current_offset[0]&&ideal_offset[1]==current_offset[1])
+						return;
 
+					speed=GetPlugin().GetProperty("Speed");
+					ideal_offset[0]=0.0f;
+					ideal_offset[1]=0.0f;
+				}
 
-
+			}
 		}
 
 
 		if(ideal_offset[0]==current_offset[0]&&ideal_offset[1]==current_offset[1])
 			return;
 
+		
 		for(int i=0;i<2;i++){
 			float distance=ideal_offset[i]-current_offset[i];
-
-			const float speed=GetPlugin().GetProperty("Speed");
-
 			float d_offset=abMax(distance*speed/50.0f,0.0000f);
 
 			if(this->abs(distance)<0.001f)
@@ -1033,5 +1058,6 @@ private:
 	Vector m_kLastMouseDownPosition;
 	float ideal_offset[2];
 	float current_offset[2];
+	GLuint occlusions[2];
 
 };
