@@ -6,7 +6,7 @@ static unsigned int GetVersionSourceRevisionNumber()
 
 static unsigned int GetVersionBuildDate()
 {
-	static const unsigned int uBuildDate = 20130517;
+	static const unsigned int uBuildDate = 20130617;
 	return uBuildDate;
 }
 

@@ -12,6 +12,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cfloat>
+#include <Math.h>
 
 
 #include "RendererPlugin.h"
@@ -84,6 +86,9 @@ public:
 		GetPlugin().GetProperty("DynamicOffset").require(Variant::TypeBoolean(false));
 		GetPlugin().GetProperty("DynamicOffset").addObserver(&m_modVariantObserver);
 
+		GetPlugin().GetProperty("Auto Plane").require(Variant::TypeBoolean(false));
+		GetPlugin().GetProperty("Auto Plane").addObserver(&m_modVariantObserver);
+
 		GetPlugin().GetProperty("Interior Shading Mode").require((Variant::TypeOption(), Variant("No shading"), Variant("Flat red shading"), Variant("Padded phong shading"), Variant("Caved phong shading")));
 		GetPlugin().GetProperty("Interior Shading Mode").addObserver(&m_modMeshObserver);
 
@@ -99,353 +104,453 @@ public:
 		current_offset[0]=0.0f;
 		current_offset[1]=0.0f;
 
+		this->alpha=1.0;
+
+		//this->initiateAutoPlane();
+
 		GetPlugin().GetProperty("Groups").addObserver(&m_modVariantObserver);
-};
+	};
 
-virtual ~RendererMeshSplitting()
-{
-};
-
-virtual void idle()
-{
-};
-
-virtual void display(Canvas & canCanvas)
-{
-
-
-	GLuint queryID[]={0,0,0,0,0,0};
-	GLuint queryState;
-
-	glGenQueries(6, queryID);
-
-
-	const Matrix matProjectionTransformation = GetPlugin().GetProperty("Projection Transformation");
-	const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
-
-
-	Handle hanMesh = GetPlugin().GetProperty("Mesh");
-	TriangleMesh *pMesh = hanMesh.GetResource<TriangleMesh>();
-
-	if (!pMesh)
-		return;
-
-	const Matrix matMeshTransformation = pMesh->GetProperty("Transformation",Matrix());
-
-	updateGroups(*pMesh);
-
-
-	canCanvas.bind();
-
-	glEnable(GL_DEPTH_TEST);
-	glDepthMask(GL_TRUE);
-	glDepthFunc(GL_LESS);
-	glDisable(GL_BLEND);
-
-	// define the projection matrix
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadMatrixf(matProjectionTransformation.Get());
-
-	// define the model view matrix
-
-	glMatrixMode(GL_MODELVIEW);
-
-
-	// Read values from user input
-	const Vector vecPlaneTranslation = GetPlugin().GetProperty("Plane Translation");
-	const Vector vecPlaneRotationVector = GetPlugin().GetProperty("Plane Rotation Vector");
-	const float vecPlaneRotationAngle = GetPlugin().GetProperty("Plane Rotation Angle");
-	const Color vecPlaneColor = GetPlugin().GetProperty("Plane Color");
-	const Vector vecPlaneScaling = GetPlugin().GetProperty("Plane Scale");
-
-	//rotate plane normal when plane rotates
-	Vector planeNormal(0.0f, 0.0f, 1.0f);
-	glLoadIdentity();
-	glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
-	float arr[16] = {0.0f};
-	glGetFloatv(GL_MODELVIEW_MATRIX, arr);
-	Matrix rotPlaneNormalMatrix(arr);
-	planeNormal = rotPlaneNormalMatrix.GetRotated(planeNormal);
-	planeNormal.normalize();
-
-	//float offset=current_offset;
-
-	GetOffset(*pMesh);
-	float *offset=current_offset;
-
-
-
-	//translate model with offset
-	Vector modelTranslationA = planeNormal * offset[0];
-	Vector modelTranslationB = planeNormal * offset[1];
-
-
-	// define the lighting
-
-	const float vfPosition[] = { 0.0f, 0.0f, 1.0f, 0.0f };
-	const float vfAmbient[] = { 0.7f, 0.7f, 0.7f, 1.0f };
-	const float vfDiffuse[] = { 0.9f, 0.9f, 0.9f, 1.0f };
-	const float vfSpecular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-
-	glLoadIdentity();
-	glLightfv(GL_LIGHT0, GL_POSITION, vfPosition);
-	glLightfv(GL_LIGHT0, GL_AMBIENT, vfAmbient);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, vfDiffuse);
-	glLightfv(GL_LIGHT0, GL_SPECULAR, vfSpecular);
-	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
-
-
-	Color colColor = GetPlugin().GetProperty("Color");
-	colColor.SetNormalizedAlpha(float(GetPlugin().GetProperty("Opacity")));
-	glColor4ubv(colColor.Get());
-	glSecondaryColor3ub(255,255,255);
-
-	glDisable(GL_COLOR_MATERIAL);
-	glDisable(GL_CULL_FACE);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	glEnable(GL_TEXTURE_2D);
-	glEnable(GL_BLEND);
-	glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
-
-	if (GLEW_ARB_multisample)
+	virtual ~RendererMeshSplitting()
 	{
-		glEnable( GL_MULTISAMPLE_ARB );
-		glEnable( GL_SAMPLE_ALPHA_TO_COVERAGE_ARB );
-	}
+	};
 
-	//shading mode
-	const std::string sShadingMode = GetPlugin().GetProperty("Interior Shading Mode");
+	virtual void idle()
+	{
+	};
 
-	//shading mode 0 does nothing in the shader
-	int iShadingMode = 0;
-	if(sShadingMode.compare("Flat red shading") == 0) {
-		iShadingMode = 1;
-	} else if(sShadingMode.compare("Caved phong shading") == 0) {
-		iShadingMode = 3;
-	} else if(sShadingMode.compare("Padded phong shading") == 0) {
-		iShadingMode = 2;
-	}
+	virtual void display(Canvas & canCanvas)
+	{
 
 
-	//DRAW MODEL
+		GLuint queryID[]={0,0,0,0,0,0};
+		GLuint queryState;
 
-	// update model view matrix after light position has been set
-	glLoadIdentity();
-	glMultMatrixf(matViewingTransformation.Get());
-	glMultMatrixf(matMeshTransformation.Get());
+		glGenQueries(6, queryID);
 
-	this->startQuery(queryID[0]);
 
-	// Selected part(s)
-	m_shaShader.SetOption("overlay","true");
-	m_shaShader.SetOption("split","false");
-	m_shaShader.bind();
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, true, true);
-	m_shaShader.release();
+		const Matrix matProjectionTransformation = GetPlugin().GetProperty("Projection Transformation");
+		const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
 
-	this->endQuery(queryID[0],&occlusions[0]);
+
+		Handle hanMesh = GetPlugin().GetProperty("Mesh");
+		TriangleMesh *pMesh = hanMesh.GetResource<TriangleMesh>();
+
+		if (!pMesh)
+			return;
+
+		const Matrix matMeshTransformation = pMesh->GetProperty("Transformation",Matrix());
+
+		updateGroups(*pMesh);
+
+
+		canCanvas.bind();
+
+		glEnable(GL_DEPTH_TEST);
+		glDepthMask(GL_TRUE);
+		glDepthFunc(GL_LESS);
+		glDisable(GL_BLEND);
+
+		// define the projection matrix
+
+		glMatrixMode(GL_PROJECTION);
+		glLoadMatrixf(matProjectionTransformation.Get());
+
+		// define the model view matrix
+
+		glMatrixMode(GL_MODELVIEW);
+
+		bool autoplane =GetPlugin().GetProperty("Auto Plane");
+
+		Vector vecPlaneTranslation;
+		Vector vecPlaneRotationVector;
+		float vecPlaneRotationAngle = GetPlugin().GetProperty("Plane Rotation Angle");;
+		Vector planeNormal(0.0f, 0.0f, 1.0f);
+		// Read values from user input
+		
+		const Color vecPlaneColor = GetPlugin().GetProperty("Plane Color");
+		const Vector vecPlaneScaling = GetPlugin().GetProperty("Plane Scale");
+		glLoadIdentity();
+		if (!autoplane){
+			vecPlaneTranslation = GetPlugin().GetProperty("Plane Translation");
+			vecPlaneRotationVector = GetPlugin().GetProperty("Plane Rotation Vector");
+			planeNormal = Vector(0.0f, 0.0f, 1.0f);
+			//rotate plane normal when plane rotates
+			glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
+			float arr[16] = {0.0f};
+			glGetFloatv(GL_MODELVIEW_MATRIX, arr);
+			Matrix rotPlaneNormalMatrix(arr);
+			planeNormal = rotPlaneNormalMatrix.GetRotated(planeNormal);
+		}else{
+			planeNormal=matMeshTransformation.GetRotationMatrix()*this->autoPlaneNormal;
+			vecPlaneTranslation=matMeshTransformation*this->autoPlanePoint;
+		}
+
+
+		planeNormal.normalize();
+		
+		Matrix mat=matViewingTransformation;
+		Vector viewing=matViewingTransformation*Vector(0.0f, 0.0f, 1.0f)-matViewingTransformation*Vector(0.0f, 0.0f, 0.0f);
+		viewing.normalize();
+		//Vector viewing=Vector(0.0f, 0.0f, 1.0f);
+
+		boolean firstInFront=true;
+
+		float dot=viewing.GetDot(planeNormal);
+		if (dot <0)
+			firstInFront=false;
+
+
+		//float offset=current_offset;
+
+		GetOffset(*pMesh);
+		float *offset=current_offset;
+
+
+
+		//translate model with offset
+		Vector modelTranslationA = planeNormal * offset[0];
+		Vector modelTranslationB = planeNormal * offset[1];
+
+
+		// define the lighting
+
+		const float vfPosition[] = { 0.0f, 0.0f, 1.0f, 0.0f };
+		const float vfAmbient[] = { 0.7f, 0.7f, 0.7f, 1.0f };
+		const float vfDiffuse[] = { 0.9f, 0.9f, 0.9f, 1.0f };
+		const float vfSpecular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+		glLoadIdentity();
+		glLightfv(GL_LIGHT0, GL_POSITION, vfPosition);
+		glLightfv(GL_LIGHT0, GL_AMBIENT, vfAmbient);
+		glLightfv(GL_LIGHT0, GL_DIFFUSE, vfDiffuse);
+		glLightfv(GL_LIGHT0, GL_SPECULAR, vfSpecular);
+		glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
+
+
+		Color colColor = GetPlugin().GetProperty("Color");
+		colColor.SetNormalizedAlpha(float(GetPlugin().GetProperty("Opacity")));
+		glColor4ubv(colColor.Get());
+		glSecondaryColor3ub(255,255,255);
+
+		glDisable(GL_COLOR_MATERIAL);
+		glDisable(GL_CULL_FACE);
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);
+		glEnable(GL_TEXTURE_2D);
+		glEnable(GL_BLEND);
+		glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
+
+		if (GLEW_ARB_multisample)
+		{
+			glEnable( GL_MULTISAMPLE_ARB );
+			glEnable( GL_SAMPLE_ALPHA_TO_COVERAGE_ARB );
+		}
+
+		//shading mode
+		const std::string sShadingMode = GetPlugin().GetProperty("Interior Shading Mode");
+
+		//shading mode 0 does nothing in the shader
+		int iShadingMode = 0;
+		if(sShadingMode.compare("Flat red shading") == 0) {
+			iShadingMode = 1;
+		} else if(sShadingMode.compare("Caved phong shading") == 0) {
+			iShadingMode = 3;
+		} else if(sShadingMode.compare("Padded phong shading") == 0) {
+			iShadingMode = 2;
+		}
+
+
+		//DRAW MODEL
+
+		// update model view matrix after light position has been set
+		glLoadIdentity();
+		glMultMatrixf(matViewingTransformation.Get());
+		glMultMatrixf(matMeshTransformation.Get());
 
 
 		// first half of model
-	this->startQuery(queryID[3]);
-	glPushMatrix();
-	glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
-	m_shaShader.SetOption("overlay","true");
-	m_shaShader.SetOption("split","true");
-	m_shaShader.bind();
-	glUniform3f(m_shaShader.GetUniformLocation("uNormal"), planeNormal.GetX(), planeNormal.GetY(), planeNormal.GetZ());
-	glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, false, true);
-	m_shaShader.release();
+		this->startQuery(queryID[2]);
+		glPushMatrix();
+		glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
+		m_shaShader.SetOption("overlay","true");
+		m_shaShader.SetOption("split","true");
+		m_shaShader.bind();
+		glUniform3f(m_shaShader.GetUniformLocation("uNormal"), planeNormal.GetX(), planeNormal.GetY(), planeNormal.GetZ());
+		glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+		glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+		renderMesh(*pMesh, false, true);
+		m_shaShader.release();
 
-	this->endQuery(queryID[3],&occlusions[3]);
-	
-	// second half of model
-	glPopMatrix();
-	glPushMatrix();
-	this->startQuery(queryID[5]);
-	glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
-	m_shaShader.SetOption("overlay","true");
-	m_shaShader.SetOption("split","true");
-	m_shaShader.bind();
-	glUniform3f(m_shaShader.GetUniformLocation("uNormal"), -planeNormal.GetX(), -planeNormal.GetY(), -planeNormal.GetZ());
-	glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, false, true);
-	m_shaShader.release();
-	this->endQuery(queryID[5],&occlusions[5]);
-	
-	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+		this->endQuery(queryID[2],&occlusions[2]);
 
-	
-	// first half of model
-	this->startQuery(queryID[2]);
-	glPopMatrix();
-	glPushMatrix();
-	glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
-	m_shaShader.SetOption("overlay","false");
-	m_shaShader.SetOption("split","true");
-	m_shaShader.bind();
-	glUniform3f(m_shaShader.GetUniformLocation("uNormal"), planeNormal.GetX(), planeNormal.GetY(), planeNormal.GetZ());
-	glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, false, false);
-	m_shaShader.release();
-	this->endQuery(queryID[2],&occlusions[2]);
+		// second half of model
+		glPopMatrix();
+		glPushMatrix();
+		this->startQuery(queryID[4]);
+		glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+		m_shaShader.SetOption("overlay","true");
+		m_shaShader.SetOption("split","true");
+		m_shaShader.bind();
+		glUniform3f(m_shaShader.GetUniformLocation("uNormal"), -planeNormal.GetX(), -planeNormal.GetY(), -planeNormal.GetZ());
+		glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+		glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+		renderMesh(*pMesh, false, true);
+		m_shaShader.release();
+		this->endQuery(queryID[4],&occlusions[4]);
 
-	// second half of model
-	glPopMatrix();
-	glPushMatrix();
-	this->startQuery(queryID[4]);
-	glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
-	m_shaShader.SetOption("overlay","false");
-	m_shaShader.SetOption("split","true");
-	m_shaShader.bind();
-	glUniform3f(m_shaShader.GetUniformLocation("uNormal"), -planeNormal.GetX(), -planeNormal.GetY(), -planeNormal.GetZ());
-	glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, false, false);
-	m_shaShader.release();
-	this->endQuery(queryID[4],&occlusions[4]);
-	
+		this->startQuery(queryID[1]);
+
+		// Selected part(s)
+		glPopMatrix();
+		m_shaShader.SetOption("overlay","true");
+		m_shaShader.SetOption("split","false");
+		m_shaShader.bind();
+		glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+		renderMesh(*pMesh, true, true);
+		m_shaShader.release();
+
+		this->endQuery(queryID[1],&occlusions[1]);
 
 
-	// Selected part(s)
-	glPopMatrix();
-	this->startQuery(queryID[1]);
-	m_shaShader.SetOption("overlay","false");
-	m_shaShader.SetOption("split","false");
-	m_shaShader.bind();
-	glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
-	renderMesh(*pMesh, true, false);
-	m_shaShader.release();
-	this->endQuery(queryID[1],&occlusions[1]);
+		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
-	printf("Samples passed: %i %i %i %i %i %i\n",occlusions[0],occlusions[1],occlusions[2],occlusions[3],occlusions[4],occlusions[5]);
-	//DRAW MODEL END
+				// Selected part(s)
+		
+		this->startQuery(queryID[0]);
+		m_shaShader.SetOption("overlay","false");
+		m_shaShader.SetOption("split","false");
+		m_shaShader.bind();
+		glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+		glUniform1f(m_shaShader.GetUniformLocation("uOpacity"), 1.0f);
+		renderMesh(*pMesh, true, false);
+		m_shaShader.release();
+		this->endQuery(queryID[0],&occlusions[0]);
+		
+		
+		if(firstInFront){
+			glPushMatrix();
+			glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+			glDisable(GL_CULL_FACE);
+			this->startQuery(queryID[5]);
 
-	
-	// DRAW PLANE
-	glLoadIdentity();
-	glLoadMatrixf(matViewingTransformation.Get());
-	glTranslatef(vecPlaneTranslation.GetX(), vecPlaneTranslation.GetY(), vecPlaneTranslation.GetZ());
-	glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
-	glScalef(vecPlaneScaling.GetX(), vecPlaneScaling.GetY(), vecPlaneScaling.GetZ());
+			m_shaShader.SetOption("overlay","false");
+			m_shaShader.SetOption("split","true");
+			m_shaShader.bind();
+			glUniform3f(m_shaShader.GetUniformLocation("uNormal"),modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+			glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+			glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+			glUniform1f(m_shaShader.GetUniformLocation("uOpacity"), 1.0f);
+			renderMesh(*pMesh, false, false);
+			m_shaShader.release();
+			this->endQuery(queryID[5],&occlusions[5]);
+			
+			this->startQuery(queryID[3]);
 
-	glColor4f(vecPlaneColor.GetNormalizedRed(), vecPlaneColor.GetNormalizedGreen(), vecPlaneColor.GetNormalizedBlue(), vecPlaneColor.GetNormalizedAlpha());
+			Matrix transview=matViewingTransformation.GetTranslated(Vector(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ()));;
+			viewing=transview*Vector(0.0f, 0.0f, 1.0f)-transview*Vector(0.0f, 0.0f, 0.0f);
+			viewing.normalize();
+			bool cullface=false;
+			float dot=viewing.GetDot(planeNormal);
+			if (dot <0)
+				cullface=true;
 
-	glDisable(GL_TEXTURE_2D);
-	glDisable(GL_LIGHTING);
-	glEnable(GL_COLOR_MATERIAL);
+			if (!cullface||alpha==1.0f)
+				glDisable(GL_CULL_FACE);
+			else 
+				glEnable(GL_CULL_FACE);	
 
-	glBegin(GL_QUADS);
-	glNormal3f(0, 0, 1);
-	glVertex3f(-1, -1, 0);
-	glVertex3f( 1, -1, 0);
-	glVertex3f( 1,  1, 0);
-	glVertex3f(-1,  1, 0);
-	glEnd();
+			if(alpha!=1.0f)
+				glEnable(GL_CULL_FACE);	
 
-	glDeleteQueries(6, queryID);
+			glPopMatrix();
+			glPushMatrix();
+			glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
 
-	//DRAW PLANE END
+			m_shaShader.SetOption("overlay","false");
+			m_shaShader.SetOption("split","true");
+			m_shaShader.bind();
+			glUniform3f(m_shaShader.GetUniformLocation("uNormal"), modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
+			glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+			glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+			glUniform1f(m_shaShader.GetUniformLocation("uOpacity"),alpha);
+				
+			renderMesh(*pMesh, false, false);
+			m_shaShader.release();
+			this->endQuery(queryID[3],&occlusions[3]);
+			glDisable(GL_CULL_FACE);
 
-	canCanvas.release();
-
-	if(ideal_offset!=current_offset)
-		GetPlugin().update();
-
-};
-
-
-
-virtual void overlay(Canvas & canCanvas)
-{
-	if (!m_bPicking)
-		return;
-
-	Handle hanMesh = GetPlugin().GetProperty("Mesh");
-	TriangleMesh *pMesh = hanMesh.GetResource<TriangleMesh>();
-
-	if (!pMesh)
-		return;
+		}	else{
 
 
-	updateGroups(*pMesh);
+			//printf("Alpha: %f  dot:%f\n",alpha, dot );
+			// first half of model
+			glDisable(GL_CULL_FACE);
+			this->startQuery(queryID[3]);
+			//glPopMatrix();
+			glPushMatrix();
+			glTranslatef(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
+			m_shaShader.SetOption("overlay","false");
+			m_shaShader.SetOption("split","true");
+			m_shaShader.bind();
+			glUniform3f(m_shaShader.GetUniformLocation("uNormal"), modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
+			glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+			glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+			glUniform1f(m_shaShader.GetUniformLocation("uOpacity"),1.0f);
+			renderMesh(*pMesh, false, false);
+			m_shaShader.release();
+			this->endQuery(queryID[3],&occlusions[3]);
 
-	canCanvas.bind();
+			Matrix transview=matViewingTransformation.GetTranslated(Vector(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ()));;
+			viewing=transview*Vector(0.0f, 0.0f, 1.0f)-transview*Vector(0.0f, 0.0f, 0.0f);
+			viewing.normalize();
+			bool cullface=false;
+			float dot=viewing.GetDot(planeNormal);
+			if (dot <0)
+				cullface=true;
 
-	const std::string strGroupName = GetGroupName(*pMesh, m_vecPickingPosition);
-	GetPlugin().GetProperty("Selection") = strGroupName;
-	m_bPicking = false;
+			if (!cullface||alpha==1.0f)
+				glDisable(GL_CULL_FACE);
+			else
+				glEnable(GL_CULL_FACE);		
 
-	canCanvas.release();
-};
-
-virtual void reshape(const unsigned int uWidth, const unsigned int uHeight)
-{
-	m_uWidth = uWidth;
-	m_uHeight = uHeight;
-	GetPlugin().update();
-};
-
-virtual bool button(const Controller & conController)
-{
-	// mouse down
-	if (conController.GetActiveButton() == 0 && conController.GetActiveButtonState() && !m_bMouseDownInWindow)
-	{
-		m_bMouseDownInWindow = true;
-		m_kLastMouseDownPosition = conController.GetActiveCursorPosition();
-	}
-	// mouse up
-	else if (conController.GetActiveButton() == 0 && !conController.GetActiveButtonState() && m_bMouseDownInWindow)
-	{
-		m_bMouseDownInWindow = false;
-		const Vector mouseReleasePosition = conController.GetActiveCursorPosition();
-		// picking only occurs if mouse down and up happend at the same position (plus/minus a small amount)
-		float epsilon = 0.001f;
-		if ((mouseReleasePosition.GetX() > m_kLastMouseDownPosition.GetX()-epsilon && mouseReleasePosition.GetX() < m_kLastMouseDownPosition.GetX()+epsilon) &&
-			(mouseReleasePosition.GetY() > m_kLastMouseDownPosition.GetY()-epsilon && mouseReleasePosition.GetY() < m_kLastMouseDownPosition.GetY()+epsilon) ) 
-		{
-			m_bPicking = true;
-			m_vecPickingPosition = conController.GetActiveCursorPosition();
-			GetPlugin().update(UPDATEFLAG_OVERLAY);
+			glPopMatrix();
+			glPushMatrix();
+			this->startQuery(queryID[5]);
+			glTranslatef(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+			m_shaShader.SetOption("overlay","false");
+			m_shaShader.SetOption("split","true");
+			m_shaShader.bind();
+			glUniform3f(m_shaShader.GetUniformLocation("uNormal"), modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+			glUniform3f(m_shaShader.GetUniformLocation("uPlanePoint"), 0.0f + vecPlaneTranslation.GetX(), 0.0f + vecPlaneTranslation.GetY(), 0.0f + vecPlaneTranslation.GetZ());
+			glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), iShadingMode);
+			glUniform1f(m_shaShader.GetUniformLocation("uOpacity"), alpha);
+			renderMesh(*pMesh, false, false);
+			m_shaShader.release();
+			this->endQuery(queryID[5],&occlusions[5]);
+			glDisable(GL_CULL_FACE);
 		}
-	}
 
-	return false;
-};
+		// DRAW PLANE
 
-virtual bool cursor(const Controller & conController)
-{
-	return false;
-};
+		if(!autoplane){
+			glLoadIdentity();
+			glLoadMatrixf(matViewingTransformation.Get());
+			glTranslatef(vecPlaneTranslation.GetX(), vecPlaneTranslation.GetY(), vecPlaneTranslation.GetZ());
+			glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
+		}
+		glScalef(vecPlaneScaling.GetX(), vecPlaneScaling.GetY(), vecPlaneScaling.GetZ());
 
-virtual const std::string GetButtonRole(const unsigned int uIndex) const
-{
-	switch (uIndex)
+		glColor4f(vecPlaneColor.GetNormalizedRed(), vecPlaneColor.GetNormalizedGreen(), vecPlaneColor.GetNormalizedBlue(), vecPlaneColor.GetNormalizedAlpha());
+
+		glDisable(GL_TEXTURE_2D);
+		glDisable(GL_LIGHTING);
+		glEnable(GL_COLOR_MATERIAL);
+
+		glBegin(GL_QUADS);
+		glNormal3f(0, 0, 1);
+		glVertex3f(-1, -1, 0);
+		glVertex3f( 1, -1, 0);
+		glVertex3f( 1,  1, 0);
+		glVertex3f(-1,  1, 0);
+		glEnd();
+
+		glDeleteQueries(6, queryID);
+
+		//DRAW PLANE END
+
+		canCanvas.release();
+
+		if(ideal_offset!=current_offset)
+			GetPlugin().update();
+
+	};
+
+
+
+	virtual void overlay(Canvas & canCanvas)
 	{
-	case 0:
-		return "Pick";
-	}
+		if (!m_bPicking)
+			return;
 
-	return std::string();
-};
+		Handle hanMesh = GetPlugin().GetProperty("Mesh");
+		TriangleMesh *pMesh = hanMesh.GetResource<TriangleMesh>();
 
-virtual const std::string GetCursorRole(const unsigned int uIndex) const
-{
-	switch (uIndex)
+		if (!pMesh)
+			return;
+
+
+		updateGroups(*pMesh);
+
+		canCanvas.bind();
+
+		const std::string strGroupName = GetGroupName(*pMesh, m_vecPickingPosition);
+		GetPlugin().GetProperty("Selection") = strGroupName;
+		m_bPicking = false;
+
+		canCanvas.release();
+	};
+
+	virtual void reshape(const unsigned int uWidth, const unsigned int uHeight)
 	{
-	case 0:
-		return "Select";
-	}
+		m_uWidth = uWidth;
+		m_uHeight = uHeight;
+		GetPlugin().update();
+	};
 
-	return std::string();
-};
+	virtual bool button(const Controller & conController)
+	{
+		// mouse down
+		if (conController.GetActiveButton() == 0 && conController.GetActiveButtonState() && !m_bMouseDownInWindow)
+		{
+			m_bMouseDownInWindow = true;
+			m_kLastMouseDownPosition = conController.GetActiveCursorPosition();
+		}
+		// mouse up
+		else if (conController.GetActiveButton() == 0 && !conController.GetActiveButtonState() && m_bMouseDownInWindow)
+		{
+			m_bMouseDownInWindow = false;
+			const Vector mouseReleasePosition = conController.GetActiveCursorPosition();
+			// picking only occurs if mouse down and up happend at the same position (plus/minus a small amount)
+			float epsilon = 0.001f;
+			if ((mouseReleasePosition.GetX() > m_kLastMouseDownPosition.GetX()-epsilon && mouseReleasePosition.GetX() < m_kLastMouseDownPosition.GetX()+epsilon) &&
+				(mouseReleasePosition.GetY() > m_kLastMouseDownPosition.GetY()-epsilon && mouseReleasePosition.GetY() < m_kLastMouseDownPosition.GetY()+epsilon) ) 
+			{
+				m_bPicking = true;
+				m_vecPickingPosition = conController.GetActiveCursorPosition();
+				GetPlugin().update(UPDATEFLAG_OVERLAY);
+			}
+		}
+
+		return false;
+	};
+
+	virtual bool cursor(const Controller & conController)
+	{
+		return false;
+	};
+
+	virtual const std::string GetButtonRole(const unsigned int uIndex) const
+	{
+		switch (uIndex)
+		{
+		case 0:
+			return "Pick";
+		}
+
+		return std::string();
+	};
+
+	virtual const std::string GetCursorRole(const unsigned int uIndex) const
+	{
+		switch (uIndex)
+		{
+		case 0:
+			return "Select";
+		}
+
+		return std::string();
+	};
 
 protected:
 
@@ -491,6 +596,7 @@ protected:
 
 			m_bUpdateGroups = false;
 		}
+		this->updateBounds(mesMesh);
 	};
 
 	virtual void setupAttributes(const TriangleMesh & mesMesh)
@@ -944,63 +1050,38 @@ protected:
 		bool dynamic=GetPlugin().GetProperty("DynamicOffset");
 		float speed;
 
+		if(current_offset[0]>boundsDiameter-1.0f && occlusions[0]- occlusions[1]>0){
+			alpha=(-current_offset[0]+boundsDiameter)*0.5f+0.5f;
+			alpha=1.0f-((1.0f-alpha)*(float)(occlusions[0]- occlusions[1])/(float)occlusions[0]);
+			if(alpha<0.5)
+				alpha=0.5f;
+		}else{
+			alpha=1.0f;
+		}
+
 		if(!dynamic){
+			//get the offset from GUI input
 			ideal_offset[0]=GetPlugin().GetProperty("Offset");
 			ideal_offset[1]=-((float)GetPlugin().GetProperty("Offset"));
 			speed=GetPlugin().GetProperty("Speed");
+
+			if(ideal_offset[0]==current_offset[0]&&ideal_offset[1]==current_offset[1])
+				return;
 		}else{
+			if(ideal_offset[0]==current_offset[0]&&ideal_offset[1]==current_offset[1])
+				return;
+			float ratio_selected = occlusions[0]- occlusions[1];
 
-			//	/*const Matrix matViewingTransformation = GetPlugin().GetProperty("Viewing Transformation");
-			//	const Matrix matMeshTransformation = mesh.GetProperty("Transformation",Matrix());
+			if (ratio_selected>0){
+				ratio_selected+=occlusions[0]*0.3f;
+				ratio_selected/=occlusions[0];
 
-			//	const Matrix modelView=matViewingTransformation*matMeshTransformation;
-
-			//	Box selectbounds=Box();
-
-			//	for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
-			//	{
-			//		TriangleMesh::Iterator iteGroup = *i;
-
-			//		const std::string & strGroupName = iteGroup.GetGroupName();
-			//		const std::string & strSelection = GetPlugin().GetProperty("Selection");
-
-			//		if (strGroupName.compare(strSelection)==0){
-			//			selectbounds+=iteGroup.GetGroupBounds();
-			//		}
-			//	}
-			//	selectbounds.transform(modelView);
-
-			//	Vector xMin, xMax;
-
-			//	xMin=selectbounds.GetCorner(0,0,0);
-			//	xMax=xMin;
-
-			//	for(int i=0;i<2;i++){
-			//		for(int j=0;j<2;j++){
-			//			for(int k=0;k<2;k++){
-			//				Vector corner=selectbounds.GetCorner(i,j,k);
-			//				if(corner.GetX() < xMin.GetX())
-			//					xMin=corner;
-			//				if(corner.GetX() > xMin.GetX())
-			//					xMax=corner;
-			//			}
-			//		}
-			//	}
-			//
-			//	Vector viewpoint=-(modelView*Vector(0.0f,0.0f,0.0f));
-			//	Vector tomin= xMin-viewpoint;
-			//	Vector planeNormal=Vector(0.0f,1.0f,0.0f).GetCross(Vector(tomin.GetX(),tomin.GetY(),tomin.GetZ()));*/
-
-			float ratio = occlusions[0]- occlusions[1];
-		
-			if (ratio>0){
-				ratio/=occlusions[0];
-				ideal_offset[0]=15.0f;
-				ideal_offset[1]=-15.0f;
+				ideal_offset[0]=boundsDiameter;
+				ideal_offset[1]=-boundsDiameter;
 				speed=GetPlugin().GetProperty("Speed");
-				speed*=ratio;
+				speed*=ratio_selected;
 			}else{
-				if(ideal_offset[0]==15.0f){
+				if(ideal_offset[0]==boundsDiameter){
 					speed=GetPlugin().GetProperty("Speed");
 					ideal_offset[0]=current_offset[0];
 					ideal_offset[1]=current_offset[1];
@@ -1010,6 +1091,7 @@ protected:
 						return;
 
 					speed=GetPlugin().GetProperty("Speed");
+
 					ideal_offset[0]=0.0f;
 					ideal_offset[1]=0.0f;
 				}
@@ -1021,16 +1103,17 @@ protected:
 		if(ideal_offset[0]==current_offset[0]&&ideal_offset[1]==current_offset[1])
 			return;
 
-		
+
 		for(int i=0;i<2;i++){
 			float distance=ideal_offset[i]-current_offset[i];
 			float d_offset=abMax(distance*speed/50.0f,0.0000f);
 
-			if(this->abs(distance)<0.001f)
-				current_offset[i]= ideal_offset[i];
+			if(this->abs(distance)<0.01f)
+				ideal_offset[i]= current_offset[i];
 
 			current_offset[i]+=d_offset;
 		}
+
 	};
 
 	void startQuery(GLuint id){
@@ -1048,6 +1131,94 @@ protected:
 		//Das Ergebnis aufschreiben
 		glGetQueryObjectuiv(id, GL_QUERY_RESULT, result);	
 	};
+
+	float getBoundingBoxMaxDistance(const TriangleMesh &mesh){
+		Vector maximum=Vector(FLT_MIN,FLT_MIN ,FLT_MIN );
+		Vector minimum=Vector(FLT_MAX,FLT_MAX ,FLT_MAX );
+		Matrix matMeshTransformation=mesh.GetProperty("Transformation",Matrix());
+		for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
+		{
+			TriangleMesh::Iterator iteGroup = *i;
+
+			Box bounds=iteGroup.GetGroupBounds();
+			Vector min=bounds.GetMinimum(matMeshTransformation);
+			Vector max=bounds.GetMaximum(matMeshTransformation);
+			for(unsigned int i =0;i<3;i++){
+				if(max.Get(i) > maximum.Get(i))
+					maximum.Set(i,min.Get(i));
+				if(min.Get(i) < minimum.Get(i))
+					minimum.Set(i,min.Get(i));
+			}
+		}
+		return sqrt((maximum-minimum).GetDot(maximum-minimum));
+	};
+	
+	void updateBounds(const TriangleMesh & mesh){
+		Vector& maximum=Vector(FLT_MIN,FLT_MIN ,FLT_MIN );
+		Vector& minimum=Vector(FLT_MAX,FLT_MAX ,FLT_MAX );
+		Matrix matMeshTransformation=mesh.GetProperty("Transformation",Matrix());
+		for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
+		{
+			TriangleMesh::Iterator iteGroup = *i;
+
+			Box temp_bounds=iteGroup.GetGroupBounds();
+			Vector min=temp_bounds.GetMinimum(matMeshTransformation);
+			Vector max=temp_bounds.GetMaximum(matMeshTransformation);
+			for(unsigned int i =0;i<3;i++){
+				if(max.Get(i) > maximum.Get(i)){
+					float val =max.Get(i);
+					unsigned int index=i;
+					maximum.Set(index,val);
+				}
+				if(min.Get(i) < minimum.Get(i)){
+					const float va =min.Get(i);
+					const unsigned int index=i;
+					(minimum).Set(index,va);
+				}
+			}
+		}
+
+		bounds=Box(minimum,maximum);
+		boundsDiameter=bounds.GetExtent().GetMagnitude();
+		
+	};
+
+	void initiateAutoPlane(const TriangleMesh & mesh){
+		Vector& maximum=Vector(FLT_MIN,FLT_MIN ,FLT_MIN );
+		Vector& minimum=Vector(FLT_MAX,FLT_MAX ,FLT_MAX );
+		
+		for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
+		{
+			TriangleMesh::Iterator iteGroup = *i;
+
+			Box temp_bounds=iteGroup.GetGroupBounds();
+			Vector min=temp_bounds.GetMinimum();
+			Vector max=temp_bounds.GetMaximum();
+			for(unsigned int i =0;i<3;i++){
+				if(max.Get(i) > maximum.Get(i)){
+					float val =max.Get(i);
+					unsigned int index=i;
+					maximum.Set(index,val);
+				}
+				if(min.Get(i) < minimum.Get(i)){
+					const float va =min.Get(i);
+					const unsigned int index=i;
+					(minimum).Set(index,va);
+				}
+			}
+		}
+		
+
+		Vector planeNormal=Vector(0.0f,0.0f,0.0f);
+		float minExtent =FLT_MAX;
+		unsigned int index=0;
+		for (int i=0;i<3;i++){
+			if(planeNormal.Get(i)<minExtent)
+				index=i;
+		}
+		autoPlaneNormal.Set(index,1.0f);
+		autoPlanePoint=(maximum-minimum)/2;
+	}
 
 
 	float abs(float x){
@@ -1096,5 +1267,10 @@ private:
 	float ideal_offset[2];
 	float current_offset[2];
 	GLuint occlusions[6];
+	GLfloat alpha;
+	Box bounds;
+	float boundsDiameter;
+	Vector autoPlaneNormal;
+	Vector autoPlanePoint;
 
 };

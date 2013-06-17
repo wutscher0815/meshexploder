@@ -51,6 +51,7 @@
 	
 	//<option name="overlay" value="false">
 	uniform int uShadingMode;
+	uniform float uOpacity;
 	//</option>	
 		
 	varying vec3 vVertexPositionWorldSpace;
@@ -235,7 +236,7 @@
 		
 		    //flat red shading
 		    if(uShadingMode == 1) {
-		        color = vec4(1.0, 0.0, 0.0, 1.0);
+		        color = vec4(1.0, 0.0, 0.0, uOpacity);
 		    }
 		    //caved phong shading 
 		    else {
@@ -250,7 +251,7 @@
 			             (diffuse  * vec4(1.0, 0.1, 0.0, 1.0)) +
 			             (specular * vec4(1.0, 1.0, 1.0, 1.0))).rgb;			
 		        color.a = 1.0;			
-                color = clamp(color, 0.0, 1.0);
+                color = clamp(color, 0.0, uOpacity);
             }
 
     	} else {
@@ -283,7 +284,7 @@
 		    color = clamp(color, 0.0, 1.0);
     	
 		    color.rgb *= color.a;
-		    
+		    color.a=uOpacity;
 		}
 	
 		gl_FragColor = color;
