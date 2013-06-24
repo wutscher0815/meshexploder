@@ -188,20 +188,15 @@ public:
 
 
 		planeNormal.normalize();
-		
 		Matrix mat=matViewingTransformation;
-		Vector viewing=matViewingTransformation*Vector(0.0f, 0.0f, 1.0f)-matViewingTransformation*Vector(0.0f, 0.0f, 0.0f);
+		Vector viewing=-matViewingTransformation.GetTranslation()+vecPlaneTranslation;
 		viewing.normalize();
-		//Vector viewing=Vector(0.0f, 0.0f, 1.0f);
 
 		boolean firstInFront=true;
-
-		float dot=viewing.GetDot(planeNormal);
+		float dot=viewing.GetDot(matViewingTransformation.GetRotated(planeNormal));
 		if (dot <0)
 			firstInFront=false;
 
-
-		//float offset=current_offset;
 
 		GetOffset(*pMesh);
 		float *offset=current_offset;
@@ -346,12 +341,13 @@ public:
 			this->endQuery(queryID[5],&occlusions[5]);
 			
 			this->startQuery(queryID[3]);
-
-			Matrix transview=matViewingTransformation.GetTranslated(Vector(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ()));;
-			viewing=transview*Vector(0.0f, 0.0f, 1.0f)-transview*Vector(0.0f, 0.0f, 0.0f);
+			
+			Vector shift=Vector(modelTranslationA.GetX(), modelTranslationA.GetY(), modelTranslationA.GetZ());
+			Matrix transview=matViewingTransformation.GetTranslated(shift);
+			viewing=-matViewingTransformation.GetTranslation() + vecPlaneTranslation + shift;
 			viewing.normalize();
 			bool cullface=false;
-			float dot=viewing.GetDot(planeNormal);
+			float dot=viewing.GetDot(transview.GetRotated(planeNormal));
 			if (dot <0)
 				cullface=true;
 
@@ -401,11 +397,12 @@ public:
 			m_shaShader.release();
 			this->endQuery(queryID[3],&occlusions[3]);
 
-			Matrix transview=matViewingTransformation.GetTranslated(Vector(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ()));;
-			viewing=transview*Vector(0.0f, 0.0f, 1.0f)-transview*Vector(0.0f, 0.0f, 0.0f);
+			Vector shift = Vector(modelTranslationB.GetX(), modelTranslationB.GetY(), modelTranslationB.GetZ());
+			Matrix transview = matViewingTransformation.GetTranslated(shift);
+			viewing = -matViewingTransformation.GetTranslation() + vecPlaneTranslation + shift;
 			viewing.normalize();
-			bool cullface=false;
-			float dot=viewing.GetDot(planeNormal);
+			bool cullface = false;
+			float dot=viewing.GetDot(transview.GetRotated(planeNormal));
 			if (dot <0)
 				cullface=true;
 
@@ -461,8 +458,10 @@ public:
 
 		canCanvas.release();
 
-		if(ideal_offset!=current_offset)
+		if(ideal_offset[0]!=current_offset[0])
 			GetPlugin().update();
+		else
+			printf("done\n");
 
 	};
 
@@ -1050,8 +1049,8 @@ protected:
 		bool dynamic=GetPlugin().GetProperty("DynamicOffset");
 		float speed;
 
-		if(current_offset[0]>boundsDiameter-1.0f && occlusions[0]- occlusions[1]>0){
-			alpha=(-current_offset[0]+boundsDiameter)*0.5f+0.5f;
+		if(current_offset[0]>boundsDiameter*0.7f && occlusions[0]- occlusions[1]>0){
+			alpha=(-current_offset[0]+boundsDiameter)/(0.3*boundsDiameter)*0.5f+0.5f;
 			alpha=1.0f-((1.0f-alpha)*(float)(occlusions[0]- occlusions[1])/(float)occlusions[0]);
 			if(alpha<0.5)
 				alpha=0.5f;
@@ -1073,7 +1072,7 @@ protected:
 			float ratio_selected = occlusions[0]- occlusions[1];
 
 			if (ratio_selected>0){
-				ratio_selected+=occlusions[0]*0.3f;
+				//ratio_selected+=occlusions[0]*0.3f;
 				ratio_selected/=occlusions[0];
 
 				ideal_offset[0]=boundsDiameter;
