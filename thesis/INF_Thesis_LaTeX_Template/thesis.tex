@@ -1,0 +1,158 @@
+%
+% Vienna University of Technology - Faculty of Informatics
+% TUINF thesis - LaTeX template
+%
+% For questions and comments send an email to
+% Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+% Thomas Krennwallner <tkren@kr.tuwien.ac.at>
+%
+% ---------------------------------------------------------
+%
+% TU Wien - Fakultät für Informatik
+% TUINF Arbeit - Template für LaTeX
+%
+% Für Fragen oder Kommentare schicken Sie eine Email an
+% Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+% Thomas Krennwallner <tkren@kr.tuwien.ac.at>
+%
+
+\documentclass[a4paper,11pt]{memoir}
+\chapterstyle{veelo}
+
+\usepackage{TUINFTHESIS}
+
+\usepackage{geometry}[2010/02/15] % page geometry (\newgeometry command needs a recent version)
+\usepackage{url}      % URL functionality
+\usepackage{hyperref} % hyperlinks in PDF files
+\usepackage{graphicx} % images
+\usepackage{verbatim} % code environments
+\usepackage[lined,linesnumbered,algochapter]{algorithm2e} % algorithm environments
+
+\usepackage{pgf}  % graphics
+\usepackage{tikz}	% graphics
+\usetikzlibrary{arrows,automata}
+
+\usepackage{ngerman}           % support for German
+\usepackage[ngerman]{babel}    % support for German
+\usepackage{bibgerm,cite}      % German notations
+\usepackage[ngerman]{varioref} % German references
+% to use the german charset include cp850 for MS-DOS, ansinew for Windows and latin1 for Linux.
+% \usepackage[latin1]{inputenc}
+
+% enable hyphenation of urls at every location (to avoid bad boxes)
+\renewcommand{\UrlBreaks}{\do\/\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z}
+
+% all the following \thesis... definitions are mandatory unless declared optional
+\thesistitle{Titel}
+\thesissubtitle{Optional Subtitle} % optional
+\thesisdate{TT.MM.JJJJ}
+\thesislocation{Wien}
+
+\thesistype{master} % master or bachelor
+\thesiscurriculum{Medieninformatik und Visual Computing}{Media Informatics and Visual Computing} % German and English
+
+\thesisauthorname{Martina Muster}
+\thesisauthorgender{female} % female or male
+\thesisauthoraddress{Musterplatz 1, 1111 Wien}
+\thesismatrikelno{0123456}
+
+\thesisadvisorname{o.Univ.-Prof. Dipl.-Ing. Mag. Dr. Monika Musterprofessorin}
+\thesisadvisorgender{female} % female or male
+\thesisassistantonename{Dr. Vorname Familienname}
+\thesisassistanttwoname{Dr. Vorname Familienname} % optional
+
+\begin{document}
+
+\captionnamefont{\bfseries}
+
+% define page numbering styles
+\makepagestyle{numberCorner}
+\makeevenfoot{numberCorner}{\thepage}{}{}
+\makeoddfoot{numberCorner}{}{}{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   FRONTMATTER    %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagenumbering{roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   TITLE PAGES    %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chapters/titlepage_de} % the German title page is required as first page
+\include{chapters/titlepage_en} % optional English title page
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   DECLARATION OF ORIGINALITY    %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
+\input{chapters/erklaerung} % the declaration of originality is mandatory
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   ACKNOWLEDGEMENTS    %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/acknowledgements_de} % optional
+\input{chapters/acknowledgements_en} % optional
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   ABSTRACT    %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/abstract_de}
+\cleardoublepage
+\input{chapters/abstract_en}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   SELECT LANGUAGE    %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% results in "Inhaltsverzeichnis", "Kapitel", "Abbildung", or "Contents", "Chapter", and "Figure"
+\selectlanguage{english}
+%\selectlanguage{ngerman} % files that use umlaut characters (ä,ö,ü) need to be encoded in utf-8
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   CONTENTS    %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{1}
+\cleardoublepage
+\pagestyle{numberCorner}
+\tableofcontents*
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   MAINMATTER    %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagenumbering{arabic}
+\pagestyle{numberCorner}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction}
+\label{ch:intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\equal{\tuinfthesistype}{master}}
+  {\input{chapters/introduction_master}}
+	{\input{chapters/introduction_bachelor}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Typographic Design}
+\label{ch:typo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{chapters/design}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Bibliographic Issues}
+\label{ch:bibliographic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{chapters/bibliographic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BACKMATTER %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+\bibliographystyle{plain}
+\bibliography{chapters/references}
+
+\end{document}
