@@ -1,0 +1,23 @@
+\chapter{State of the Art Description}
+\section{Exploded Views}
+\subsection{What is the purpose of Exploded Views?}
+Composite objects - View that makes each component fully visible - composition is implied by the positions of the objects - Examples: building instructions, Explanation of complex technical objects
+\subsection{What are the main problems when creating exploded views?}
+Which direction - How far apart - How much overlap - Which part shall be exploded - Cutaway - Hierarchy
+\subsection{What solutions for these Problems exist?}
+Explosion graph - Hierarchical explosion graph
+\subsection{What are the advantages and disadvantages of exploded views?}
+
+\subsection{What were the implications of this for the project?}
+
+\section{Ghosting}
+\subsection{What is the purpose of Ghosting?}
+show interior or obstructed parts - information about foreground hinted - 
+\subsection{What are the main problems when visualizing objects using Ghosting?}
+good values for \alpha - smart visibility - 
+
+\subsection{What are the advantages and disadvantages of Ghosting?}
+Objects can be visualized "Where they Are" - compact - some information always lost -
+\section{Conclusion - Combination of these two techniques}
+Problem: automatic distance for Cutaways with fixed plane - some parts leave the screen -> maximum distance, after that ghosting
+

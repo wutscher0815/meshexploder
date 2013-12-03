@@ -56,14 +56,6 @@
   timestamp = {2009.03.01}
 }
 
-
-@INPROCEEDINGS{proc:BruGr2006,
-  author = {Stefan Bruckner and M. Eduard Gr\"oller},
-  title = {{Exploded Views for Volume Data}},
-  booktitle = {IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS, VOL. 12, NO. 5, SEPTEMBER/OCTOBER 2006},
-  year = {2006},
-  publisher = {IEEE CS Press}
-
 @INPROCEEDINGS{proc:TheWebMLApproach,
   author = {Schauerhuber, A. and Wimmer, M. and Schwinger, W. and Kapsammer,
 	E. and Retschitzegger, W.},

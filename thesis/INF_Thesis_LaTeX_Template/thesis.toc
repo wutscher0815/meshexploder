@@ -1,0 +1,24 @@
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}General Information}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Structure of the Bachelor's Thesis}{1}{section.1.2}
+\contentsline {chapter}{\chapternumberline {2}Typographic Design}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Tables}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Figures}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}Fonts}{4}{section.2.3}
+\contentsline {section}{\numberline {2.4}Code}{4}{section.2.4}
+\contentsline {chapter}{\chapternumberline {3}Introduction}{7}{chapter.3}
+\contentsline {chapter}{\chapternumberline {4}State of the Art Description}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Exploded Views}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Ghosting}{9}{section.4.2}
+\contentsline {chapter}{\chapternumberline {5}Practical part}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}Plan and milestone definition:}{11}{section.5.1}
+\contentsline {section}{\numberline {5.2}Documentation of the implementation each milestone}{11}{section.5.2}
+\contentsline {subsection}{Milestone 1:Selection of split meshes, selected parts are not split and stay in place}{11}{section*.6}
+\contentsline {paragraph}{T}{11}{section*.7}
+\contentsline {subsection}{Milestone 2: find a safe distance, find a split plane}{12}{section*.8}
+\contentsline {paragraph}{T}{12}{section*.9}
+\contentsline {subsection}{Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases}{13}{section*.10}
+\contentsline {chapter}{\chapternumberline {6}Bibliographic Issues}{15}{chapter.6}
+\contentsline {section}{\numberline {6.1}Literature Search}{15}{section.6.1}
+\contentsline {section}{\numberline {6.2}BibTeX}{15}{section.6.2}
+\contentsline {chapter}{Bibliography}{17}{section*.12}
