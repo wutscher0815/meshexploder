@@ -1,34 +1,39 @@
 \chapter{State of the Art Description}
 \section{Exploded Views}
-\subsection{What is the purpose of Exploded Views?}
-Exploded views are a technique used in illustrative visualization, where complex real world objects are drawn in a way that conveys how these objects are built, how they are assembled or how they work. Typically these objects are systems of interacting parts that may occlude each other or even be completely hidden by an outer hull of the visualized objects.
-Examples for this would be a motor that consists of many independent parts, where the Illustration should give an idea of how it might work, a chest of drawers bought as a set of boards and connectors, that has a visual assembly instruction or the depiction of an anatomic feature.
-Several techniques to tackle this problem exist, I chose to investigate further upon exploded views:
-\begin{quote}
-In an exploded view the object is decomposed into several parts which are displaced so that internal details are visible \cite{BruGr2006}
-\end{quote}
-So for technical illustrations the parts that constitute a machine could be moved on an axis so that they are all visible and their position relative to this axis would still give information as to where the place of each part would be inside the machine. As for the assembly instruction the displacement would happen along the axes they will be put together to make it clear to the viewer how to assemble the object.
-The goal of my work was to create an interactive visualization that would dynamically generate exploded views.
 \subsection{What are the main problems when creating exploded views?}
-To create an exploded view,  a few considerations have to be made: first of all what do I want to tell with the image, in essence what are the interesting parts of the object that should attract the viewers Attention.
-Also one has to consider in which direction the parts should be displaced. This can be achieved automatically by principal component analysis.
-If there is a hull to the object, it is split in two parts. In the most simple approach, which is what implemented the cutting plane is the normal plane of the explosion direction, with the centre of the object's bounding box. With more complex objects and multiple objects exploded this direction might vary.
-Another challenge is the decision how far to displace the objects. Ideally each part should be fully visible but if there are many objects to be exploded or system the displacement direction is similar to the viewing direction, the size of the graph would grow to be enormous therefore resulting in loss of detail and expressiveness of the visualization. That makes it necessary to have some overlap.
-In more complex cases a problem is hierarchy
-Which direction - How far apart - How much overlap - Which part shall be exploded - Cutaway - Hierarchy
+
+To create an exploded view,  a few considerations have to be made Li et al. provide a comprehensive list of these challenges in their 2008 paper\cite{proc:Li:2008:AGI}.\\
+First of all what do I want to tell with the image, in essence what are the objects of interest that should attract the viewers attention.\\
+Also one has to consider in which direction the parts should be displaced. 
+\begin{quote}
+Many objects have a canonical coordinate frame that may be defined by a number of factors, including symmetry , real-world orientation, and domain-specific conventions. In most exploded views, parts are exploded only along these canonical axes.\cite{proc:Li:2008:AGI}
+\end{quote}
+Especially if the graphic conveys technical instructions or how-things-work-descriptions descriptions these axes are usually the directions in which they are assembled \cite{Agra03} or - if applicable- the axis around which they rotate\cite{MitraYYLA13}.
+If the interesting parts are inside a container that is also part of the object, this container is split and its segments are also exploded. In the most simple approach, which is what I implemented, the cutting plane is the normal plane of the explosion direction, with the center of the object's bounding box.\\
+In more complex objects hierarchy of the exploding parts is another challenge to face. 
+\begin{quote}
+In many complex models, individual parts are grouped into sub-assemblies (i.e., collections of parts).\cite{proc:Li:2008:AGI}
+\end{quote}
+Take for example an object that has a container and a lot of small parts that inside whose function should be clarified by exploding them in their canonical direction.  In this case it might be convenient to split and explode the container along a different axis than the internal parts to get a more compact visualization.\\
+Another challenge is the decision how far to displace the objects. Ideally each part should be fully visible but if there are many objects to be exploded or system the displacement direction is similar to the viewing direction, the size of the graph would grow to be enormous therefore resulting in loss of detail and expressiveness of the visualization. That may make it necessary to have some overlap as a trade-off to retain the compactness of the visualization.\\
+With a freely rotatable and movable viewpoint the user can avoid visual clutter or lack of compactness(depending on how the system behaves) by choosing a viewpoint that provides as little clutter as possible,which narrows down the possibilities of expressive viewpoints to a minimum. A solution would be to use a view dependent force-based displacement behavior as suggested by Bruckner and Gr\"oller\cite{proc:bruckner-2006-EVV}: Each exploding part is being displaced by a sum of multiple forces:
+\begin{itemize}
+\item \textbf{Explosion force} This force is pushing the part away from its original location, its magnitude is indirectly proportional to $e^{||r||}$ where $r$ is the distance between the object and the explosion point
+\item \textbf{Spacing force} This repulsive force that each exploded part effects on all other exploded parts prevents parts from clustering and is indirectly proportional to $r^2$ where $r$ is the distance between the two parts.
+\item \textbf{Viewing force}Additionally,  a viewing force is introduced that pushes the parts away from the viewing ray, thus preventing occlusions. It is indirectly proportional to the distance $r$ between the viewing ray and the part.
+\end{itemize}
+
+
 \subsection{What solutions for these Problems exist?}
 Explosion graph - Hierarchical explosion graph - force-based placement
 \subsection{What are the advantages and disadvantages of exploded views?}
-
-\subsection{What were the implications of this for the project?}
 
 \section{Ghosting}
 \subsection{What is the purpose of Ghosting?}
 show interior or obstructed parts - information about foreground hinted - 
 \subsection{What are the main problems when visualizing objects using Ghosting?}
-good values for \alpha - smart visibility - 
+good values for $\alpha$ - smart visibility - 
 
 \subsection{What are the advantages and disadvantages of Ghosting?}
-Objects can be visualized "Where they Are" - compact - some information always lost -
-\section{Conclusion - Combination of these two techniques}
-Problem: automatic distance for Cutaways with fixed plane - some parts leave the screen -> maximum distance, after that ghosting
+Objects can be visualized ``Where they Are'' - compact - some information always lost -
+\section{Combination of these two techniques}

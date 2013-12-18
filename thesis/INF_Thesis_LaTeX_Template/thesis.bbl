@@ -1,48 +1,57 @@
 \begin{thebibliography}{1}
 
-\bibitem{misc:BIGWebsite}
-{Business Informatics Group}.
-\newblock http://www.big.tuwien.ac.at.
-\newblock Accessed: 2010-11-09.
+\bibitem{Agra03}
+Maneesh Agrawala, Doantam Phan, Julie Heiser, John Haymaker, Jeff Klingner, Pat
+  Hanrahan, and Barbara Tversky.
+\newblock Designing effective step-by-step assembly instructions.
+\newblock {\em ACM Trans. Graph.}, 22(3):828--837, 2003.
 
-\bibitem{book:umlatwork}
-M.~Hitz, G.~Kappel, E.~Kapsammer, and W.~Retschitzegger.
-\newblock {\em {UML @ Work, Objektorientierte Modellierung mit UML 2}}.
-\newblock dpunkt.verlag, 3. edition, 2005 (in German).
+\bibitem{proc:bruckner-2006-EVV}
+Stefan Bruckner and Meister~Eduard Gr{\"o}ller.
+\newblock Exploded views for volume data.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  12(5):1077--1084, 9 2006.
 
-\bibitem{jour:B2BServices}
-Christian Huemer, Philipp Liegl, Rainer Schuster, and Marco Zapletal.
-\newblock {B2B Services: Worksheet-Driven Development of Modeling Artifacts and
-  Code}.
-\newblock {\em Computer Journal}, 52(2):28--67, 2009.
+\bibitem{proc:Li:2008:AGI}
+Wilmot Li, Maneesh Agrawala, Brian Curless, and David Salesin.
+\newblock Automated generation of interactive 3d exploded view diagrams.
+\newblock {\em SIGGRAPH 2008}, pages 101:1--101:7, August 2008.
 
-\bibitem{mast:AUMLProfile}
-P.~Langer.
-\newblock {Konflikterkennung in der Modellversionierung}.
-\newblock Master's thesis, Vienna University of Technology, 2009.
+\bibitem{MitraYYLA13}
+Niloy~J. Mitra, Yong-Liang Yang, Dong-Ming Yan, Wilmot Li, and Maneesh
+  Agrawala.
+\newblock Illustrating how mechanical assemblies work.
+\newblock {\em Commun. ACM}, 56(1):106--114, 2013.
 
-\bibitem{man:BPEL}
-OASIS.
-\newblock {\em {Business Process Execution Language 2.0 (WS-BPEL 2.0)}}, 2007.
+\bibitem{proc:conf/si3d/NiederauerHAH03}
+Christopher Niederauer, Mike Houston, Maneesh Agrawala, and Greg Humphreys.
+\newblock Non-invasive interactive visualization of dynamic architectural
+  environments.
+\newblock In Michael Zyda, Michael~V. Capps, Randy~F. Pausch, and Gary Bishop,
+  editors, {\em SI3D}, pages 55--58. ACM, 2003.
 
-\bibitem{proc:TheWebMLApproach}
-A.~Schauerhuber, M.~Wimmer, W.~Schwinger, E.~Kapsammer, and W.~Retschitzegger.
-\newblock {Aspect-Oriented Modeling of Ubiquitous Web Applications: The
-  aspectWebML Approach}.
-\newblock In {\em Proceedings of the 14th Annual IEEE International Conference
-  and Workshops on the Engineering of Computer-Based Systems (ECBS '07), March
-  26-29, Tucson, Arizona, USA}, pages 569--576. IEEE CS Press, 2007.
+\bibitem{proc:ruiz-2008-SEV}
+Marc Ruiz, Ivan Viola, Imma Boada, Stefan Bruckner, Miquel Feixas, and Mateu
+  Sbert.
+\newblock Similarity-based exploded views.
+\newblock In {\em Proceedings of Smart Graphics 2008}, pages 154--165, 2008.
 
-\bibitem{incoll:ErhardKonrad1992}
-W.~Schwinger and N.~Koch.
-\newblock {Modeling Web Applications}.
-\newblock In G.~Kappel, B.~Pr\"{o}ll, S.~Reich, and W.~Retschitzegger, editors,
-  {\em {Web Engineering}}, pages 39--64. John Wiley \& Sons, Ltd, 2006.
+\bibitem{Viola-05-Smart}
+Ivan Viola and Meister~Eduard Gr{\"o}ller.
+\newblock Smart visibility in visualization.
+\newblock In B.~Gooch W.~Purgathofer L.~Neumann, M.~Sbert, editor, {\em
+  Proceedings of EG Workshop on Computational Aesthetics Computational
+  Aesthetics in Graphics, Visualization and Imaging}, pages 209--216, 5 2005.
 
-\bibitem{phdthesis:manuelWimmer}
-M.~Wimmer.
-\newblock {\em {From Mining to Mapping and Roundtrip Transformations - A
-  Systematic Approach to Model-based Tool Integration}}.
-\newblock PhD thesis, Vienna University of Technology, 2008.
+\bibitem{Ward:2010:IDV:1893097}
+Matthew Ward, Georges Grinstein, and Daniel Keim.
+\newblock {\em Interactive Data Visualization: Foundations, Techniques, and
+  Applications}.
+\newblock A. K. Peters, Ltd., Natick, MA, USA, 2010.
+
+\bibitem{misc:WikiEnVIs}
+{Wikipedia: Illustration}.
+\newblock http://en.wikipedia.org/wiki/illustration.
+\newblock Accessed: 2013-12-12.
 
 \end{thebibliography}
