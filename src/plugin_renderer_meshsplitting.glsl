@@ -218,7 +218,7 @@
 		// discard pixels behind the cutting plane
 	    //(v - p) * N
 		float isBeforePlane = dot((vVertexPositionWorldSpace - uPlanePoint), uNormal);		
-		if(isBeforePlane <= 0.0) {
+		if(isBeforePlane <= 0.0 ) {
 			discard;
 		}
 	//</option>

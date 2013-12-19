@@ -86,8 +86,8 @@ public:
 		GetPlugin().GetProperty("DynamicOffset").require(Variant::TypeBoolean(false));
 		GetPlugin().GetProperty("DynamicOffset").addObserver(&m_modVariantObserver);
 
-		GetPlugin().GetProperty("Auto Plane").require(Variant::TypeBoolean(false));
-		GetPlugin().GetProperty("Auto Plane").addObserver(&m_modVariantObserver);
+		GetPlugin().GetProperty("Ghosting").require(Variant::TypeBoolean(false));
+		GetPlugin().GetProperty("Ghosting").addObserver(&m_modVariantObserver);
 
 		GetPlugin().GetProperty("Interior Shading Mode").require((Variant::TypeOption(), Variant("No shading"), Variant("Flat red shading"), Variant("Padded phong shading"), Variant("Caved phong shading")));
 		GetPlugin().GetProperty("Interior Shading Mode").addObserver(&m_modMeshObserver);
@@ -106,7 +106,6 @@ public:
 
 		this->alpha=1.0;
 
-		//this->initiateAutoPlane();
 
 		GetPlugin().GetProperty("Groups").addObserver(&m_modVariantObserver);
 	};
@@ -160,7 +159,7 @@ public:
 
 		glMatrixMode(GL_MODELVIEW);
 
-		bool autoplane =GetPlugin().GetProperty("Auto Plane");
+		bool ghosting =GetPlugin().GetProperty("Auto Plane");
 
 		Vector vecPlaneTranslation;
 		Vector vecPlaneRotationVector;
@@ -171,20 +170,16 @@ public:
 		const Color vecPlaneColor = GetPlugin().GetProperty("Plane Color");
 		const Vector vecPlaneScaling = GetPlugin().GetProperty("Plane Scale");
 		glLoadIdentity();
-		if (!autoplane){
-			vecPlaneTranslation = GetPlugin().GetProperty("Plane Translation");
-			vecPlaneRotationVector = GetPlugin().GetProperty("Plane Rotation Vector");
-			planeNormal = Vector(0.0f, 0.0f, 1.0f);
-			//rotate plane normal when plane rotates
-			glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
-			float arr[16] = {0.0f};
-			glGetFloatv(GL_MODELVIEW_MATRIX, arr);
-			Matrix rotPlaneNormalMatrix(arr);
-			planeNormal = rotPlaneNormalMatrix.GetRotated(planeNormal);
-		}else{
-			planeNormal=matMeshTransformation.GetRotationMatrix()*this->autoPlaneNormal;
-			vecPlaneTranslation=matMeshTransformation*this->autoPlanePoint;
-		}
+
+		vecPlaneTranslation = GetPlugin().GetProperty("Plane Translation");
+		vecPlaneRotationVector = GetPlugin().GetProperty("Plane Rotation Vector");
+		planeNormal = Vector(0.0f, 0.0f, 1.0f);
+		//rotate plane normal when plane rotates
+		glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
+		float arr[16] = {0.0f};
+		glGetFloatv(GL_MODELVIEW_MATRIX, arr);
+		Matrix rotPlaneNormalMatrix(arr);
+		planeNormal = rotPlaneNormalMatrix.GetRotated(planeNormal);
 
 
 		planeNormal.normalize();
@@ -353,11 +348,13 @@ public:
 
 			if (!cullface||alpha==1.0f)
 				glDisable(GL_CULL_FACE);
-			else 
+			else
 				glEnable(GL_CULL_FACE);	
 
-			if(alpha!=1.0f)
+			if(alpha!=1.0f){
 				glEnable(GL_CULL_FACE);	
+				//glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), 0);
+			}
 
 			glPopMatrix();
 			glPushMatrix();
@@ -409,7 +406,12 @@ public:
 			if (!cullface||alpha==1.0f)
 				glDisable(GL_CULL_FACE);
 			else
-				glEnable(GL_CULL_FACE);		
+				glEnable(GL_CULL_FACE);	
+
+			if(alpha!=1.0f){
+				glEnable(GL_CULL_FACE);	
+				//glUniform1i(m_shaShader.GetUniformLocation("uShadingMode"), 0);
+			}
 
 			glPopMatrix();
 			glPushMatrix();
@@ -430,12 +432,11 @@ public:
 
 		// DRAW PLANE
 
-		if(!autoplane){
-			glLoadIdentity();
-			glLoadMatrixf(matViewingTransformation.Get());
-			glTranslatef(vecPlaneTranslation.GetX(), vecPlaneTranslation.GetY(), vecPlaneTranslation.GetZ());
-			glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
-		}
+
+		glLoadIdentity();
+		glLoadMatrixf(matViewingTransformation.Get());
+		glTranslatef(vecPlaneTranslation.GetX(), vecPlaneTranslation.GetY(), vecPlaneTranslation.GetZ());
+		glRotatef(vecPlaneRotationAngle, vecPlaneRotationVector.GetX(), vecPlaneRotationVector.GetY(), vecPlaneRotationVector.GetZ());
 		glScalef(vecPlaneScaling.GetX(), vecPlaneScaling.GetY(), vecPlaneScaling.GetZ());
 
 		glColor4f(vecPlaneColor.GetNormalizedRed(), vecPlaneColor.GetNormalizedGreen(), vecPlaneColor.GetNormalizedBlue(), vecPlaneColor.GetNormalizedAlpha());
@@ -1047,9 +1048,10 @@ protected:
 	{
 
 		bool dynamic=GetPlugin().GetProperty("DynamicOffset");
+		bool ghosting = GetPlugin().GetProperty("Ghosting");
 		float speed;
 
-		if(current_offset[0]>boundsDiameter*0.7f && occlusions[0]- occlusions[1]>0){
+		if(current_offset[0]>boundsDiameter*0.7f && occlusions[0]- occlusions[1]>0 && ghosting){
 			alpha=(-current_offset[0]+boundsDiameter)/(0.3*boundsDiameter)*0.5f+0.5f;
 			alpha=1.0f-((1.0f-alpha)*(float)(occlusions[0]- occlusions[1])/(float)occlusions[0]);
 			if(alpha<0.5)
@@ -1074,13 +1076,17 @@ protected:
 			if (ratio_selected>0){
 				//ratio_selected+=occlusions[0]*0.3f;
 				ratio_selected/=occlusions[0];
-
-				ideal_offset[0]=boundsDiameter;
-				ideal_offset[1]=-boundsDiameter;
+				if (ghosting){
+					ideal_offset[0]=boundsDiameter;
+					ideal_offset[1]=-boundsDiameter;
+				}else{
+					ideal_offset[0]=200.0f;
+					ideal_offset[1]=-200.0f;
+				}
 				speed=GetPlugin().GetProperty("Speed");
 				speed*=ratio_selected;
 			}else{
-				if(ideal_offset[0]==boundsDiameter){
+				if((ghosting && ideal_offset[0]==boundsDiameter)||(!ghosting &&ideal_offset[0]==200.0f)){
 					speed=GetPlugin().GetProperty("Speed");
 					ideal_offset[0]=current_offset[0];
 					ideal_offset[1]=current_offset[1];
@@ -1182,42 +1188,42 @@ protected:
 		
 	};
 
-	void initiateAutoPlane(const TriangleMesh & mesh){
-		Vector& maximum=Vector(FLT_MIN,FLT_MIN ,FLT_MIN );
-		Vector& minimum=Vector(FLT_MAX,FLT_MAX ,FLT_MAX );
-		
-		for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
-		{
-			TriangleMesh::Iterator iteGroup = *i;
+	//void initiateAutoPlane(const TriangleMesh & mesh){
+	//	Vector& maximum=Vector(FLT_MIN,FLT_MIN ,FLT_MIN );
+	//	Vector& minimum=Vector(FLT_MAX,FLT_MAX ,FLT_MAX );
+	//	
+	//	for (TriangleMesh::Iterator i(mesh);!i.IsAtEnd();++i)
+	//	{
+	//		TriangleMesh::Iterator iteGroup = *i;
 
-			Box temp_bounds=iteGroup.GetGroupBounds();
-			Vector min=temp_bounds.GetMinimum();
-			Vector max=temp_bounds.GetMaximum();
-			for(unsigned int i =0;i<3;i++){
-				if(max.Get(i) > maximum.Get(i)){
-					float val =max.Get(i);
-					unsigned int index=i;
-					maximum.Set(index,val);
-				}
-				if(min.Get(i) < minimum.Get(i)){
-					const float va =min.Get(i);
-					const unsigned int index=i;
-					(minimum).Set(index,va);
-				}
-			}
-		}
-		
+	//		Box temp_bounds=iteGroup.GetGroupBounds();
+	//		Vector min=temp_bounds.GetMinimum();
+	//		Vector max=temp_bounds.GetMaximum();
+	//		for(unsigned int i =0;i<3;i++){
+	//			if(max.Get(i) > maximum.Get(i)){
+	//				float val =max.Get(i);
+	//				unsigned int index=i;
+	//				maximum.Set(index,val);
+	//			}
+	//			if(min.Get(i) < minimum.Get(i)){
+	//				const float va =min.Get(i);
+	//				const unsigned int index=i;
+	//				(minimum).Set(index,va);
+	//			}
+	//		}
+	//	}
+	//	
 
-		Vector planeNormal=Vector(0.0f,0.0f,0.0f);
-		float minExtent =FLT_MAX;
-		unsigned int index=0;
-		for (int i=0;i<3;i++){
-			if(planeNormal.Get(i)<minExtent)
-				index=i;
-		}
-		autoPlaneNormal.Set(index,1.0f);
-		autoPlanePoint=(maximum-minimum)/2;
-	}
+	//	Vector planeNormal=Vector(0.0f,0.0f,0.0f);
+	//	float minExtent =FLT_MAX;
+	//	unsigned int index=0;
+	//	for (int i=0;i<3;i++){
+	//		if(planeNormal.Get(i)<minExtent)
+	//			index=i;
+	//	}
+	//	autoPlaneNormal.Set(index,1.0f);
+	//	autoPlanePoint=(maximum-minimum)/2;
+	//}
 
 
 	float abs(float x){
@@ -1269,7 +1275,4 @@ private:
 	GLfloat alpha;
 	Box bounds;
 	float boundsDiameter;
-	Vector autoPlaneNormal;
-	Vector autoPlanePoint;
-
 };
