@@ -47,17 +47,17 @@ public:
 		GetPlugin().GetProperty("Mesh").require(Variant::TypeHandle());
 		GetPlugin().GetProperty("Mesh").addObserver(&m_modMeshObserver);
 
-		GetPlugin().GetProperty("Mode").require((Variant::TypeOption(), Variant("Default"), Variant("Normal"), Variant("Fancy"), Variant("Wireframe")));
-		GetPlugin().GetProperty("Mode").addObserver(&m_modVariantObserver);
+		//GetPlugin().GetProperty("Mode").require((Variant::TypeOption(), Variant("Default"), Variant("Normal"), Variant("Fancy"), Variant("Wireframe")));
+		//GetPlugin().GetProperty("Mode").addObserver(&m_modVariantObserver);
 
-		GetPlugin().GetProperty("Stylized").require(Variant::TypeBoolean(false));
-		GetPlugin().GetProperty("Stylized").addObserver(&m_modVariantObserver);
+		//GetPlugin().GetProperty("Stylized").require(Variant::TypeBoolean(false));
+		//GetPlugin().GetProperty("Stylized").addObserver(&m_modVariantObserver);
 
-		GetPlugin().GetProperty("Color").require(Variant::TypeColor());
-		GetPlugin().GetProperty("Color").addObserver(&m_modVariantObserver);
+		//GetPlugin().GetProperty("Color").require(Variant::TypeColor());
+		//GetPlugin().GetProperty("Color").addObserver(&m_modVariantObserver);
 
-		GetPlugin().GetProperty("Opacity").require(Variant::TypeFloat(1.0f, 0.0f, 1.0f));
-		GetPlugin().GetProperty("Opacity").addObserver(&m_modVariantObserver);
+		//GetPlugin().GetProperty("Opacity").require(Variant::TypeFloat(1.0f, 0.0f, 1.0f));
+		//GetPlugin().GetProperty("Opacity").addObserver(&m_modVariantObserver);
 
 		GetPlugin().GetProperty("Selection").require(Variant::TypeString());
 		GetPlugin().GetProperty("Selection").addObserver(&m_modVariantObserver);
@@ -461,8 +461,6 @@ public:
 
 		if(ideal_offset[0]!=current_offset[0])
 			GetPlugin().update();
-		else
-			printf("done\n");
 
 	};
 
@@ -560,9 +558,9 @@ protected:
 
 		if(dynamic){
 			ideal_offset[0]=0.0f;
-			ideal_offset[1]=0.0f;
-			GetPlugin().update();
+			ideal_offset[1]=0.0f;	
 		}
+		GetPlugin().update();
 	};
 
 	virtual void meshModified (const Variant & varVariant, const Observable::Event & eveEvent)
@@ -1074,19 +1072,19 @@ protected:
 			float ratio_selected = occlusions[0]- occlusions[1];
 
 			if (ratio_selected>0){
-				//ratio_selected+=occlusions[0]*0.3f;
+				
 				ratio_selected/=occlusions[0];
 				if (ghosting){
 					ideal_offset[0]=boundsDiameter;
 					ideal_offset[1]=-boundsDiameter;
 				}else{
-					ideal_offset[0]=200.0f;
-					ideal_offset[1]=-200.0f;
+					ideal_offset[0]=20.0f;
+					ideal_offset[1]=-20.0f;
 				}
 				speed=GetPlugin().GetProperty("Speed");
 				speed*=ratio_selected;
 			}else{
-				if((ghosting && ideal_offset[0]==boundsDiameter)||(!ghosting &&ideal_offset[0]==200.0f)){
+				if((ghosting && ideal_offset[0]==boundsDiameter)||(!ghosting &&ideal_offset[0]==20.0f)){
 					speed=GetPlugin().GetProperty("Speed");
 					ideal_offset[0]=current_offset[0];
 					ideal_offset[1]=current_offset[1];
