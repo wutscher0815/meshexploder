@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.12)  18 DEC 2013 21:30
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.12)  19 DEC 2013 08:09
 entering extended mode
 **C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template/thes
 is.tex
@@ -1376,14 +1376,14 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.44997pt on input line 91.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.40245pt on input line 108.
-<figures/TU_INF_header.pdf, id=50, 512.91624pt x 47.17625pt>
+<figures/TU_INF_header.pdf, id=46, 512.91624pt x 47.17625pt>
 File: figures/TU_INF_header.pdf Graphic file (type pdf)
 
 <use figures/TU_INF_header.pdf>
 Package pdftex.def Info: figures/TU_INF_header.pdf used on input line 121.
 (pdftex.def)             Requested size: 509.30415pt x 46.84425pt.
 
-<figures/TU_INF_Logo_gray.pdf, id=51, 171.64125pt x 46.1725pt>
+<figures/TU_INF_Logo_gray.pdf, id=47, 171.64125pt x 46.1725pt>
 File: figures/TU_INF_Logo_gray.pdf Graphic file (type pdf)
 
 <use figures/TU_INF_Logo_gray.pdf>
@@ -1509,71 +1509,142 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--13
 
  []
 
+<chapters/figures/demo.png, id=149, 955.57pt x 819.06pt>
+File: chapters/figures/demo.png Graphic file (type png)
+
+<use chapters/figures/demo.png>
+Package pdftex.def Info: chapters/figures/demo.png used on input line 22.
+(pdftex.def)             Requested size: 292.77629pt x 250.94398pt.
 )
 (C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapt
-ers/cha2_state_of.tex
-Underfull \hbox (badness 10000) in paragraph at lines 16--1
+ers/cha2_state_of.tex [1
 
- []
-
-[1
-
-] [2]
+] [2 <C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template/
+chapters/figures/demo.png (PNG copy)>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6.
+
+<chapters/figures/splitting.png, id=166, 840.99269pt x 196.67508pt>
+File: chapters/figures/splitting.png Graphic file (type png)
+
+<use chapters/figures/splitting.png>
+Package pdftex.def Info: chapters/figures/splitting.png used on input line 15.
+(pdftex.def)             Requested size: 376.42575pt x 88.0318pt.
+
+<chapters/figures/axes.png, id=169, 757.6305pt x 323.7696pt>
+File: chapters/figures/axes.png Graphic file (type png)
+
+<use chapters/figures/axes.png>
+Package pdftex.def Info: chapters/figures/axes.png used on input line 23.
+(pdftex.def)             Requested size: 292.77629pt x 125.1136pt.
+
+<chapters/figures/hierarchy.png, id=172, 2091.815pt x 838.13126pt>
+File: chapters/figures/hierarchy.png Graphic file (type png)
+
+<use chapters/figures/hierarchy.png>
+Package pdftex.def Info: chapters/figures/hierarchy.png used on input line 31.
+(pdftex.def)             Requested size: 292.77629pt x 117.29921pt.
  [3
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 21.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+<chapters/figures/perspective.png, id=185, 1378.1889pt x 511.6716pt>
+File: chapters/figures/perspective.png Graphic file (type png)
+
+<use chapters/figures/perspective.png>
+Package pdftex.def Info: chapters/figures/perspective.png used on input line 40
+.
+(pdftex.def)             Requested size: 376.42575pt x 139.75371pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4 <C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template/c
+hapters/figures/splitting.png> <C:/Users/harr/Desktop/mesh/meshexploder/thesis/
+INF_Thesis_LaTeX_Template/chapters/figures/axes.png>]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 47.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
-)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
+ [5 <C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template/c
+hapters/figures/hierarchy.png> <C:/Users/harr/Desktop/mesh/meshexploder/thesis/
+INF_Thesis_LaTeX_Template/chapters/figures/perspective.png>]
+<chapters/figures/motor.png, id=208, 999.735pt x 417.56pt>
+File: chapters/figures/motor.png Graphic file (type png)
+
+<use chapters/figures/motor.png>
+Package pdftex.def Info: chapters/figures/motor.png used on input line 53.
+(pdftex.def)             Requested size: 292.77629pt x 122.28075pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
+
+ []
+
+[6 <C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template/ch
+apters/figures/motor.png>] [7])
 (C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapt
-ers/cha3_practical_woik.tex [4] [5
+ers/cha3_practical_woik.tex [8]
+<chapters/figures/cerebellum.png, id=232, 2864.7025pt x 819.06pt>
+File: chapters/figures/cerebellum.png Graphic file (type png)
+
+<use chapters/figures/cerebellum.png>
+Package pdftex.def Info: chapters/figures/cerebellum.png used on input line 21.
+
+(pdftex.def)             Requested size: 376.42575pt x 107.61884pt.
+ [9
+
+] [10 <C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template
+/chapters/figures/cerebellum.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 38--59
+
+ []
+
+<chapters/figures/infinity.png, id=248, 2864.7025pt x 819.06pt>
+File: chapters/figures/infinity.png Graphic file (type png)
+
+<use chapters/figures/infinity.png>
+Package pdftex.def Info: chapters/figures/infinity.png used on input line 74.
+(pdftex.def)             Requested size: 376.42575pt x 107.61884pt.
+ [11]
+<chapters/figures/brainstem.png, id=258, 2864.7025pt x 2457.18pt>
+File: chapters/figures/brainstem.png Graphic file (type png)
+
+<use chapters/figures/brainstem.png>
+Package pdftex.def Info: chapters/figures/brainstem.png used on input line 90.
+(pdftex.def)             Requested size: 376.42575pt x 322.85652pt.
+) [12 <C:/Users/harr/Desktop/mesh/meshexploder/thesis/INF_Thesis_LaTeX_Template
+/chapters/figures/infinity.png>] [13 <C:/Users/harr/Desktop/mesh/meshexploder/t
+hesis/INF_Thesis_LaTeX_Template/chapters/figures/brainstem.png>] [14
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 31--35
-
- []
-
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 54--58
-
- []
-
-) [8]
 (C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapt
 ers/bibliographic.tex
 
-LaTeX Warning: Citation `journals/tog/AgrawalaPHHKHT03' on page 9 undefined on 
-input line 13.
+LaTeX Warning: Citation `journals/tog/AgrawalaPHHKHT03' on page 15 undefined on
+ input line 13.
 
 
-LaTeX Warning: Citation `journals/cacm/MitraYYLA13' on page 9 undefined on inpu
-t line 16.
+LaTeX Warning: Citation `journals/cacm/MitraYYLA13' on page 15 undefined on inp
+ut line 16.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 10--151
+Underfull \hbox (badness 10000) in paragraph at lines 10--152
 
  []
 
 
 (C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesi
-s.bbl [9
-
-] [10
+s.bbl [15] [16
 
 ]
 bibitemlist
-) [11]
+) [17]
 \tf@toc=\write6
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 160.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 160.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
 
 (C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesi
 s.aux
@@ -1581,24 +1652,24 @@ s.aux
 ers/titlepage_de.aux)
 (C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapt
 ers/titlepage_en.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 160.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 160.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7CAD852BE1ECCE61693675A4BB710532;708.
+(rerunfilecheck)             Checksum: 5C226A88BC2FED781C1A13E2DF28B2FE;667.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 160.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
  ) 
 Here is how much of TeX's memory you used:
- 21112 strings out of 493921
- 366912 string characters out of 3144879
- 498828 words of memory out of 3000000
- 23925 multiletter control sequences out of 15000+200000
+ 21186 strings out of 493921
+ 368539 string characters out of 3144879
+ 501862 words of memory out of 3000000
+ 23976 multiletter control sequences out of 15000+200000
  67970 words of font info for 84 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 69i,19n,57p,975b,820s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,19n,57p,1018b,820s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fil
@@ -1612,9 +1683,9 @@ MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2
 /type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/
 times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on thesis.pdf (27 pages, 195544 bytes).
+Output written on thesis.pdf (33 pages, 3372885 bytes).
 PDF statistics:
- 298 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 358 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
