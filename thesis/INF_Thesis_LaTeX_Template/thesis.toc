@@ -1,18 +1,19 @@
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
 \contentsline {chapter}{\chapternumberline {2}State of the Art Description}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}What are the main problems when creating exploded views?}{3}{section.2.1}
-\contentsline {subsection}{Explosion direction}{3}{section*.6}
-\contentsline {subsection}{Part hierarchy}{3}{section*.7}
-\contentsline {subsection}{Visibility}{5}{section*.8}
-\contentsline {subsection}{Interactivity}{6}{section*.9}
+\contentsline {subsection}{Explosion direction}{3}{section*.4}
+\contentsline {subsection}{Part hierarchy}{3}{section*.5}
+\contentsline {subsection}{Visibility}{5}{section*.6}
+\contentsline {subsection}{Interactivity}{6}{section*.7}
 \contentsline {section}{\numberline {2.2}Analysis}{7}{section.2.2}
-\contentsline {subsection}{Ghosting}{7}{section*.10}
+\contentsline {subsection}{Ghosting}{7}{section*.8}
 \contentsline {chapter}{\chapternumberline {3}Practical part}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Plan and milestone definition:}{9}{section.3.1}
 \contentsline {section}{\numberline {3.2}Tools and languages}{9}{section.3.2}
 \contentsline {section}{\numberline {3.3}Documentation of the implementation each milestone}{9}{section.3.3}
-\contentsline {subsection}{Milestone 1:Selection of split meshes, selected parts are not split and stay in place}{9}{section*.11}
-\contentsline {subsection}{Milestone 2: find a safe distance, find a split plane}{10}{section*.12}
-\contentsline {subsection}{Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases}{11}{section*.13}
-\contentsline {chapter}{\chapternumberline {4}Bibliographic Issues}{15}{chapter.4}
-\contentsline {chapter}{Bibliography}{17}{section*.15}
+\contentsline {subsection}{Milestone 1:Selection of split meshes, selected parts are not split and stay in place}{9}{section*.9}
+\contentsline {subsection}{Milestone 2: find a safe distance, find a split plane}{10}{section*.10}
+\contentsline {subsection}{Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases}{11}{section*.11}
+\contentsline {chapter}{\chapternumberline {4}Conclusion}{15}{chapter.4}
+\contentsline {subsubsection}{Future Work}{15}{section*.12}
+\contentsline {chapter}{Bibliography}{17}{section*.14}
