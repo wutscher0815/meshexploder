@@ -37,22 +37,22 @@ for
 
 is multiplied with the speed specified by user input resulting in the speed at which the offset grows toward an ideal offset which is the maximum offset described in Milestone 3 or an offset of 0 if the difference between  ($p_{unoccluded}$) and  ($p_{occluded}$) is 0 with the ideal offset different than the maximum offset.\\
 Because the ratio tends towards 0 the more the object is revealed the growth of the offset diminishes the more is revealed , coming to a halt as soon as the whole object is fully revealed which is the moment the ideal offset is set to the current offset.\\
-%\begin{verbatim}
-%float ratio_selected = occlusions[0]- occlusions[1];
-%	if (ratio_selected>0){
-%	ratio_selected/=occlusions[0];
-%	if (ghosting){
-%		ideal_offset[0]=boundsDiameter;
-%		ideal_offset[1]=-boundsDiameter;
-%	}else{
-%		ideal_offset[0]=20.0f;
-%		ideal_offset[1]=-20.0f;
-%	}
-%	speed=GetPlugin().GetProperty("Speed");
-%	speed*=ratio_selected;
-%}else{
-%	//stop
-%	}
+\begin{verbatim}
+float ratio_selected = occlusions[0]- occlusions[1];
+	if (ratio_selected>0){
+	ratio_selected/=occlusions[0];
+	if (ghosting){
+		ideal_offset[0]=boundsDiameter;
+		ideal_offset[1]=-boundsDiameter;
+	}else{
+		ideal_offset[0]=20.0f;
+		ideal_offset[1]=-20.0f;
+	}
+	speed=GetPlugin().GetProperty("Speed");
+	speed*=ratio_selected;
+}else{
+	//stop
+	}
 %\end{verbatim}
 This movement is akin to the movement of the object being pulled by a spring toward the point of full revelation of the object of interest, though not a linear spring, because the change of speed is determined by the amount of Pixels that are revealed in each iteration making the spring constant proportional to $r$.
 To avoid that the Object still moves at very low speeds, resulting in huge amounts of unnecesary costly redraws,I introduced a  minimum speed $\epsilon$ so that the object comes to a halt earlier.\\
@@ -92,6 +92,7 @@ A problem that now appears is that backface culling is deactivated to so that th
 	\label{fig:brainstem}
 \end{figure}
 \chapter{Conclusion}
-In general I think that the combination of ghosting and exploded views in this form is not an ideal one, one of the main advantages of ghosting, that all parts of the object appear in their original location, is lost, but in comparison to the behavior the pure explosive view exhibits when viewed from angles close to the explosion direction it gives more information about the object of interest and it looks better than a solid part blocking it or disappearing from view.
+In general I think that the combination of ghosting and exploded views is an improvement upon the technique of exploded views.  In comparison to the behavior the pure explosive view exhibits when viewed from angles close to the explosion direction it gives more information about the object of interest and it looks better than a solid part blocking it or disappearing from view.\\
+Ghosting on the other hand loses one of its key advantages, namely that all parts of the object appear in their original location.
 \subsubsection{Future Work}
-At the moment the explosive view is very simple, it would bew interesting to create something with multible axes more complex assemblies.
+At the moment the explosive view is very basic, with the explosion only along one axis, and a hierarchy that consists of only  an object of interest and its context objects. The next steps to imrove uüpon the visualisation would be to introduce more levels into the part hierarchy and devise a way to explode along mutible axes and exploring ways to quasi-naturally animate these behaviours.
