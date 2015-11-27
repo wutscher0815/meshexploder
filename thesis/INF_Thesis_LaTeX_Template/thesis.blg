@@ -1,0 +1,18 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: chapters/titlepage_de.aux
+A level-1 auxiliary file: chapters/titlepage_en.aux
+The style file: plain.bst
+Database file #1: chapters/references.bib
+I was expecting a `,' or a `}'---line 62 of file chapters/references.bib
+ : 
+ : @INPROCEEDINGS{proc:ruiz-2008-SEV,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "proc:conf/si3d/NiederauerHAH03"
+refers to entry "conf/si3d/2003", which doesn't exist
+Warning--I didn't find a database entry for "journals/tog/AgrawalaPHHKHT03"
+Warning--I didn't find a database entry for "journals/cacm/MitraYYLA13"
+Warning--I didn't find a database entry for "conf/si3d/2003"
+Too many commas in name 1 of "L. Neumann, M. Sbert, B. Gooch, W. Purgathofer" for entry Viola-05-Smart
+while executing---line 1090 of file plain.bst
+(There were 3 error messages)

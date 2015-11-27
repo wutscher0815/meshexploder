@@ -1,0 +1,131 @@
+%
+% Vienna University of Technology - Faculty of Informatics
+% TUINF thesis - Title page English
+%
+% For questions and comments send an email to
+% Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+% Thomas Krennwallner <tkren@kr.tuwien.ac.at>
+%
+% ---------------------------------------------------------
+%
+% TU Wien - Fakultät für Informatik
+% TUINF Arbeit - Titelseite englisch
+%
+% Für Fragen oder Kommentare schicken Sie eine Email an
+% Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+% Thomas Krennwallner <tkren@kr.tuwien.ac.at>
+%
+
+\selectlanguage{english}
+
+% setup page dimensions for the titlepage
+\newgeometry{left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm}
+
+% force baselineskip and parindent
+\newlength{\tmpbaselineskipen}
+\setlength{\tmpbaselineskipen}{\baselineskip}
+\setlength{\baselineskip}{13.6pt}
+\newlength{\tmpparindenten}
+\setlength{\tmpparindenten}{\parindent}
+\setlength{\parindent}{17pt}
+
+% title page
+\thispagestyle{tuinftitlepage}
+
+% Prevent warning messages due to tall headers
+\addtolength{\headheight}{65pt}
+\addtolength{\headsep}{-65pt}
+
+%
+% Kludge: for each titlepage set \pagenumbering to a different
+% style. This is used to fix a problem with hyperref, because there
+% are multiple "page 1" and hyperref hates that
+%
+\pagenumbering{Alph}
+
+\begin{center}
+{\ \vspace{3.4cm}}
+
+\begin{minipage}[t][2.8cm][s]{\textwidth}%
+\centering
+\thesistitlefontHUGE\sffamily\bfseries\tuinfthesistitle\\
+\bigskip
+{\thesistitlefonthuge\sffamily\bfseries\tuinfthesissubtitle}
+\end{minipage}
+
+\vspace{1.3cm}
+
+{\thesistitlefontLARGE\sffamily \tuinfthesistypenameen}
+
+\vspace{6mm}
+
+{\thesistitlefontlarge\sffamily submitted in partial fulfillment of the requirements for the degree of}
+
+\vspace{6mm}
+
+{\thesistitlefontLARGE\sffamily\bfseries \tuinfthesisdegree}
+
+\vspace{6mm}
+
+{\thesistitlefontlarge\sffamily in}
+
+\vspace{6mm}
+
+{\thesistitlefontLarge\sffamily\bfseries \tuinfthesiscurriculumen}
+
+\vspace{6.5mm}
+
+{\thesistitlefontlarge\sffamily by}
+
+\vspace{6mm}
+
+{\thesistitlefontLarge\sffamily\bfseries \tuinfthesisauthorname}
+
+\vspace{1.5mm}
+
+{\thesistitlefontlarge\sffamily Registration Number \tuinfthesismatrikelno} 
+
+\vspace{1.4cm}
+
+\begin{minipage}[t][1.6cm][t]{\textwidth}%
+  \vspace{0pt}\raggedright\thesistitlefontnormalsize\sffamily%
+  to the Faculty of Informatics 
+
+  at the Vienna University of Technology
+\end{minipage}
+
+\begin{minipage}[t][4cm][t]{\textwidth}%
+	\vspace{0pt}\raggedright\thesistitlefontnormalsize\sffamily
+  \begin{tabbing}%
+	    \hspace{19mm} \= \hspace{66mm} \kill
+	    Advisor: \> \tuinfthesisadvisorname\\
+	    Assistance: \> \tuinfthesisassistantonename\\
+	                \> \tuinfthesisassistanttwoname
+   \end{tabbing}
+\end{minipage}
+
+\begin{minipage}[t][1.5cm][t]{\textwidth}%
+  \vspace{0pt}\sffamily\thesistitlefontnormalsize
+  \begin{tabbing}%
+    \hspace{45mm} \= \hspace{63mm} \= \hspace{51mm} \kill
+    Vienna, \tuinfthesisdate \> {\raggedright\rule{51mm}{0.5pt}} \> {\raggedright\rule{51mm}{0.5pt}} \\
+    \> \begin{minipage}[t][0.5cm][t]{51mm}\centering (Signature of Author)\end{minipage}
+    \> \begin{minipage}[t][0.5cm][t]{51mm}\centering (Signature of Advisor)\end{minipage}
+    \end{tabbing}
+\end{minipage}
+
+\end{center}
+
+% we want an empty page right after first titlepage
+\pagestyle{empty}
+\cleardoublepage
+
+% we're done with the titlepages, proceed with default pagenumbering
+\pagenumbering{roman}
+
+% restore baselineskip
+\setlength{\baselineskip}{\tmpbaselineskipen}
+\setlength{\parindent}{\tmpparindenten}
+
+% back to normal geometry
+\restoregeometry

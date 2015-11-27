@@ -1,0 +1,57 @@
+\begin{thebibliography}{1}
+
+\bibitem{Agra03}
+Maneesh Agrawala, Doantam Phan, Julie Heiser, John Haymaker, Jeff Klingner, Pat
+  Hanrahan, and Barbara Tversky.
+\newblock Designing effective step-by-step assembly instructions.
+\newblock {\em ACM Trans. Graph.}, 22(3):828--837, 2003.
+
+\bibitem{proc:bruckner-2006-EVV}
+Stefan Bruckner and Meister~Eduard Gr{\"o}ller.
+\newblock Exploded views for volume data.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  12(5):1077--1084, 9 2006.
+
+\bibitem{proc:Li:2008:AGI}
+Wilmot Li, Maneesh Agrawala, Brian Curless, and David Salesin.
+\newblock Automated generation of interactive 3d exploded view diagrams.
+\newblock {\em SIGGRAPH 2008}, pages 101:1--101:7, August 2008.
+
+\bibitem{MitraYYLA13}
+Niloy~J. Mitra, Yong-Liang Yang, Dong-Ming Yan, Wilmot Li, and Maneesh
+  Agrawala.
+\newblock Illustrating how mechanical assemblies work.
+\newblock {\em Commun. ACM}, 56(1):106--114, 2013.
+
+\bibitem{proc:conf/si3d/NiederauerHAH03}
+Christopher Niederauer, Mike Houston, Maneesh Agrawala, and Greg Humphreys.
+\newblock Non-invasive interactive visualization of dynamic architectural
+  environments.
+\newblock In Michael Zyda, Michael~V. Capps, Randy~F. Pausch, and Gary Bishop,
+  editors, {\em SI3D}, pages 55--58. ACM, 2003.
+
+\bibitem{proc:ruiz-2008-SEV}
+Marc Ruiz, Ivan Viola, Imma Boada, Stefan Bruckner, Miquel Feixas, and Mateu
+  Sbert.
+\newblock Similarity-based exploded views.
+\newblock In {\em Proceedings of Smart Graphics 2008}, pages 154--165, 2008.
+
+\bibitem{Viola-05-Smart}
+Ivan Viola and Meister~Eduard Gr{\"o}ller.
+\newblock Smart visibility in visualization.
+\newblock In B.~Gooch W.~Purgathofer L.~Neumann, M.~Sbert, editor, {\em
+  Proceedings of EG Workshop on Computational Aesthetics Computational
+  Aesthetics in Graphics, Visualization and Imaging}, pages 209--216, 5 2005.
+
+\bibitem{Ward:2010:IDV:1893097}
+Matthew Ward, Georges Grinstein, and Daniel Keim.
+\newblock {\em Interactive Data Visualization: Foundations, Techniques, and
+  Applications}.
+\newblock A. K. Peters, Ltd., Natick, MA, USA, 2010.
+
+\bibitem{misc:WikiEnVIs}
+{Wikipedia: Illustration}.
+\newblock http://en.wikipedia.org/wiki/illustration.
+\newblock Accessed: 2013-12-12.
+
+\end{thebibliography}

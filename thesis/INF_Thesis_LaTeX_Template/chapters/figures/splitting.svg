@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1047.4375"
+   height="367.9375"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="splitting.svg"
+   inkscape:export-filename="C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters\figures\splitting.png"
+   inkscape:export-xdpi="201.7"
+   inkscape:export-ydpi="201.7">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.27214286"
+     inkscape:cx="479.79777"
+     inkscape:cy="126.53255"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="918"
+     inkscape:window-height="845"
+     inkscape:window-x="1875"
+     inkscape:window-y="126"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <sodipodi:guide
+       orientation="1,0"
+       position="1292.2054,450.37445"
+       id="guide3783" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="1482.2053,430.37445"
+       id="guide3817" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="1197.9196,194.66016"
+       id="guide3819" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="784.14387,441.15809"
+       id="guide3902" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1135.0625,-537.65625)">
+    <path
+       style="fill:#80b3ff;fill-opacity:1;stroke:#000000;stroke-width:9.18357944;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -262.4066,832.6368 c 94.99888,-3.85706 170.187503,-53.91701 170.187503,-115.09375 0,-61.17674 -75.188623,-111.20544 -170.187503,-115.0625"
+       id="path3809-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#80b3ff;fill-opacity:1;stroke:#000000;stroke-width:12.39999962;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path2985-4"
+       sodipodi:cx="382.85715"
+       sodipodi:cy="508.07648"
+       sodipodi:rx="245.71428"
+       sodipodi:ry="155.71428"
+       d="m 628.57143,508.07648 c 0,85.99862 -110.01003,155.71428 -245.71428,155.71428 -135.70425,0 -245.71428,-69.71566 -245.71428,-155.71428 0,-85.99862 110.01003,-155.71428 245.71428,-155.71428 135.70425,0 245.71428,69.71566 245.71428,155.71428 z"
+       transform="matrix(0.74061124,0,0,0.74061124,-1196.0968,336.1949)" />
+    <rect
+       style="fill:#99ff55;fill-opacity:1;stroke:#000000;stroke-width:9.18357944;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0.65499997"
+       id="rect3757-5"
+       width="69.829056"
+       height="103.68558"
+       x="-747.07465"
+       y="-959.10114"
+       transform="matrix(0,-1,1,0,0,0)" />
+    <path
+       style="fill:#80b3ff;fill-opacity:1;stroke:#000000;stroke-width:9.18357944;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -456.69232,602.48055 c -3.90514,-0.15855 -7.84419,-0.25 -11.8125,-0.25 -100.50409,0 -181.96875,51.62095 -181.96875,115.3125 0,63.69155 81.46466,115.3125 181.96875,115.3125 3.96831,0 7.90736,-0.0602 11.8125,-0.21875"
+       id="path2985-0-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc" />
+    <rect
+       style="fill:#99ff55;fill-opacity:1;stroke:#000000;stroke-width:9.18357944;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0.65499997"
+       id="rect3757-4-1"
+       width="69.829056"
+       height="103.68558"
+       x="-749.28284"
+       y="-412.18701"
+       transform="matrix(0,-1,1,0,0,0)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3.4000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:13.6, 3.4;stroke-dashoffset:0"
+       d="m -672.4066,711.57041 c 584.285713,0 584.285713,0 584.285713,0"
+       id="path3823-1"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#80b3ff;stroke:#000000;stroke-width:3.4000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:13.6, 3.4;stroke-dashoffset:0"
+       d="m -1135.0619,711.31607 c 584.28575,0 435.71432,0 435.71432,0"
+       id="path3823-8-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3.4000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:13.6, 3.4;stroke-dashoffset:0"
+       d="m 35.714286,712.36218 c 584.285714,0 584.285714,0 584.285714,0"
+       id="path3823"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\harr\Desktop\mesh\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters\figures\axes.png"
+       inkscape:export-xdpi="201"
+       inkscape:export-ydpi="201" />
+  </g>
+</svg>
