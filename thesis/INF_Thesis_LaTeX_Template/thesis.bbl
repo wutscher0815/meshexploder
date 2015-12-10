@@ -23,31 +23,12 @@ Niloy~J. Mitra, Yong-Liang Yang, Dong-Ming Yan, Wilmot Li, and Maneesh
 \newblock Illustrating how mechanical assemblies work.
 \newblock {\em Commun. ACM}, 56(1):106--114, 2013.
 
-\bibitem{proc:conf/si3d/NiederauerHAH03}
-Christopher Niederauer, Mike Houston, Maneesh Agrawala, and Greg Humphreys.
-\newblock Non-invasive interactive visualization of dynamic architectural
-  environments.
-\newblock In Michael Zyda, Michael~V. Capps, Randy~F. Pausch, and Gary Bishop,
-  editors, {\em SI3D}, pages 55--58. ACM, 2003.
-
-\bibitem{proc:ruiz-2008-SEV}
-Marc Ruiz, Ivan Viola, Imma Boada, Stefan Bruckner, Miquel Feixas, and Mateu
-  Sbert.
-\newblock Similarity-based exploded views.
-\newblock In {\em Proceedings of Smart Graphics 2008}, pages 154--165, 2008.
-
 \bibitem{Viola-05-Smart}
 Ivan Viola and Meister~Eduard Gr{\"o}ller.
 \newblock Smart visibility in visualization.
 \newblock In B.~Gooch W.~Purgathofer L.~Neumann, M.~Sbert, editor, {\em
   Proceedings of EG Workshop on Computational Aesthetics Computational
   Aesthetics in Graphics, Visualization and Imaging}, pages 209--216, 5 2005.
-
-\bibitem{Ward:2010:IDV:1893097}
-Matthew Ward, Georges Grinstein, and Daniel Keim.
-\newblock {\em Interactive Data Visualization: Foundations, Techniques, and
-  Applications}.
-\newblock A. K. Peters, Ltd., Natick, MA, USA, 2010.
 
 \bibitem{misc:WikiEnVIs}
 {Wikipedia: Illustration}.
