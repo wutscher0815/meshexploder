@@ -33,10 +33,13 @@ To set this right, the the overlay function was modified so that it would also b
 The next step is now to automatically displace place the two halves of the objectalong the explosion direction so that the object of interest is fully visible from every angle. To achieve this an animated displacement of the object has two big advantages over statically placing the objects at the safe distance:\\
 \begin{itemize}
 \item \textbf{Aesthetics} A smooth transition of an objects movement from one point to another is conceived as more ´´natural'' and therefore better-looking than an aprupt change of position. This conception can be reinforced by using animation techniques like slow in and slow out.\cite{misc:siggraph}
-\item \textbf{Simplicity} Rather than finding the ideal distance by deterministically calculating it before displacing the object a much simpler approach is to guess such a distance by checking how much of the object of interest is visible and then displacing the exploding parts if the object is not fully visible.
+\item \textbf{Simplicity} Rather than finding the ideal distance by deterministically calculating it before displacing the object a much simpler approach is to guess such a distance by checkingif the object of interest is fully visible and then displacing the exploding parts otwards as long as this is not the case.
 \end{itemize}
 With these considerations in mind an implicit approach to finding the ideal offset of the two halves was used:\\
-Each time the object is rendered first the three parts (Object of interest, front half, back half) are rendered with the low-cost overlay shader counting the rendered pixels of the non-occluded object ($p_{unoccluded}$), counting the amount of pixels drawn using openGL occlusion queries and during the actual rendering counting the amount of pixels drawn with possible occlusions ($p_{occluded}$). The ratio $r$ determined by
+To see if the object is occluded it is drawn before the other objects that might occlude it and the number of pixels drawn to the screen is counted. Then, after the rest has been drawn the object of interest is drawn and its pixels are counted again. Because of the depth buffer, only the parts of the object that are not blocked from view are drawn, which means that if the both amounts of pixels from both renderings are the same the object is unoccluded.\\
+To boost performance, the first rendering of the object of interest is done using the low cost overlay shader used in the color picking algorithm. Counting the rendered pixels of object of interest is done by using OpenGL queries. \\
+Now it is possible to automatically generate an exploding view by making the offset of the exploding part grow until the object is fully visible. The offset grows at a constant speed which can be chosen in the user interface. If the object is unoccluded after a user interaction the offset shrinks until the first frame with a partial occlusion after which it grows again and stops when fully visible.\\ 
+To achieve a more natural movement the relative amount of occlusion
 \begin{equation}
 	\label{eq:OcclusionRatio}
 	r =\frac{p_{unoccluded} - p_{occluded}}{ p_{unoccluded}}
@@ -45,30 +48,11 @@ for
 \begin{equation}
 	p_{occluded} \neq 0
 \end{equation}
-
-is multiplied with the speed specified by user input resulting in the speed at which the offset grows toward an ideal offset which is the maximum offset described in Milestone 3 or an offset of 0 if the difference between  ($p_{unoccluded}$) and  ($p_{occluded}$) is 0 with the ideal offset different than the maximum offset.\\
-Because the ratio tends towards 0 the more the object is revealed the growth of the offset diminishes the more is revealed , coming to a halt as soon as the whole object is fully revealed which is the moment the ideal offset is set to the current offset.\\
-\begin{verbatim}
-float ratio_selected = occlusions[0]- occlusions[1];
-	if (ratio_selected>0){
-	ratio_selected/=occlusions[0];
-	if (ghosting){
-		ideal_offset[0]=boundsDiameter;
-		ideal_offset[1]=-boundsDiameter;
-	}else{
-		ideal_offset[0]=20.0f;
-		ideal_offset[1]=-20.0f;
-	}
-	speed=GetPlugin().GetProperty("Speed");
-	speed*=ratio_selected;
-}else{
-	//stop
-	}
-\end{verbatim}
+can be used to generate an ease-out-effect:
+The speed is multiplied with $r$  specified by user input resulting in the speed, making the animation faster when little of the object of interest is visible and slower if much of it can be seen, coming to a halt as soon as the whole object is fully revealed which is the moment the ideal offset is set to the current offset.\\
 This movement is akin to the movement of the object being pulled by a spring toward the point of full revelation of the object of interest, though not a linear spring, because the change of speed is determined by the amount of Pixels that are revealed in each iteration making the spring constant proportional to $r$.
 To avoid that the Object still moves at very low speeds, resulting in huge amounts of unnecesary costly redraws, a minimum speed $\epsilon$ is introduced so that the object comes to a halt earlier.\\
 \subsection{Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases} 
-
 The objective of this last Milestone is to give a smooth appearance to the graphic while the view is changed by User interaction. The first step is to make the transition between two offsets smooth with the transition speed $s$ proportional to $\Delta_{offset}$
 \begin{equation}
 	s=s_u \cdot \Delta_{offset}
@@ -93,6 +77,28 @@ If the current offset $o_c$ exceeds $o_{max} \cdot 0.7$ the opacity $\alpha$ of 
 	\alpha = \frac{o_{max}-o_c}{o_{max} \cdot 0.3} \cdot 0.5 + 0.5
 \end{equation}
 This opacity factor $\alpha$ is then multiplied by $r$ \ref{eq:OcclusionRatio}  so that the object stays solid while its not occluding anything and is most translucent if the whole object of interest is occluded completely.\\
+\begin{verbatim}
+//get the occlusion ratio
+float ratio_selected = occlusions[0]- occlusions[1];
+	if (ratio_selected>0){
+	ratio_selected/=occlusions[0];
+	
+	// set the offset
+	if (ghosting){
+		ideal_offset[0]=boundsDiameter;
+		ideal_offset[1]=-boundsDiameter;
+	}else{
+		ideal_offset[0]=20.0f;
+		ideal_offset[1]=-20.0f;
+	}
+	
+	//multiply the ratio to the speed
+	speed=GetPlugin().GetProperty("Speed");
+	speed*=ratio_selected;
+}else{
+	//stop
+	}
+\end{verbatim}
 To determine which part is the front part, I calculated the dot product of the viewing vector and the plane normal, using its sign to determine whether the part shifted in direction of the plane normal is the front part or not. This also determines in which order the parts are rendered, with the front part being the last, so that it can be translucently blended over the solid parts.\\
 A problem that now appears is that backface culling is deactivated to so that the cutaway can be rendered correctly, resulting in the translucent objects' backfaces also visible, which causes the graphic to appear slightly confusing and aesthetically unpleasant. This can be avoided by allowing backface culling for a translucent object, if its offset vector doesn't point away from the camera. Because this may be the case if the camera is placed between the original and the translated switch plane, the dot product has to be calculated once more, now for the translated split plane.\\
 \begin{figure}[tb]
