@@ -3,11 +3,12 @@ A level-1 auxiliary file: chapters/titlepage_de.aux
 A level-1 auxiliary file: chapters/titlepage_en.aux
 The style file: plain.bst
 Database file #1: chapters/references.bib
-I was expecting a `,' or a `}'---line 62 of file chapters/references.bib
+I was expecting a `,' or a `}'---line 106 of file chapters/references.bib
  : 
  : @INPROCEEDINGS{proc:ruiz-2008-SEV,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "misc:siggraph"
 Too many commas in name 1 of "L. Neumann, M. Sbert, B. Gooch, W. Purgathofer" for entry Viola-05-Smart
 while executing---line 1090 of file plain.bst
 (There were 2 error messages)

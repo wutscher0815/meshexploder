@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.29)  9 DEC 2015 02:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.29)  16 DEC 2015 03:21
 entering extended mode
 **C:/Users/Hartwig/Desktop/BAC/src/plugins/renderers/plugin_renderer_meshsplitt
 ing/thesis/INF_Thesis_LaTeX_Template/thesis.tex
@@ -1164,39 +1164,50 @@ Package: cite 2015/02/27  v 5.5
 Package: varioref 2014/10/28 v1.5a package for extended references (FMi)
 \c@vrcnt=\count177
 )
-(thesis.aux (chapters/titlepage_de.aux) (chapters/titlepage_en.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 63.
+(C:\Users\Hartwig\miktex\tex\latex\wrapfig\wrapfig.sty
+\wrapoverhang=\dimen216
+\WF@size=\dimen217
+\c@WF@wrappedlines=\count178
+\WF@box=\box68
+\WF@everypar=\toks39
+Package: wrapfig 2003/01/31  v 3.6
+) (thesis.aux
+(chapters/titlepage_de.aux) (chapters/titlepage_en.aux)
 
-("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\t1ptm.fd"
+LaTeX Warning: Label `fig:splitting_explained' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 64.
+ ("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (C:\Users\Hartwig\miktex\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count178
-\scratchdimen=\dimen216
-\scratchbox=\box68
-\nofMPsegments=\count179
-\nofMParguments=\count180
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count181
-\MPscratchDim=\dimen217
-\MPnumerator=\count182
-\makeMPintoPDFobject=\count183
-\everyMPtoPDFconversion=\toks40
+\scratchcounter=\count179
+\scratchdimen=\dimen218
+\scratchbox=\box69
+\nofMPsegments=\count180
+\nofMParguments=\count181
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count182
+\MPscratchDim=\dimen219
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
+\everyMPtoPDFconversion=\toks41
 ) ABD: EveryShipout initializing macros
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1232,26 +1243,26 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box69
-Package hyperref Info: Link coloring OFF on input line 63.
+\AtBeginShipoutBox=\box70
+Package hyperref Info: Link coloring OFF on input line 64.
 ("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeX 2.9_2\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count184
+\c@section@level=\count185
 LaTeX Info: Redefining \Ref on input line 513.
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 63.
-LaTeX Info: Redefining \ref on input line 63.
-LaTeX Info: Redefining \pageref on input line 63.
-LaTeX Info: Redefining \nameref on input line 63.
+LaTeX Info: Redefining \nameref on input line 64.
+LaTeX Info: Redefining \ref on input line 64.
+LaTeX Info: Redefining \pageref on input line 64.
+LaTeX Info: Redefining \nameref on input line 64.
 (thesis.out) (thesis.out)
 \@outlinefile=\write5
-LaTeX Info: Redefining \Ref on input line 63.
+LaTeX Info: Redefining \Ref on input line 64.
 
 
 bibgerm.sty: (n)german.sty 2.5b detected
@@ -1446,151 +1457,222 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--14
 File: chapters/figures/demo.png Graphic file (type png)
 
 <use chapters/figures/demo.png>
-Package pdftex.def Info: chapters/figures/demo.png used on input line 23.
+Package pdftex.def Info: chapters/figures/demo.png used on input line 24.
 (pdftex.def)             Requested size: 292.77629pt x 264.08446pt.
 ) (chapters/cha2_state_of.tex [1
 
-] [2 <./chapters/figures/demo.png (PNG copy)>]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6.
+] [2] [3 <./chapters/figures/demo.png (PNG copy)>] [4
 
-<chapters/figures/splitting.png, id=150, 840.99269pt x 196.67508pt>
+]
+<chapters/figures/davinci.jpg, id=154, 391.4625pt x 246.9225pt>
+File: chapters/figures/davinci.jpg Graphic file (type jpg)
+
+<use chapters/figures/davinci.jpg>
+Package pdftex.def Info: chapters/figures/davinci.jpg used on input line 5.
+(pdftex.def)             Requested size: 117.1105pt x 73.86632pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 18.
+[5 <./chapters/figures/davinci.jpg>]
+<chapters/figures/splitting.png, id=170, 840.99269pt x 196.67508pt>
 File: chapters/figures/splitting.png Graphic file (type png)
 
 <use chapters/figures/splitting.png>
-Package pdftex.def Info: chapters/figures/splitting.png used on input line 15.
+Package pdftex.def Info: chapters/figures/splitting.png used on input line 27.
 (pdftex.def)             Requested size: 376.42575pt x 88.0318pt.
 
-<chapters/figures/axes.png, id=153, 757.6305pt x 323.7696pt>
+<chapters/figures/axes.png, id=173, 757.6305pt x 323.7696pt>
 File: chapters/figures/axes.png Graphic file (type png)
 
 <use chapters/figures/axes.png>
-Package pdftex.def Info: chapters/figures/axes.png used on input line 23.
+Package pdftex.def Info: chapters/figures/axes.png used on input line 35.
 (pdftex.def)             Requested size: 292.77629pt x 125.1136pt.
 
-<chapters/figures/hierarchy.png, id=156, 2091.815pt x 838.13126pt>
+<chapters/figures/hierarchy.png, id=176, 2091.815pt x 838.13126pt>
 File: chapters/figures/hierarchy.png Graphic file (type png)
 
 <use chapters/figures/hierarchy.png>
-Package pdftex.def Info: chapters/figures/hierarchy.png used on input line 31.
+Package pdftex.def Info: chapters/figures/hierarchy.png used on input line 43.
 (pdftex.def)             Requested size: 292.77629pt x 117.29921pt.
- [3
-
-]
-<chapters/figures/perspective.png, id=168, 1378.1889pt x 511.6716pt>
+ [6 <./chapters/figures/splitting.png>]
+<chapters/figures/perspective.png, id=191, 1378.1889pt x 511.6716pt>
 File: chapters/figures/perspective.png Graphic file (type png)
 
 <use chapters/figures/perspective.png>
-Package pdftex.def Info: chapters/figures/perspective.png used on input line 40
+Package pdftex.def Info: chapters/figures/perspective.png used on input line 52
 .
 (pdftex.def)             Requested size: 376.42575pt x 139.75371pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <./chapters/figures/splitting.png> <./chapters/figures/axes.png>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 47.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 59.
 
 ("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
- [5 <./chapters/figures/hierarchy.png> <./chapters/figures/perspective.png>]
-<chapters/figures/motor.png, id=191, 999.735pt x 417.56pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ [7 <./chapters/figures/axes.png> <./chapters/figures/hierarchy.png>]
+<chapters/figures/motor.png, id=202, 999.735pt x 417.56pt>
 File: chapters/figures/motor.png Graphic file (type png)
 
 <use chapters/figures/motor.png>
-Package pdftex.def Info: chapters/figures/motor.png used on input line 53.
+Package pdftex.def Info: chapters/figures/motor.png used on input line 65.
 (pdftex.def)             Requested size: 292.77629pt x 122.28075pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--64
+ [8 <./chapters/figures/perspective.png> <./chapters/figures/motor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
 
  []
 
-[6 <./chapters/figures/motor.png>] [7]) (chapters/cha3_practical_woik.tex
-[8] <chapters/figures/cerebellum.png, id=216, 2864.7025pt x 819.06pt>
+[9]) (chapters/cha3_practical_woik.tex [10]
+Underfull \hbox (badness 10000) in paragraph at lines 3--8
+
+ []
+
+
+LaTeX Warning: Citation `schwankl-2013-smis' on page 11 undefined on input line
+ 9.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11
+
+]
+<chapters/figures/splitting_explained.png, id=237, 839.69153pt x 295.16212pt>
+File: chapters/figures/splitting_explained.png Graphic file (type png)
+
+<use chapters/figures/splitting_explained.png>
+Package pdftex.def Info: chapters/figures/splitting_explained.png used on input
+ line 23.
+(pdftex.def)             Requested size: 376.42575pt x 132.31729pt.
+
+<chapters/figures/cerebellum.png, id=239, 2864.7025pt x 819.06pt>
 File: chapters/figures/cerebellum.png Graphic file (type png)
 
 <use chapters/figures/cerebellum.png>
-Package pdftex.def Info: chapters/figures/cerebellum.png used on input line 21.
+Package pdftex.def Info: chapters/figures/cerebellum.png used on input line 34.
 
 (pdftex.def)             Requested size: 376.42575pt x 107.61884pt.
- [9
-
-] [10 <./chapters/figures/cerebellum.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 41.
-("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+[13 <./chapters/figures/splitting_explained.png> <./chapters/figures/cerebellum
+.png>]
+
+LaTeX Warning: Citation `misc:siggraph' on page 14 undefined on input line 42.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--62
 
  []
 
-[11] <chapters/figures/infinity.png, id=239, 2864.7025pt x 819.06pt>
+[14] <chapters/figures/infinity.png, id=267, 2864.7025pt x 819.06pt>
 File: chapters/figures/infinity.png Graphic file (type png)
 
 <use chapters/figures/infinity.png>
 Package pdftex.def Info: chapters/figures/infinity.png used on input line 75.
 (pdftex.def)             Requested size: 376.42575pt x 107.61884pt.
- [12 <./chapters/figures/infinity.png>]
-<chapters/figures/brainstem.png, id=249, 2864.7025pt x 2457.18pt>
+ [15]
+<chapters/figures/brainstem.png, id=276, 2864.7025pt x 2457.18pt>
 File: chapters/figures/brainstem.png Graphic file (type png)
 
 <use chapters/figures/brainstem.png>
 Package pdftex.def Info: chapters/figures/brainstem.png used on input line 91.
 (pdftex.def)             Requested size: 376.42575pt x 322.85652pt.
- [13] [14 <./chapters/figures/brainstem.png>]) (thesis.bbl [15
-
-] [16
+ [16 <./chapters/figures/infinity.png>]
+[17 <./chapters/figures/brainstem.png>] [18
 
 ]
+! Undefined control sequence.
+<recently read> \Item 
+                      
+l.98 \Item
+           Exploded views lose the property of showing the object of interes...
+
+? 
+! Undefined control sequence.
+l.99 \Item
+           Ghosting on the other hand loses one of its key advantages, namel...
+
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100 \end{itemize}
+                   
+? 
+) [19] (thesis.bbl [20]
 bibitemlist
-) [17]
+) [21
+
+]
 \tf@toc=\write6
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 162.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 162.
  (thesis.aux (chapters/titlepage_de.aux) (chapters/titlepage_en.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
-Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 319AF546B9EF352F37BE8ED3AB9A1DC5;645.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 162.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 162.
+
+
+Package rerunfilecheck Warning: File `thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `thesis.out':
+(rerunfilecheck)             Before: B0023D9EFB1FF3354DC53C92593DDDF9;643
+(rerunfilecheck)             After:  C1971249661F43D20F36F14466D1FF60;620.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 162.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22767 strings out of 493673
- 414597 string characters out of 3145599
- 532047 words of memory out of 3000000
- 25605 multiletter control sequences out of 15000+200000
- 68591 words of font info for 86 fonts, out of 3000000 for 9000
+ 22830 strings out of 493673
+ 415599 string characters out of 3145599
+ 535020 words of memory out of 3000000
+ 25653 multiletter control sequences out of 15000+200000
+ 67970 words of font info for 84 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 68i,19n,66p,1419b,4206s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9_2/fonts/enc/dvips/fontname/8
-r.enc}<C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmmi1
-0.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmmi8
-.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmr10.
-pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmr8.pf
-b><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/symbols/msam1
-0.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/courier/ucrr8a.pfb><
-C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9_2/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86
-)/MiKTeX 2.9_2/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 
-2.9_2/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (29 pages, 3371972 bytes).
+ 68i,19n,66p,1420b,4260s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{section*.15} has been referenced bu
+t does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.2} has been referenced but does not exist
+, replaced by a fixed one
+
+{C:/Program Files (x86)/MiKTeX 2.9_2/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program File
+s (x86)/MiKTeX 2.9_2/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86
+)/MiKTeX 2.9_2/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 
+2.9_2/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fon
+ts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (33 pages, 3502551 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 368 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

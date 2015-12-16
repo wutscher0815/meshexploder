@@ -1,10 +1,21 @@
 \begin{thebibliography}{1}
 
+\bibitem{Agrawala:2011:DPV:1924421.1924439}
+Maneesh Agrawala, Wilmot Li, and Floraine Berthouzoz.
+\newblock Design principles for visual communication.
+\newblock {\em Commun. ACM}, 54(4):60--69, April 2011.
+
 \bibitem{Agra03}
 Maneesh Agrawala, Doantam Phan, Julie Heiser, John Haymaker, Jeff Klingner, Pat
   Hanrahan, and Barbara Tversky.
 \newblock Designing effective step-by-step assembly instructions.
 \newblock {\em ACM Trans. Graph.}, 22(3):828--837, 2003.
+
+\bibitem{bruckner-2005-VIS}
+Stefan Bruckner and Meister~Eduard Gr{"o}ller.
+\newblock Volumeshop: An interactive system for direct volume illustration.
+\newblock In H.~Rushmeier C.~T.~Silva, E.~Gr{"o}ller, editor, {\em Proceedings
+  of IEEE Visualization 2005}, pages 671--678, October 2005.
 
 \bibitem{proc:bruckner-2006-EVV}
 Stefan Bruckner and Meister~Eduard Gr{\"o}ller.

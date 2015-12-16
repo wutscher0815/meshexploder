@@ -1,10 +1,10 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [0][-]{chapter.2}{State of the Art}{}% 2
-\BOOKMARK [1][-]{section.2.1}{What are the main problems when creating exploded views?}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{Analysis}{chapter.2}% 4
-\BOOKMARK [0][-]{chapter.3}{Practical part}{}% 5
-\BOOKMARK [1][-]{section.3.1}{Plan and milestone definition:}{chapter.3}% 6
-\BOOKMARK [1][-]{section.3.2}{Tools and languages}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.3}{Documentation of the implementation each milestone}{chapter.3}% 8
-\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 9
-\BOOKMARK [0][-]{section*.14}{Bibliography}{}% 10
+\BOOKMARK [0][-]{chapter.2}{Related Work}{}% 2
+\BOOKMARK [1][-]{section.2.1}{What are the main challenges when creating exploded views?}{chapter.2}% 3
+\BOOKMARK [0][-]{chapter.3}{Practical part}{}% 4
+\BOOKMARK [1][-]{section.3.1}{Analysis and conclusions from other work}{chapter.3}% 5
+\BOOKMARK [1][-]{section.3.2}{Implementation}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.3}{Tools and languages}{chapter.3}% 7
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 8
+\BOOKMARK [1][-]{section.4.1}{Future Work}{chapter.4}% 9
+\BOOKMARK [0][-]{section*.16}{Bibliography}{}% 10

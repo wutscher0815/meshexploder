@@ -1,7 +1,19 @@
-\chapter{State of the Art}
-\section{What are the main problems when creating exploded views?}
+\chapter{Related Work}
 
-To create an exploded view,  a few considerations have to be made Li et al.\cite{proc:Li:2008:AGI} provide a comprehensive list of these challenges.\\
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \begin{center}
+    \includegraphics[width=0.28\textwidth]{chapters/figures/davinci}
+  \end{center}
+  \caption{Exploded view by Leonardo da Vinci}
+  \label{fig:davinci}
+\end{wrapfigure}
+Like many other techniques exploded views by themselves are nothing new, hand-drawn and -designed instances of this technique have existed since the rennaissance (see \ref{fig:davinci}). 
+\begin {quote}
+They (illustrators) carefully choose the size and shape of cuts, as well as the placement of the parts relative to one another, to expose and highlight the internal structure and spatial relationships between parts.\cite{Agrawala:2011:DPV:1924421.1924439}
+\end{quote}
+Agrawala et al. \cite{Agrawala:2011:DPV:1924421.1924439} describe methods of how to generally create and evaluate design principles for visual communication: by analyzing existing examples of a technique, analyzing them using insights from cognitive and perceptive science, design rules are hypothesized. These design priciples are often qualitative guidelines and can not be simply translated into a generative algorith. They are then to be evaluated by user feedback from making the visualization available to the public and user studies.\\
+\section{What are the main challenges when creating exploded views?}
+For the concrete problem of creating exploded views Li et al.\cite{proc:Li:2008:AGI} provide a comprehensive list of such guidelines and what the challenges of the process of implementing them in an interactive system are.\\
 Most important of all is the question what information should be communicated with the image and what the purpose of the illustration is. In essence what are the objects of interest that should attract the viewers attention? This usually is determined by preliminary definition of interesting features, definitions of parts, subsets of parts of the data or user interaction while viewing the graphic.
 \subsection{Explosion direction}
 Also one has to consider in which direction the parts should be displaced. 
@@ -9,7 +21,7 @@ Also one has to consider in which direction the parts should be displaced.
 Many objects have a canonical coordinate frame that may be defined by a number of factors, including symmetry , real-world orientation, and domain-specific conventions. In most exploded views, parts are exploded only along these canonical axes.\cite{proc:Li:2008:AGI}
 \end{quote}
 Especially if the graphic conveys technical instructions or how-things-work-descriptions descriptions these axes are usually the directions in which they are assembled \cite{Agra03} or - if applicable- the axis around which they rotate\cite{MitraYYLA13}.
-If the interesting parts are inside a container that is also part of the object, this container is split and its segments are also exploded. In the most simple approach, which is what I implemented, the cutting plane is the normal plane of the explosion direction, with the center of the object's bounding box.
+If the interesting parts are inside a container that is also part of the object, this container is split and its segments are also exploded. In the most simple approach, which is what I implemented, the cutting plane is the normal plane of the explosion direction, with the center of the object's bounding box (see \ref{fig:splitting}).
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.9\textwidth]{chapters/figures/splitting}
@@ -58,9 +70,11 @@ This approach results in very intuitive manipulation of the graphic, making the 
 In this approach the parts don't have to explode along a predefined axis, the explosion direction can be dynamically determined by the forces, which looks impressive for anatomical data, for a technical illustration it is less desirable, for one of the key advantages of exploded views, the retention of information of a subpart's location in a system is partially lost without a clear displacement direction.\\
 The solution presented in the paper is able to define axes along which to explode, this, though with similarly intuitive interaction by looking at a certain point still has the problem of little oversight when viewing from certain angles.
 \subsection{Ghosting}
+
+\subsection{Ghosting}
 As the exploded view, ghosting is a smart visibility technique to illustrate the normally occluded inner workings of a complex object. In this case smart visibility is defined like this.
 \begin{quote}Smart Visibility considers more than just light propagation. For example also the relevance of the individual objects is taken into account. An important object might shine through an otherwise occluding object closer to the viewer. \cite{Viola-05-Smart}\end{quote}
-The advantages of this technique are that the in contrast to the exploded view, objects visualized with ghosting do not take up more space than the objects themselves. Additionally, the inner parts of an object are shown at their actual position inside the object, thus being able to show the composition of an object accurately than an Exploded view might be able to do.\\
+The advantages of this technique are that the in contrast to the exploded view, objects visualized with ghosting do not take up more space than the objects themselves. Additionally, the inner parts of an object are shown at their actual position inside the object, thus being able to show the composition of an object accurately than an Exploded view might be able to do. Another advantage is that because the occluding object is not completely surpressed, \\
 On the other Hand, ghosted views are usually more cluttered because of this, which can lead to loss of detail and insight. Also they tend to look confusing in case two objects are in between the viewer and the object of interest. To avoid these problems and achieve good results the following rules should be considered:\cite{Viola-05-Smart}
 \begin{itemize}
 \item faces of transparent objects never shine through
@@ -71,11 +85,5 @@ On the other Hand, ghosted views are usually more cluttered because of this, whi
 The biggest advantage of a computerized illustration over the classic static illustration is interactivity, most obviously the possibility to view an object from every different direction, which as described above creates its own challenges. Another aspect is the possibility for the user to choose which part of the graphic are interesting to her or him.\\
  In Li et al.'s solution\cite{proc:Li:2008:AGI} this is restricted to the predefined parts of the data sets that can be selected by clicking on them which causes the explosion to adapt, so that the selected part is fully visible. Another possibility is dragging a part along its explosion axis which causes which causes all parts on that axis to move along with it until a part that moves along a different axis is encountered. Also a 3D fish-eye viewing technique can be used that, akin to the viewing force \cite{proc:bruckner-2006-EVV} can be used to move the parts along their axes.\\
 The force-based solution is -due to the use of volume data- more flexible in the definition of parts that can be exploded: the data can be freely partitioned in cuboid subspaces that can be linked by hinges or to an axis, that can be exploded by the forces three above, each of which can be varied between a 0 and a maximum value along  with the degree of explosion\\
-\section{Analysis}
-Since my task required creating exploded views for objects defined by triangle meshes, my approach would be rather like Li et al.'s solution, to use the groups of the mesh as the different parts of the objects which from which an object of interest would be chosen by clicking on it.\\ 
-This object of interest satys at its place in the object, while the rest of the object is split along a cutting plane and then moved in a smooth animation to a point that leaves the object of interest fully revealed. This object would move along the axis defined by the user in a speed that is determined by how much of the Object is visible - the more the object is occluded, the faster the occluding parts move. This non-linear acceleration drew its inspiration from the before mentioned force-based approach to displacing the elements of the object, though my goal was to fully reveal the centered object, which though it normally works, is not guaranteed.\\
-The biggest problem to tackle was now how to handle viewing directions that cause the graphic to grow up to -in th worst case- infinity.\\
-Neither the prospect of visual clutter, indeterminate explosion directions nor the idea of a graphic that would grow infinitely when viewed from the wrong angle proved satisfactory, especially from a usability standpoint: Though the system allows for a freely movable viewpoint, most perspectives just deliver unsatisfactory or even useless results.\\
-Since a maximum threshold for the explosion along an axis was inevitable, my intention was to keep it low enough to retain a satisfactory level of compactness I chose ghosting as a technique to still convey information about the object of interest to the user when it was occluded by another part of the object.\\
 
 
