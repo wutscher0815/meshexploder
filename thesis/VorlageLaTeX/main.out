@@ -1,0 +1,7 @@
+\BOOKMARK [0][-]{chapter.1}{1 Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{2 Practical part}{}% 2
+\BOOKMARK [1][-]{section.2.1}{2.1 Plan and milestone definition:}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{2.2 Documentation of the implementation each milestone}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.2.1}{2.2.1 Milestone 1:Selection of split meshes, selected parts are not split and stay in place}{section.2.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.2}{2.2.2 Milestone 2: find a safe distance, find a split plane}{section.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.3}{2.2.3 Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases}{section.2.2}% 7
