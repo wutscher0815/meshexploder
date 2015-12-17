@@ -69,7 +69,13 @@ A solution for this would be to use a view dependent force-based displacement be
 This approach results in very intuitive manipulation of the graphic, making the part of the object of interest that one is looking at always visible with smooth transitions between the positions of the parts when changing viewpoints.\\
 In this approach the parts don't have to explode along a predefined axis, the explosion direction can be dynamically determined by the forces, which looks impressive for anatomical data, for a technical illustration it is less desirable, for one of the key advantages of exploded views, the retention of information of a subpart's location in a system is partially lost without a clear displacement direction.\\
 The solution presented in the paper is able to define axes along which to explode, this, though with similarly intuitive interaction by looking at a certain point still has the problem of little oversight when viewing from certain angles.
-\subsection{Ghosting}
+\subsection{Elxploded views in architectural visualization}
+In architecture the need to visually communicate complex ideas about what a building should look like are essential to the craft. Exploded views are one of the techiques employed for this, in many shopping malls or complex public buildings(e.g. TU Wien) the floor plans are simple exploded views of teh building. Niederauer et al. \cite{TODO} have devised an interesting non-invasive method to achieve this kind of floor layout:\\
+First a possible candidate for a splitting plane needs to be found, ideally this is the ceiling of a floor.
+By counting the number of downward facing poligons at each possible vertex height, and define those heights with an exceptionally large number of downward facing poligons as a ceiling of  floor. They then split and displace the meshes upwards until everything is visible, which results in an exploded view of the architecture that was analized. The most intriguing thing is that they do that by manipulating the openGL output Stream of third party software (among others Quake III) without the need to change that software in any way.\\
+Fleiss \cite{TODO} aproaches a similar problem though not just limited to drawing a foor plan with only one explosion direction, but a complex view that aims to illustrate the layout of walls, roofs, etc.
+
+SOME WORDS ABOUT THE GRAMMAR AND THE USER STUDY
 
 \subsection{Ghosting}
 As the exploded view, ghosting is a smart visibility technique to illustrate the normally occluded inner workings of a complex object. In this case smart visibility is defined like this.
