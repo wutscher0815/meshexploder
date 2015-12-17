@@ -39,7 +39,7 @@ To set this right, the the overlay function was modified so that it would also b
 \subsubsection{Milestone 2: find a safe distance, find a split plane} 
 The next step is now to automatically displace place the two halves of the objectalong the explosion direction so that the object of interest is fully visible from every angle. To achieve this an animated displacement of the object has two big advantages over statically placing the objects at the safe distance:\\
 \begin{itemize}
-\item \textbf{Aesthetics} A smooth transition of an objects movement from one point to another is conceived as more natural and therefore better-looking than an aprupt change of position. This conception can be reinforced by using animation techniques like slow in and slow out.\cite{misc:siggraph}
+\item \textbf{Aesthetics} A smooth transition of an objects movement from one point to another is conceived as more natural and therefore better-looking than an aprupt change of position. This conception can be reinforced by using animation techniques like slow in and slow out.\cite{misc:siggraphAnim}
 \item \textbf{Simplicity} Rather than finding the ideal distance by deterministically calculating it before displacing the object a much simpler approach is to guess such a distance by checking, if the object of interest is fully visible and then displacing the exploding parts otwards as long as this is not the case.
 \end{itemize}
 With these considerations in mind an implicit approach to finding the ideal offset of the two halves was used:\\
