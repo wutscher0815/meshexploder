@@ -3,12 +3,14 @@ A level-1 auxiliary file: chapters/titlepage_de.aux
 A level-1 auxiliary file: chapters/titlepage_en.aux
 The style file: plain.bst
 Database file #1: chapters/references.bib
-I was expecting a `,' or a `}'---line 106 of file chapters/references.bib
+You're missing a field name---line 189 of file chapters/references.bib
  : 
- : @INPROCEEDINGS{proc:ruiz-2008-SEV,
+ : %   author = {{Siggraph}},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "misc:siggraph"
-Too many commas in name 1 of "L. Neumann, M. Sbert, B. Gooch, W. Purgathofer" for entry Viola-05-Smart
-while executing---line 1090 of file plain.bst
-(There were 2 error messages)
+Warning--entry type for "schwankl-2013-smis" isn't style-file defined
+--line 257 of file chapters/references.bib
+Warning--I didn't find a database entry for "Viola-05-Smart"
+Warning--I didn't find a database entry for "TODO"
+Warning--to sort, need author or key in misc:siggraphAnim
+(There was 1 error message)

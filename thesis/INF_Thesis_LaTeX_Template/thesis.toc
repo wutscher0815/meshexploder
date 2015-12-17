@@ -1,21 +1,21 @@
-\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
-\contentsline {chapter}{\chapternumberline {2}Related Work}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}What are the main challenges when creating exploded views?}{5}{section.2.1}
-\contentsline {subsection}{Explosion direction}{6}{section*.4}
-\contentsline {subsection}{Part hierarchy}{6}{section*.5}
-\contentsline {subsection}{Visibility}{7}{section*.6}
-\contentsline {subsection}{Ghosting}{9}{section*.7}
-\contentsline {subsection}{Ghosting}{9}{section*.8}
-\contentsline {subsection}{Interactivity}{9}{section*.9}
-\contentsline {chapter}{\chapternumberline {3}Practical part}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Analysis and conclusions from other work}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Implementation}{12}{section.3.2}
-\contentsline {subsection}{Plan and milestone definition:}{12}{section*.10}
-\contentsline {section}{\numberline {3.3}Tools and languages}{12}{section.3.3}
-\contentsline {subsection}{Documentation of the implementation each milestone}{12}{section*.11}
-\contentsline {subsubsection}{Milestone 1: Selection of split meshes, selected parts are not split and stay in place}{12}{section*.12}
-\contentsline {subsubsection}{Milestone 2: find a safe distance, find a split plane}{13}{section*.13}
-\contentsline {subsubsection}{Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases}{15}{section*.14}
-\contentsline {chapter}{\chapternumberline {4}Conclusion}{19}{chapter.4}
-\contentsline {section}{\numberline {4.1}Future Work}{19}{section.4.1}
-\contentsline {chapter}{Bibliography}{21}{section*.16}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{3}{chapter.1}
+\contentsline {chapter}{\chapternumberline {2}Related Work}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}What are the main challenges when creating exploded views?}{7}{section.2.1}
+\contentsline {subsection}{Explosion direction}{8}{section*.4}
+\contentsline {subsection}{Part hierarchy}{8}{section*.5}
+\contentsline {subsection}{Visibility}{9}{section*.6}
+\contentsline {subsection}{Elxploded views in architectural visualization}{11}{section*.7}
+\contentsline {subsection}{Ghosting}{11}{section*.8}
+\contentsline {subsection}{Interactivity}{12}{section*.9}
+\contentsline {chapter}{\chapternumberline {3}Practical part}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Analysis and conclusions from other work}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Implementation}{14}{section.3.2}
+\contentsline {subsection}{Plan and milestone definition:}{14}{section*.10}
+\contentsline {section}{\numberline {3.3}Tools and languages}{14}{section.3.3}
+\contentsline {subsection}{Documentation of the implementation each milestone}{14}{section*.11}
+\contentsline {subsubsection}{Milestone 1: Selection of split meshes, selected parts are not split and stay in place}{14}{section*.12}
+\contentsline {subsubsection}{Milestone 2: find a safe distance, find a split plane}{15}{section*.13}
+\contentsline {subsubsection}{Milestone 3: Optimize Distance, force-field animation of split, optimize fringe distance cases}{17}{section*.14}
+\contentsline {chapter}{\chapternumberline {4}Conclusion}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Future Work}{21}{section.4.1}
+\contentsline {chapter}{Bibliography}{23}{section*.16}

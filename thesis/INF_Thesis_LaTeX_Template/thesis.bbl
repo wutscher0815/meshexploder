@@ -1,4 +1,7 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{misc:siggraphAnim}
+
 
 \bibitem{Agrawala:2011:DPV:1924421.1924439}
 Maneesh Agrawala, Wilmot Li, and Floraine Berthouzoz.
@@ -34,16 +37,21 @@ Niloy~J. Mitra, Yong-Liang Yang, Dong-Ming Yan, Wilmot Li, and Maneesh
 \newblock Illustrating how mechanical assemblies work.
 \newblock {\em Commun. ACM}, 56(1):106--114, 2013.
 
-\bibitem{Viola-05-Smart}
-Ivan Viola and Meister~Eduard Gr{\"o}ller.
+\bibitem{schwankl-2013-smis}
+Barbara Schwankl.
+\newblock Splitting of meshes in image-space, 2013.
+
+\bibitem{Viola:2005:SVV:2381219.2381249}
+Ivan Viola and Meister~E. Gr\"{o}ller.
 \newblock Smart visibility in visualization.
-\newblock In B.~Gooch W.~Purgathofer L.~Neumann, M.~Sbert, editor, {\em
-  Proceedings of EG Workshop on Computational Aesthetics Computational
-  Aesthetics in Graphics, Visualization and Imaging}, pages 209--216, 5 2005.
+\newblock In {\em Proceedings of the First Eurographics Conference on
+  Computational Aesthetics in Graphics, Visualization and Imaging},
+  Computational Aesthetics'05, pages 209--216, Aire-la-Ville, Switzerland,
+  Switzerland, 2005. Eurographics Association.
 
 \bibitem{misc:WikiEnVIs}
 {Wikipedia: Illustration}.
 \newblock http://en.wikipedia.org/wiki/illustration.
-\newblock Accessed: 2013-12-12.
+\newblock Accessed: 2015-12-17.
 
 \end{thebibliography}
