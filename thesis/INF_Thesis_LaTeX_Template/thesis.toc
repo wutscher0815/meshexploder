@@ -4,7 +4,7 @@
 \contentsline {subsection}{Explosion direction}{8}{section*.4}
 \contentsline {subsection}{Part hierarchy}{8}{section*.5}
 \contentsline {subsection}{Visibility}{9}{section*.6}
-\contentsline {subsection}{Elxploded views in architectural visualization}{11}{section*.7}
+\contentsline {subsection}{Exploded views in architectural visualization}{11}{section*.7}
 \contentsline {subsection}{Ghosting}{11}{section*.8}
 \contentsline {subsection}{Interactivity}{12}{section*.9}
 \contentsline {chapter}{\chapternumberline {3}Practical part}{13}{chapter.3}

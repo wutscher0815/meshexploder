@@ -2,3 +2,4 @@
 /s_vn
 /res/s_vn
 *.log
+/thesis/VorlageLaTeX/*.aux
