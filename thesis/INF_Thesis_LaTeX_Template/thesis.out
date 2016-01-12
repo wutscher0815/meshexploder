@@ -1,6 +1,7 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Related Work}{}% 2
 \BOOKMARK [1][-]{section.2.1}{What are the main challenges when creating exploded views?}{chapter.2}% 3
+<<<<<<< HEAD
 \BOOKMARK [1][-]{section.2.2}{Analysis and conclusions from other work}{chapter.2}% 4
 \BOOKMARK [0][-]{chapter.3}{Practical part}{}% 5
 \BOOKMARK [1][-]{section.3.1}{Implementation}{chapter.3}% 6
@@ -9,3 +10,12 @@
 \BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 9
 \BOOKMARK [1][-]{section.4.1}{Future Work}{chapter.4}% 10
 \BOOKMARK [0][-]{section*.15}{Bibliography}{}% 11
+=======
+\BOOKMARK [0][-]{chapter.3}{Practical part}{}% 4
+\BOOKMARK [1][-]{section.3.1}{Analysis and conclusions from other work}{chapter.3}% 5
+\BOOKMARK [1][-]{section.3.2}{Implementation}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.3}{Tools and languages}{chapter.3}% 7
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 8
+\BOOKMARK [1][-]{section.4.1}{Future Work}{chapter.4}% 9
+\BOOKMARK [0][-]{section*.16}{Bibliography}{}% 10
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632

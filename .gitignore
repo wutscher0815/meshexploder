@@ -2,4 +2,8 @@
 /s_vn
 /res/s_vn
 *.log
+<<<<<<< HEAD
 *.aux
+=======
+/thesis/VorlageLaTeX/*.aux
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632

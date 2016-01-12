@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.6.12)  11 JAN 2016 23:47
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.29)  11 JAN 2016 10:42
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 entering extended mode
 **C:/Users/harr/Documents/meshexploder/thesis/INF_Thesis_LaTeX_Template/thesis.
 tex
@@ -24,8 +28,13 @@ ment class
 \xlvchars=\skip43
 \@memcnta=\count79
 \c@@memmarkcntra=\count80
+<<<<<<< HEAD
 \l@nohyphenation=\language69
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+=======
+\l@nohyphenation=\language70
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\generic\oberdiek\ifpdf.sty"
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
@@ -62,20 +71,20 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \mem@maxheadheight=\skip55
 \mem@maxfootheight=\skip56
 \headwidth=\skip57
-\c@storedpagenumber=\count82
+\c@storedpagenumber=\count81
 \memPD=\dimen102
 \m@mabparskip=\skip58
 \thanksmarkwidth=\skip59
 \thanksmarksep=\skip60
 \droptitle=\skip61
-\c@book=\count83
-\c@part=\count84
-\c@chapter=\count85
-\c@section=\count86
-\c@subsection=\count87
-\c@subsubsection=\count88
-\c@paragraph=\count89
-\c@subparagraph=\count90
+\c@book=\count82
+\c@part=\count83
+\c@chapter=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
 \beforechapskip=\skip62
 \midchapskip=\skip63
 \afterchapskip=\skip64
@@ -97,8 +106,8 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \beforesubparaskip=\skip80
 \aftersubparaskip=\skip81
 \pfbreakskip=\skip82
-\c@@ppsavesec=\count91
-\c@@ppsaveapp=\count92
+\c@@ppsavesec=\count90
+\c@@ppsaveapp=\count91
 \ragrparindent=\dimen103
 \everylistparindent=\dimen104
 \parsepi=\skip83
@@ -120,10 +129,10 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \absrightindent=\skip97
 \absparindent=\skip98
 \absparsep=\skip99
-\c@vslineno=\count93
-\c@poemline=\count94
-\c@modulo@vs=\count95
-\c@memfvsline=\count96
+\c@vslineno=\count92
+\c@poemline=\count93
+\c@modulo@vs=\count94
+\c@memfvsline=\count95
 \vleftskip=\skip100
 \vrightskip=\skip101
 \stanzaskip=\skip102
@@ -131,11 +140,11 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \vgap=\skip104
 \vindent=\skip105
 \vleftmargin=\dimen106
-\c@verse=\count97
-\c@chrsinstr=\count98
+\c@verse=\count96
+\c@chrsinstr=\count97
 \beforepoemtitleskip=\skip106
 \afterpoemtitleskip=\skip107
-\c@poem=\count99
+\c@poem=\count98
 \beforePoemTitleskip=\skip108
 \midPoemTitleskip=\skip109
 \afterPoemTitleskip=\skip110
@@ -149,7 +158,7 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \TX@old@col=\dimen111
 \TX@target=\dimen112
 \TX@delta=\dimen113
-\TX@cols=\count100
+\TX@cols=\count99
 \TX@ftn=\toks16
 \heavyrulewidth=\dimen114
 \lightrulewidth=\dimen115
@@ -161,22 +170,22 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \cmidrulesep=\dimen121
 \cmidrulekern=\dimen122
 \defaultaddspace=\dimen123
-\@cmidla=\count101
-\@cmidlb=\count102
+\@cmidla=\count100
+\@cmidlb=\count101
 \@aboverulesep=\dimen124
 \@belowrulesep=\dimen125
-\@thisruleclass=\count103
-\@lastruleclass=\count104
+\@thisruleclass=\count102
+\@lastruleclass=\count103
 \@thisrulewidth=\dimen126
 \ctableftskip=\skip113
 \ctabrightskip=\skip114
-\abovecolumnspenalty=\count105
-\@linestogo=\count106
-\@cellstogo=\count107
-\@cellsincolumn=\count108
+\abovecolumnspenalty=\count104
+\@linestogo=\count105
+\@cellstogo=\count106
+\@cellsincolumn=\count107
 \crtok=\toks17
 \@mincolumnwidth=\dimen127
-\c@newflo@tctr=\count109
+\c@newflo@tctr=\count108
 \mem@margin@floatbox=\box26
 \@contcwidth=\skip115
 \@contindw=\skip116
@@ -188,7 +197,7 @@ File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
 \subfloatbottomskip=\skip122
 \subfloatlabelskip=\skip123
 \subfloatcapmargin=\dimen128
-\c@@contsubnum=\count110
+\c@@contsubnum=\count109
 \m@mscap@capbox=\box27
 \m@mscap@fbox=\box28
 \sidecapsep=\dimen129
@@ -232,7 +241,7 @@ LaTeX Info: Redefining \emph on input line 7500.
 \cftsubparagraphindent=\skip151
 \cftsubparagraphnumwidth=\skip152
 \prechapterprecisshift=\dimen138
-\c@maxsecnumdepth=\count111
+\c@maxsecnumdepth=\count110
 \bibindent=\dimen139
 \bibitemsep=\skip153
 \indexcolsep=\skip154
@@ -253,7 +262,7 @@ LaTeX Info: Redefining \emph on input line 7500.
 \footinsdim=\skip164
 \footinsv@r=\insert231
 \@mpfootinsv@r=\insert230
-\m@m@k=\count112
+\m@m@k=\count111
 \m@m@h=\dimen142
 \m@mipn@skip=\skip165
 \sidefootins=\insert229
@@ -263,28 +272,29 @@ LaTeX Info: Redefining \emph on input line 7500.
 \sidefootvsep=\skip169
 \sidefootwidth=\skip170
 \m@mdownsf=\skip171
-\c@sidefootnote=\count113
+\c@sidefootnote=\count112
 \sidefootmarkwidth=\skip172
 \sidefootmarksep=\skip173
 \sidefootparindent=\skip174
-\c@pagenote=\count114
-\c@pagenoteshadow=\count115
+\c@pagenote=\count113
+\c@pagenoteshadow=\count114
 \mem@pn@lastkern=\skip175
 \every@verbatim=\toks19
 \afterevery@verbatim=\toks20
 \verbatim@line=\toks21
-\tab@position=\count116
+\tab@position=\count115
 \verbatim@in@stream=\read1
 \verbatimindent=\skip176
 \verbatim@out=\write3
 \bvboxsep=\skip177
-\c@memfbvline=\count117
-\c@bvlinectr=\count118
+\c@memfbvline=\count116
+\c@bvlinectr=\count117
 \bvnumlength=\skip178
 \fb@frw=\dimen143
 \fb@frh=\dimen144
 \FrameRule=\dimen145
 \FrameSep=\dimen146
+<<<<<<< HEAD
 \c@cp@cntr=\count119
 LaTeX Info: Redefining \: on input line 11958.
 LaTeX Info: Redefining \! on input line 11960.
@@ -304,11 +314,32 @@ LaTeX Info: Redefining \! on input line 11960.
 \c@lastpage=\count133
 \c@figure=\count134
 \c@lofdepth=\count135
+=======
+\c@cp@cntr=\count118
+LaTeX Info: Redefining \: on input line 12052.
+LaTeX Info: Redefining \! on input line 12054.
+\c@ism@mctr=\count119
+\c@xsm@mctr=\count120
+\c@csm@mctr=\count121
+\c@ksm@mctr=\count122
+\c@xksm@mctr=\count123
+\c@cksm@mctr=\count124
+\c@msm@mctr=\count125
+\c@xmsm@mctr=\count126
+\c@cmsm@mctr=\count127
+\c@bsm@mctr=\count128
+\c@workm@mctr=\count129
+\c@sheetsequence=\count130
+\c@lastsheet=\count131
+\c@lastpage=\count132
+\c@figure=\count133
+\c@lofdepth=\count134
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 \cftbeforefigureskip=\skip179
 \cftfigureindent=\skip180
 \cftfigurenumwidth=\skip181
-\c@table=\count136
-\c@lotdepth=\count137
+\c@table=\count135
+\c@lotdepth=\count136
 \cftbeforetableskip=\skip182
 \cfttableindent=\skip183
 \cfttablenumwidth=\skip184
@@ -350,9 +381,13 @@ Package verse [2008/07/23] emulated by memoir.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\memoir\mempatch.sty"
 Package: mempatch 2009/07/24 v6.0f Patches for memoir class v1.6180339
+<<<<<<< HEAD
 ))
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\TUINFTHE
 SIS.sty
+=======
+)) (TUINFTHESIS.sty
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package: TUINFTHESIS 2013/01/16 v1.0 TU INF thesis style file
 
 2013/01/16 v1.0 TU INF thesis style file
@@ -361,9 +396,15 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+<<<<<<< HEAD
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\helvet.sty"
+=======
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\helvet.sty"
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
@@ -395,15 +436,25 @@ Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks24
 \inpenc@posthook=\toks25
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\base\utf8.def"
+File: utf8.def 2015/06/27 v1.1n UTF-8 support for inputenc
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00AB (decimal 171)
@@ -552,8 +603,13 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00B8 (decimal 184)
@@ -583,8 +639,13 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2015/06/27 v1.1n UTF-8 support for inputenc
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -607,8 +668,13 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\generic\babel\babel.sty"
+Package: babel 2015/08/03 3.9m The Babel package
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 *************************************
 * Local config file bblopts.cfg used
@@ -619,9 +685,15 @@ File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
 Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count138
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\generic\babel\babel.def"
+File: babel.def 2015/08/03 3.9m Babel common definitions
+\babel@savecnt=\count137
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 \U@D=\dimen147
 )
 \l@naustrian = a dialect from \language\l@ngerman 
@@ -645,9 +717,15 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
+<<<<<<< HEAD
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+=======
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\pdftex-def\pdftex.def"
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
@@ -656,7 +734,11 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
+<<<<<<< HEAD
 \Gread@gobject=\count139
+=======
+\Gread@gobject=\count138
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 ))
 \Gin@req@height=\dimen148
 \Gin@req@width=\dimen149
@@ -710,6 +792,7 @@ ode.tex"
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
+<<<<<<< HEAD
 Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.d
@@ -725,6 +808,20 @@ code.tex"
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
 \pgfsyssoftpath@smallbuffer@items=\count144
 \pgfsyssoftpath@bigbuffer@items=\count145
+=======
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(C:\Users\Hartwig\miktex\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count143
+\pgfsyssoftpath@bigbuffer@items=\count144
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.
 code.tex"
@@ -746,6 +843,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
 "
 Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
@@ -779,6 +877,37 @@ code.tex")
 code.tex")))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
 \c@pgfmathroundto@lastzeros=\count147
+=======
+(C:\Users\Hartwig\miktex\tex\generic\pgf\basiclayer\pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmath.code.tex
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathcalc.code.tex
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathutil.code.tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen160
+\pgfmath@count=\count145
+\pgfmath@box=\box30
+\pgfmath@toks=\toks33
+\pgfmath@stack@operand=\toks34
+\pgfmath@stack@operation=\toks35
+)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.code.tex
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.trigonometric.co
+de.tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.random.code.tex)
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.comparison.code.
+tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.base.code.tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.round.code.tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfunctions.integerarithmeti
+cs.code.tex)))
+(C:\Users\Hartwig\miktex\tex\generic\pgf\math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count146
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 ))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.co
 de.tex"
@@ -816,7 +945,7 @@ File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box31
 \pgf@hbox=\box32
 \pgf@layerbox@main=\box33
-\pgf@picture@serial@count=\count148
+\pgf@picture@serial@count=\count147
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicst
 ate.code.tex"
@@ -838,6 +967,7 @@ File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 ode.tex"
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathproce
 ssing.code.tex"
 File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
@@ -851,6 +981,18 @@ e.tex"
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
 \pgf@max=\dimen181
 \pgf@sys@shading@range@num=\count149
+=======
+(C:\Users\Hartwig\miktex\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.
+tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+) (C:\Users\Hartwig\miktex\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen183
+) (C:\Users\Hartwig\miktex\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen184
+\pgf@sys@shading@range@num=\count148
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.cod
 e.tex"
@@ -907,6 +1049,7 @@ Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
 e.tex"
 Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothan
 dlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
@@ -932,8 +1075,35 @@ File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 \pgfmatrixcurrentrow=\count155
 \pgfmatrixcurrentcolumn=\count156
 \pgf@matrix@numberofcolumns=\count157
+=======
+(C:\Users\Hartwig\miktex\tex\generic\pgf\libraries\pgflibraryplothandlers.code.
+tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count149
+\pgfplotmarksize=\dimen189
 )
-\tikz@expandcount=\count158
+\tikz@lastx=\dimen190
+\tikz@lasty=\dimen191
+\tikz@lastxsaved=\dimen192
+\tikz@lastysaved=\dimen193
+\tikzleveldistance=\dimen194
+\tikzsiblingdistance=\dimen195
+\tikz@figbox=\box36
+\tikz@figbox@bg=\box37
+\tikz@tempbox=\box38
+\tikz@tempbox@bg=\box39
+\tikztreelevel=\count150
+\tikznumberofchildren=\count151
+\tikznumberofcurrentchild=\count152
+\tikz@fig@count=\count153
+ (C:\Users\Hartwig\miktex\tex\generic\pgf\modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count154
+\pgfmatrixcurrentcolumn=\count155
+\pgf@matrix@numberofcolumns=\count156
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
+)
+\tikz@expandcount=\count157
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\librarie
 s\tikzlibrarytopaths.code.tex"
@@ -946,6 +1116,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
+<<<<<<< HEAD
 \Gm@cnth=\count159
 \Gm@cntv=\count160
 \c@Gm@tempcnt=\count161
@@ -960,6 +1131,22 @@ Package ifvtex Info: VTeX not detected.
 \Gm@dimlist=\toks35
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+=======
+\Gm@cnth=\count158
+\Gm@cntv=\count159
+\c@Gm@tempcnt=\count160
+\Gm@bindingoffset=\dimen196
+\Gm@wd@mp=\dimen197
+\Gm@odd@mp=\dimen198
+\Gm@even@mp=\dimen199
+\Gm@layoutwidth=\dimen200
+\Gm@layoutheight=\dimen201
+\Gm@layouthoffset=\dimen202
+\Gm@layoutvoffset=\dimen203
+\Gm@dimlist=\toks38
+
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\geometry\geometry.cfg"))
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 \tuinf@headwidth=\skip185
 \tuinf@footwidth=\skip186
 \tuinf@baselineskip=\skip187
@@ -1020,16 +1207,22 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
+<<<<<<< HEAD
 \@linkdim=\dimen201
 \Hy@linkcounter=\count162
 \Hy@pagecounter=\count163
+=======
+\@linkdim=\dimen204
+\Hy@linkcounter=\count161
+\Hy@pagecounter=\count162
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count164
+\Hy@SavedSpaceFactor=\count163
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1041,12 +1234,19 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count165
+\c@Hy@tempcnt=\count164
 LaTeX Info: Redefining \url on input line 5041.
+<<<<<<< HEAD
 \XeTeXLinkMargin=\dimen202
 \Fld@menulength=\count166
 \Field@Width=\dimen203
 \Fld@charsize=\dimen204
+=======
+\XeTeXLinkMargin=\dimen205
+\Fld@menulength=\count165
+\Field@Width=\dimen206
+\Fld@charsize=\dimen207
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1056,23 +1256,30 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count167
-\c@Item=\count168
-\c@Hfootnote=\count169
+\Hy@abspage=\count166
+\c@Item=\count167
+\c@Hfootnote=\count168
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\memoir\memhfixc.sty"
 Package: memhfixc 2013/05/30 v1.17 nameref/hyperref package fixes for memoir cl
 ass
-\c@memhycontfloat=\count170
-\c@Hpagenote=\count171
+\c@memhycontfloat=\count169
+\c@Hpagenote=\count170
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count172
 \c@bookmark@seq@number=\count173
+=======
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count171
+\c@bookmark@seq@number=\count172
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1081,9 +1288,16 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip189
 )
+<<<<<<< HEAD
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
 \c@AlgoLine=\count174
+=======
+(C:\Users\Hartwig\miktex\tex\latex\algorithm2e\algorithm2e.sty
+Package: algorithm2e 2013/01/06 v5.00 algorithms environments
+\c@AlgoLine=\count173
+\algocf@hangindent=\skip190
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
@@ -1098,6 +1312,7 @@ Package `algorithm2e' Release 5.0 -- january 06 2013 --
 subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 - Author: Christophe Fiorio (cfiorio@um2.fr)
 ********************************************************
+<<<<<<< HEAD
 \skiptotal=\skip190
 \skiplinenumber=\skip191
 \skiprule=\skip192
@@ -1175,6 +1390,85 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
 )))
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\ngerman.
 sty v2.5e 1998-07-08
+=======
+\skiptotal=\skip191
+\skiplinenumber=\skip192
+\skiprule=\skip193
+\skiphlne=\skip194
+\skiptext=\skip195
+\skiplength=\skip196
+\algomargin=\skip197
+\skipalgocfslide=\skip198
+\algowidth=\dimen208
+\inoutsize=\dimen209
+\inoutindent=\dimen210
+\interspacetitleruled=\dimen211
+\interspacealgoruled=\dimen212
+\interspacetitleboxruled=\dimen213
+\algocf@ruledwidth=\skip199
+\algocf@inoutbox=\box40
+\algocf@inputbox=\box41
+\AlCapSkip=\skip200
+\AlCapHSkip=\skip201
+\algoskipindent=\skip202
+\algocf@nlbox=\box42
+\algocf@hangingbox=\box43
+\algocf@untilbox=\box44
+\algocf@skipuntil=\skip203
+\algocf@capbox=\box45
+\algoheightruledefault=\skip204
+\algoheightrule=\skip205
+\algotitleheightruledefault=\skip206
+\algotitleheightrule=\skip207
+\c@algocfline=\count174
+\c@algocfproc=\count175
+\c@algocf=\count176
+\algocf@algoframe=\box46
+\algocf@algobox=\box47
+)
+(C:\Users\Hartwig\miktex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibra
+ryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\libraries\pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
+\arrowsize=\dimen214
+))
+(C:\Users\Hartwig\miktex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibra
+ryautomata.code.tex
+File: tikzlibraryautomata.code.tex 2008/07/14 v3.0.1a (rcs-revision 1.3)
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibra
+ryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
+)
+
+(C:\Users\Hartwig\miktex\tex\generic\pgf\libraries\shapes\pgflibraryshapes.mult
+ipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
+
+\pgfnodepartlowerbox=\box48
+\pgfnodeparttwobox=\box49
+\pgfnodepartthreebox=\box50
+\pgfnodepartfourbox=\box51
+\pgfnodeparttwentybox=\box52
+\pgfnodepartnineteenbox=\box53
+\pgfnodeparteighteenbox=\box54
+\pgfnodepartseventeenbox=\box55
+\pgfnodepartsixteenbox=\box56
+\pgfnodepartfifteenbox=\box57
+\pgfnodepartfourteenbox=\box58
+\pgfnodepartthirteenbox=\box59
+\pgfnodeparttwelvebox=\box60
+\pgfnodepartelevenbox=\box61
+\pgfnodeparttenbox=\box62
+\pgfnodepartninebox=\box63
+\pgfnodeparteightbox=\box64
+\pgfnodepartsevenbox=\box65
+\pgfnodepartsixbox=\box66
+\pgfnodepartfivebox=\box67
+))) (ngerman.sty v2.5e 1998-07-08
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package: ngerman 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen212
 LaTeX Info: Redefining \glqq on input line 255.
@@ -1194,6 +1488,7 @@ Package: bibgerm 2000/08/18 v0.1 Support for mixed language bibliographies
 ** Modified for ngerman.sty and babel.sty by H. Harders 21 August 2000 **)
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
+<<<<<<< HEAD
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
 )
@@ -1207,6 +1502,21 @@ Package: varioref 2011/10/02 v1.4z package for extended references (FMi)
 \c@WF@wrappedlines=\count179
 \WF@box=\box66
 \WF@everypar=\toks36
+=======
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\tools\varioref.sty"
+Package: varioref 2014/10/28 v1.5a package for extended references (FMi)
+\c@vrcnt=\count177
+)
+(C:\Users\Hartwig\miktex\tex\latex\wrapfig\wrapfig.sty
+\wrapoverhang=\dimen216
+\WF@size=\dimen217
+\c@WF@wrappedlines=\count178
+\WF@box=\box68
+\WF@everypar=\toks39
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package: wrapfig 2003/01/31  v 3.6
 )
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesis.a
@@ -1234,6 +1544,7 @@ LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
 LaTeX Font Info:    ... okay on input line 66.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 66.
+<<<<<<< HEAD
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -1250,6 +1561,24 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 \MPnumerator=\count184
 \makeMPintoPDFobject=\count185
 \everyMPtoPDFconversion=\toks38
+=======
+ ("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\t1ptm.fd"
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+(C:\Users\Hartwig\miktex\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count179
+\scratchdimen=\dimen218
+\scratchbox=\box69
+\nofMPsegments=\count180
+\nofMParguments=\count181
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count182
+\MPscratchDim=\dimen219
+\MPnumerator=\count183
+\makeMPintoPDFobject=\count184
+\everyMPtoPDFconversion=\toks41
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 ) ABD: EveryShipout initializing macros
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1285,15 +1614,25 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<<<<<<< HEAD
 \AtBeginShipoutBox=\box68
 Package hyperref Info: Link coloring OFF on input line 66.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+=======
+\AtBeginShipoutBox=\box70
+Package hyperref Info: Link coloring OFF on input line 66.
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\hyperref\nameref.sty"
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
+<<<<<<< HEAD
 \c@section@level=\count186
+=======
+\c@section@level=\count185
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 LaTeX Info: Redefining \Ref on input line 513.
 )
 Redoing nameref's sectioning
@@ -1302,20 +1641,28 @@ LaTeX Info: Redefining \nameref on input line 66.
 LaTeX Info: Redefining \ref on input line 66.
 LaTeX Info: Redefining \pageref on input line 66.
 LaTeX Info: Redefining \nameref on input line 66.
+<<<<<<< HEAD
 
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesis.o
 ut)
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesis.o
 ut)
+=======
+(thesis.out) (thesis.out)
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 \@outlinefile=\write5
 LaTeX Info: Redefining \Ref on input line 66.
 
 
 bibgerm.sty: (n)german.sty 2.5b detected
 
+<<<<<<< HEAD
 
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters
 /titlepage_de.tex
+=======
+(chapters/titlepage_de.tex
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1348,8 +1695,13 @@ bibgerm.sty: (n)german.sty 2.5b detected
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<<<<<<< HEAD
 \tmpbaselineskip=\skip206
 \tmpparindent=\skip207
+=======
+\tmpbaselineskip=\skip208
+\tmpparindent=\skip209
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 LaTeX Font Info:    Try loading font information for T1+phv on input line 51.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -1386,14 +1738,22 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.44997pt on input line 91.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 10.40245pt on input line 108.
+<<<<<<< HEAD
 <figures/TU_INF_header.pdf, id=50, 512.91624pt x 47.17625pt>
+=======
+<figures/TU_INF_header.pdf, id=46, 512.91624pt x 47.17625pt>
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 File: figures/TU_INF_header.pdf Graphic file (type pdf)
 
 <use figures/TU_INF_header.pdf>
 Package pdftex.def Info: figures/TU_INF_header.pdf used on input line 121.
 (pdftex.def)             Requested size: 509.30415pt x 46.84425pt.
 
+<<<<<<< HEAD
 <figures/TU_INF_Logo_gray.pdf, id=51, 171.64125pt x 46.1725pt>
+=======
+<figures/TU_INF_Logo_gray.pdf, id=47, 171.64125pt x 46.1725pt>
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 File: figures/TU_INF_Logo_gray.pdf Graphic file (type pdf)
 
 <use figures/TU_INF_Logo_gray.pdf>
@@ -1414,6 +1774,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
+<<<<<<< HEAD
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/harr/Documents/m
 eshexploder/thesis/INF_Thesis_LaTeX_Template/figures/TU_INF_header.pdf> <C:/Use
 rs/harr/Documents/meshexploder/thesis/INF_Thesis_LaTeX_Template/figures/TU_INF_
@@ -1422,6 +1783,12 @@ Logo_gray.pdf>] [2
 ])
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters
 /titlepage_en.tex
+=======
+{C:/Users/Hartwig/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./figures
+/TU_INF_header.pdf> <./figures/TU_INF_Logo_gray.pdf>] [2
+
+]) (chapters/titlepage_en.tex
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1476,6 +1843,7 @@ Package pdftex.def Info: figures/TU_INF_Logo_gray.pdf used on input line 121.
 ] [2
 
 ])
+<<<<<<< HEAD
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters
 /erklaerung.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
@@ -1483,6 +1851,12 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 )
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters
 /abstract_de.tex [1
+=======
+(chapters/erklaerung.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 21.
+) (chapters/abstract_de.tex [1
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 
 
@@ -1492,8 +1866,12 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 ]) [3] [4
 
 ]
+<<<<<<< HEAD
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters
 /abstract_en.tex) [5
+=======
+(chapters/abstract_en.tex) [5
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 ] [6
 
@@ -1505,6 +1883,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 ) [7] [8
 
 ]
+<<<<<<< HEAD
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\chapters
 /cha1_introduction.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
@@ -1523,11 +1902,18 @@ Package pdftex.def Info: chapters/figures/demo.png used on input line 24.
 
 ] [2] [3 <C:/Users/harr/Documents/meshexploder/thesis/INF_Thesis_LaTeX_Template
 /chapters/figures/demo.png (PNG copy)>] [4
+=======
+(chapters/cha1_introduction.tex [1] [2
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 13--16
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 ]
 <chapters/figures/davinci.png, id=157, 617.30624pt x 416.55624pt>
 File: chapters/figures/davinci.png Graphic file (type png)
 
+<<<<<<< HEAD
 <use chapters/figures/davinci.png>
 Package pdftex.def Info: chapters/figures/davinci.png used on input line 5.
 (pdftex.def)             Requested size: 376.42575pt x 254.0163pt.
@@ -1597,6 +1983,83 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--76
 [9 <C:/Users/harr/Documents/meshexploder/thesis/INF_Thesis_LaTeX_Template/chapt
 ers/figures/motor.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 87--90
+=======
+<chapters/figures/demo.png, id=140, 604.2575pt x 545.03625pt>
+File: chapters/figures/demo.png Graphic file (type png)
+
+<use chapters/figures/demo.png>
+Package pdftex.def Info: chapters/figures/demo.png used on input line 26.
+(pdftex.def)             Requested size: 292.77629pt x 264.08446pt.
+) (chapters/cha2_state_of.tex [3] [4] [5 <./chapters/figures/demo.png (PNG copy
+)>] [6
+
+]
+<chapters/figures/davinci.jpg, id=160, 391.4625pt x 246.9225pt>
+File: chapters/figures/davinci.jpg Graphic file (type jpg)
+
+<use chapters/figures/davinci.jpg>
+Package pdftex.def Info: chapters/figures/davinci.jpg used on input line 5.
+(pdftex.def)             Requested size: 117.1105pt x 73.86632pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 18.
+[7 <./chapters/figures/davinci.jpg>]
+<chapters/figures/splitting.png, id=177, 840.99269pt x 196.67508pt>
+File: chapters/figures/splitting.png Graphic file (type png)
+
+<use chapters/figures/splitting.png>
+Package pdftex.def Info: chapters/figures/splitting.png used on input line 27.
+(pdftex.def)             Requested size: 376.42575pt x 88.0318pt.
+
+<chapters/figures/axes.png, id=180, 757.6305pt x 323.7696pt>
+File: chapters/figures/axes.png Graphic file (type png)
+
+<use chapters/figures/axes.png>
+Package pdftex.def Info: chapters/figures/axes.png used on input line 35.
+(pdftex.def)             Requested size: 292.77629pt x 125.1136pt.
+
+<chapters/figures/hierarchy.png, id=183, 2091.815pt x 838.13126pt>
+File: chapters/figures/hierarchy.png Graphic file (type png)
+
+<use chapters/figures/hierarchy.png>
+Package pdftex.def Info: chapters/figures/hierarchy.png used on input line 43.
+(pdftex.def)             Requested size: 292.77629pt x 117.29921pt.
+ [8 <./chapters/figures/splitting.png>]
+<chapters/figures/perspective.png, id=199, 1378.1889pt x 511.6716pt>
+File: chapters/figures/perspective.png Graphic file (type png)
+
+<use chapters/figures/perspective.png>
+Package pdftex.def Info: chapters/figures/perspective.png used on input line 52
+.
+(pdftex.def)             Requested size: 376.42575pt x 139.75371pt.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 59.
+
+("C:\Program Files (x86)\MiKTeX 2.9_2\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ [9 <./chapters/figures/axes.png> <./chapters/figures/hierarchy.png>]
+<chapters/figures/motor.png, id=210, 999.735pt x 417.56pt>
+File: chapters/figures/motor.png Graphic file (type png)
+
+<use chapters/figures/motor.png>
+Package pdftex.def Info: chapters/figures/motor.png used on input line 65.
+(pdftex.def)             Requested size: 292.77629pt x 122.28075pt.
+ [10 <./chapters/figures/perspective.png> <./chapters/figures/motor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 73--77
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
  []
 
@@ -1618,6 +2081,7 @@ Package pdftex.def Info: chapters/figures/splitting_explained.png used on input
  line 17.
 (pdftex.def)             Requested size: 376.42575pt x 132.31729pt.
 
+<<<<<<< HEAD
 <chapters/figures/cerebellum.png, id=252, 2864.7025pt x 819.06pt>
 File: chapters/figures/cerebellum.png Graphic file (type png)
 
@@ -1660,6 +2124,52 @@ NF_Thesis_LaTeX_Template/chapters/figures/brainstem.png>]) [19
 ]
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesis.b
 bl [20]
+=======
+]
+<chapters/figures/splitting_explained.png, id=250, 839.69153pt x 295.16212pt>
+File: chapters/figures/splitting_explained.png Graphic file (type png)
+
+<use chapters/figures/splitting_explained.png>
+Package pdftex.def Info: chapters/figures/splitting_explained.png used on input
+ line 23.
+(pdftex.def)             Requested size: 376.42575pt x 132.31729pt.
+
+<chapters/figures/cerebellum.png, id=252, 2864.7025pt x 819.06pt>
+File: chapters/figures/cerebellum.png Graphic file (type png)
+
+<use chapters/figures/cerebellum.png>
+Package pdftex.def Info: chapters/figures/cerebellum.png used on input line 34.
+
+(pdftex.def)             Requested size: 376.42575pt x 107.61884pt.
+ [14]
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
+
+ []
+
+[15 <./chapters/figures/splitting_explained.png> <./chapters/figures/cerebellum
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--62
+
+ []
+
+[16] <chapters/figures/infinity.png, id=282, 2864.7025pt x 819.06pt>
+File: chapters/figures/infinity.png Graphic file (type png)
+
+<use chapters/figures/infinity.png>
+Package pdftex.def Info: chapters/figures/infinity.png used on input line 75.
+(pdftex.def)             Requested size: 376.42575pt x 107.61884pt.
+ [17]
+<chapters/figures/brainstem.png, id=293, 2864.7025pt x 2457.18pt>
+File: chapters/figures/brainstem.png Graphic file (type png)
+
+<use chapters/figures/brainstem.png>
+Package pdftex.def Info: chapters/figures/brainstem.png used on input line 91.
+(pdftex.def)             Requested size: 376.42575pt x 322.85652pt.
+ [18 <./chapters/figures/infinity.png>]
+[19 <./chapters/figures/brainstem.png>] [20
+
+]) [21] (thesis.bbl [22]
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 bibitemlist
 ) [21
 
@@ -1667,6 +2177,7 @@ bibitemlist
 \tf@toc=\write6
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 164.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 164.
+<<<<<<< HEAD
 
 (C:\Users\harr\Documents\meshexploder\thesis\INF_Thesis_LaTeX_Template\thesis.a
 ux
@@ -1678,11 +2189,19 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: C4C2B682508243436776FE15FA41EC6B;718.
+=======
+ (thesis.aux (chapters/titlepage_de.aux) (chapters/titlepage_en.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: C1971249661F43D20F36F14466D1FF60;620.
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
+<<<<<<< HEAD
  ) 
 Here is how much of TeX's memory you used:
  21253 strings out of 493921
@@ -1710,4 +2229,37 @@ PDF statistics:
  380 PDF objects out of 1000 (max. 8388607)
  85 named destinations out of 1000 (max. 500000)
  166 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 1061 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 22833 strings out of 493673
+ 415729 string characters out of 3145599
+ 535190 words of memory out of 3000000
+ 25653 multiletter control sequences out of 15000+200000
+ 67970 words of font info for 84 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 68i,19n,66p,1420b,4260s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9_2/fonts/enc/dvips/fontname/8
+r.enc}<C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmr10.
+pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmr8.pf
+b><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/public/amsfonts/symbols/msam1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/helvetic/uhvb8a.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9_2/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9_2/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/
+MiKTeX 2.9_2/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (35 pages, 3507916 bytes).
+PDF statistics:
+ 384 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 

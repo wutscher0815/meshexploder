@@ -1,4 +1,13 @@
 \chapter{Practical part}
+<<<<<<< HEAD
+=======
+\section{Analysis and conclusions from other work}
+Since my task required creating exploded views for objects defined by triangle meshes, my approach would be rather like Li et al.'s solution, to use the groups of the mesh as the different parts of the objects which from which an object of interest would be chosen by clicking on it.\\ 
+This object of interest stays at the postition of its original place in the object, while the rest of the object is split along a cutting plane and then moved in a smooth animation to a point that leaves the object of interest fully revealed. This object would move along the axis defined by the user in a speed that is determined by how much of the Object is visible - the more the object is occluded, the faster the occluding parts move. This non-linear acceleration drew its inspiration from the before mentioned force-based approach to displacing the elements of the object, though my goal was to fully reveal the centered object, which though it normally works, is not guaranteed.\\
+The biggest problem to tackle was now how to handle viewing directions that cause the graphic to grow up to -in the worst case- infinity.\\
+Neither the prospect of visual clutter, indeterminate explosion directions nor the idea of a graphic that would grow infinitely when viewed from the wrong angle proved satisfactory, especially from a usability standpoint: Though the system allows for a freely movable viewpoint, most perspectives just deliver unsatisfactory or even useless results.\\
+Since a maximum threshold for the explosion along an axis was inevitable, my intention was to keep it low enough to retain a satisfactory level of compactness I chose ghosting as a technique to still convey information about the object of interest to the user when it was occluded by another part of the object.\\
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 \section{Implementation}
 The practical part of my thesis was to create a plug-in for the visualization application ``VolumeShop `` that was developed at the Computer graphics institute at TU Wien.\cite{bruckner-2005-VIS}. VolumeShop was initially developed to create illustrative visualizations from data volumes acquired by e.g. a CT scan. It has been expanded by many plugins ever since and can now also process triangle meshes. I built my work upon an existing plug-in\cite{schwankl-2013-smis}, that split meshes in image space.
 \subsection{Plan and milestone definition:}
@@ -79,7 +88,11 @@ If the current offset $o_c$ exceeds $o_{max} \cdot 0.7$ the opacity $\alpha$ of 
 \begin{equation}
 	\alpha = \frac{o_{max}-o_c}{o_{max} \cdot 0.3} \cdot 0.5 + 0.5
 \end{equation}
+<<<<<<< HEAD
 This opacity factor $\alpha$ is then multiplied by the occlusion $r$ \ref{eq:OcclusionRatio}  so that the object stays opaque while its not occluding anything and is rendered the most translucent if the whole object of interest is occluded completely.\\
+=======
+This opacity factor $\alpha$ is then multiplied by the occlusion $r$ \ref{eq:OcclusionRatio}  so that the object stays solid while its not occluding anything and is rendered the most translucent if the whole object of interest is occluded completely.\\
+>>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 To determine which part is the front part, I calculated the dot product of the viewing vector and the plane normal, using its sign to determine whether the part shifted in direction of the plane normal is the front part or not. This also determines in which order the parts are rendered, with the front part being the last, so that it can be translucently blended over the solid parts. (see \ref{fig:brainstem})\\
 A problem that now appears is that backface culling is deactivated to so that the cutaway can be rendered correctly, resulting in the translucent objects' backfaces also visible, which causes the graphic to appear slightly confusing and aesthetically unpleasant. This problem of transparent faces shining through has been mentioned as one of the pitfalls when implementing ghosting by Bruckner and Gr\"oller\cite{proc:bruckner-2006-EVV}. This can be avoided by allowing backface culling for a translucent object, if its offset vector doesn't point away from the camera. Because this may be the case if the camera is placed between the original and the translated switch plane, the dot product has to be calculated once more, now for the translated split plane.\\
 \begin{figure}[tb]
