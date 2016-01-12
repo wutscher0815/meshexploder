@@ -10,7 +10,10 @@ You're missing a field name---line 189 of file chapters/references.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "schwankl-2013-smis" isn't style-file defined
 --line 257 of file chapters/references.bib
-Warning--I didn't find a database entry for "Viola-05-Smart"
-Warning--I didn't find a database entry for "TODO"
+Warning--entry type for "fleiss-2015" isn't style-file defined
+--line 277 of file chapters/references.bib
+A bad cross reference---entry "proc:conf/si3d/NiederauerHAH03"
+refers to entry "conf/si3d/2003", which doesn't exist
+Warning--I didn't find a database entry for "conf/si3d/2003"
 Warning--to sort, need author or key in misc:siggraphAnim
-(There was 1 error message)
+(There were 2 error messages)

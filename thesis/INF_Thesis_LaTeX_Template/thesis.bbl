@@ -26,6 +26,10 @@ Stefan Bruckner and Meister~Eduard Gr{\"o}ller.
 \newblock {\em IEEE Transactions on Visualization and Computer Graphics},
   12(5):1077--1084, 9 2006.
 
+\bibitem{fleiss-2015}
+Felix Fleiss.
+\newblock Interactive exploration of architecture using exploded views, 2013.
+
 \bibitem{proc:Li:2008:AGI}
 Wilmot Li, Maneesh Agrawala, Brian Curless, and David Salesin.
 \newblock Automated generation of interactive 3d exploded view diagrams.
@@ -36,6 +40,13 @@ Niloy~J. Mitra, Yong-Liang Yang, Dong-Ming Yan, Wilmot Li, and Maneesh
   Agrawala.
 \newblock Illustrating how mechanical assemblies work.
 \newblock {\em Commun. ACM}, 56(1):106--114, 2013.
+
+\bibitem{proc:conf/si3d/NiederauerHAH03}
+Christopher Niederauer, Mike Houston, Maneesh Agrawala, and Greg Humphreys.
+\newblock Non-invasive interactive visualization of dynamic architectural
+  environments.
+\newblock In Michael Zyda, Michael~V. Capps, Randy~F. Pausch, and Gary Bishop,
+  editors, {\em SI3D}, pages 55--58. ACM, 2003.
 
 \bibitem{schwankl-2013-smis}
 Barbara Schwankl.
@@ -48,10 +59,5 @@ Ivan Viola and Meister~E. Gr\"{o}ller.
   Computational Aesthetics in Graphics, Visualization and Imaging},
   Computational Aesthetics'05, pages 209--216, Aire-la-Ville, Switzerland,
   Switzerland, 2005. Eurographics Association.
-
-\bibitem{misc:WikiEnVIs}
-{Wikipedia: Illustration}.
-\newblock http://en.wikipedia.org/wiki/illustration.
-\newblock Accessed: 2015-12-17.
 
 \end{thebibliography}
