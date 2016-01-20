@@ -1,8 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{misc:siggraphAnim}
-
-
 \bibitem{Agrawala:2011:DPV:1924421.1924439}
 Maneesh Agrawala, Wilmot Li, and Floraine Berthouzoz.
 \newblock Design principles for visual communication.
@@ -28,7 +25,19 @@ Stefan Bruckner and Meister~Eduard Gr{\"o}ller.
 
 \bibitem{fleiss-2015}
 Felix Fleiss.
-\newblock Interactive exploration of architecture using exploded views, 2013.
+\newblock Master thesis: Interactive exploration of architecture using exploded
+  views, vienna university of technology, 2013.
+
+\bibitem{misc:ikea}
+{IKEA}.
+\newblock Akurum assembly instructions.
+
+\bibitem{misc:davinci}
+{Leonardo da vinci}.
+\newblock Exloded view of a machine.
+\newblock
+  \url{http://www.whpinformationgraphics.co.uk/Exploded-view-drawings-01.html}.
+\newblock Accessed: 2015-12-17.
 
 \bibitem{proc:Li:2008:AGI}
 Wilmot Li, Maneesh Agrawala, Brian Curless, and David Salesin.
@@ -50,7 +59,15 @@ Christopher Niederauer, Mike Houston, Maneesh Agrawala, and Greg Humphreys.
 
 \bibitem{schwankl-2013-smis}
 Barbara Schwankl.
-\newblock Splitting of meshes in image-space, 2013.
+\newblock Bachelor thesis: Splitting of meshes in image-space, vienna
+  university of technology, 2013.
+
+\bibitem{misc:siggraphAnim}
+{Siggraph}.
+\newblock Siggraph, principles of animation: Slow in and out.
+\newblock
+  \url{http://www.siggraph.org/education/materials/HyperGraph/animation/character_animation/principles/slow_in_and_out.htm}.
+\newblock Accessed: 2015-12-17.
 
 \bibitem{Viola:2005:SVV:2381219.2381249}
 Ivan Viola and Meister~E. Gr\"{o}ller.

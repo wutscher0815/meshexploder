@@ -3,17 +3,16 @@ A level-1 auxiliary file: chapters/titlepage_de.aux
 A level-1 auxiliary file: chapters/titlepage_en.aux
 The style file: plain.bst
 Database file #1: chapters/references.bib
-You're missing a field name---line 189 of file chapters/references.bib
- : 
- : %   author = {{Siggraph}},
+I was expecting a `,' or a `}'---line 184 of file chapters/references.bib
+ :   
+ :   howpublished = {\url{http://www.ikea.com/ms/en_US/customer_service/assembly/A/A70049343.pdf}},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Warning--entry type for "schwankl-2013-smis" isn't style-file defined
---line 257 of file chapters/references.bib
+--line 264 of file chapters/references.bib
 Warning--entry type for "fleiss-2015" isn't style-file defined
---line 277 of file chapters/references.bib
+--line 285 of file chapters/references.bib
 A bad cross reference---entry "proc:conf/si3d/NiederauerHAH03"
 refers to entry "conf/si3d/2003", which doesn't exist
 Warning--I didn't find a database entry for "conf/si3d/2003"
-Warning--to sort, need author or key in misc:siggraphAnim
 (There were 2 error messages)

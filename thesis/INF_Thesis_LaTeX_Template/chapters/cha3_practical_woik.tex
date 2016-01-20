@@ -37,8 +37,14 @@ The next step is now to automatically displace place the two halves of the objec
 \item \textbf{Continuity} By smoothly transitioning from the original place to the other the user can keep track of the original place making the Illustration easier to comprehend.
 \end{itemize}
 With these considerations in mind an implicit approach to finding the ideal offset of the two halves was used:\\
-To see if the object is occluded it is drawn before the other objects that might occlude it and the number of pixels drawn to the screen is counted. Then, after the rest has been drawn the object of interest is drawn and its pixels are counted again. Because of the depth buffer, only the parts of the object that are not blocked from view are drawn, which means that if the both amounts of pixels from both renderings are the same the object is unoccluded.\\
+To see if the object is occluded it is drawn before the other objects that might occlude it and the number of pixels drawn to the screen is counted. Then, after the rest has been drawn the object of interest is drawn and its pixels are counted again. Because of the depth buffer, only the parts of the object that are not blocked from view are drawn, which means that if the both amounts of pixels from both renderings are the same the object is unoccluded.(see \ref{fig:occlusionquery})\\
 To boost performance, the first rendering of the object of interest is done using the low cost overlay shader used in the color picking algorithm. Counting the rendered pixels of object of interest is done by using OpenGL queries. \\
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{chapters/figures/occlusion_query}
+	\caption{The pixels of the object of interest (green) are counted before(left) and after the exploding parts are rendered}
+	\label{fig:occlusionquery}
+\end{figure}
 Now it is possible to automatically generate an exploded view by making the offset of the exploding part grow until the object is fully visible. The offset grows at a constant speed which can be chosen in the user interface. If the object is unoccluded after a user interaction the offset shrinks until the first frame with a partial occlusion after which it grows again and stops when fully visible.\\ 
 To achieve a more natural movement the relative amount of occlusion
 \begin{equation}
@@ -68,8 +74,8 @@ If the explosion direction points approximately in the same direction as the vie
 ) the offset would even grow to infinity.\\
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.9\textwidth]{chapters/figures/infinity}
-	\caption{Different objects of interest from roghly the same viewpoint cause the offset to grow, placing the object out of view}
+	\includegraphics[width=0.9\textwidth]{chapters/figures/offset}
+	\caption{Different objects of interest from roghly the same viewpoint cause the offset to grow, placing the object outside of the viewport}
 	\label{fig:infinity}
 \end{figure}
 A simple solution is now to define a maximum explosion distance so that no part can be placed too far away from its original loaction. By experimentation twice the total size of the mesh proved to be a distance that ensures that for most angles full visibility is achieved and the image stays compact. This distance $o_{max}$ is the objects diameter which is acquired by calculating length of the distance between the minimum and maximum corners of the bounding box of the mesh. Since the mesh itself has no bounding box, the bounding box has to be accumulated by combining the bounding boxes of the groups of the mesh. This way the distance between the exploded parts can never exceed twice the diameter of the object.\\
@@ -79,11 +85,7 @@ If the current offset $o_c$ exceeds $o_{max} \cdot 0.7$ the opacity $\alpha$ of 
 \begin{equation}
 	\alpha = \frac{o_{max}-o_c}{o_{max} \cdot 0.3} \cdot 0.5 + 0.5
 \end{equation}
-<<<<<<< HEAD
 This opacity factor $\alpha$ is then multiplied by the occlusion $r$ \ref{eq:OcclusionRatio}  so that the object stays opaque while its not occluding anything and is rendered the most translucent if the whole object of interest is occluded completely.\\
-=======
-This opacity factor $\alpha$ is then multiplied by the occlusion $r$ \ref{eq:OcclusionRatio}  so that the object stays solid while its not occluding anything and is rendered the most translucent if the whole object of interest is occluded completely.\\
->>>>>>> 7fd131852468d2f46e42d5d82f889783c8946632
 To determine which part is the front part, I calculated the dot product of the viewing vector and the plane normal, using its sign to determine whether the part shifted in direction of the plane normal is the front part or not. This also determines in which order the parts are rendered, with the front part being the last, so that it can be translucently blended over the solid parts. (see \ref{fig:brainstem})\\
 A problem that now appears is that backface culling is deactivated to so that the cutaway can be rendered correctly, resulting in the translucent objects' backfaces also visible, which causes the graphic to appear slightly confusing and aesthetically unpleasant. This problem of transparent faces shining through has been mentioned as one of the pitfalls when implementing ghosting by Bruckner and Gr\"oller\cite{proc:bruckner-2006-EVV}. This can be avoided by allowing backface culling for a translucent object, if its offset vector doesn't point away from the camera. Because this may be the case if the camera is placed between the original and the translated switch plane, the dot product has to be calculated once more, now for the translated split plane.\\
 \begin{figure}[tb]
@@ -104,4 +106,3 @@ What outweighs these disadvantages, especially in illustrations of technical ass
 Because the aim is to create a simple and intuitive interactive visualisation, the usability of the system is what bothers me the most though the zooming and viewing direction control is fairly intuitive.
 \section{Future Work}
 At the moment the explosive view is very basic, with the explosion only along one axis, and a hierarchy that consists of only  an object of interest and its context objects. The next steps to imrove uüpon the visualisation would be to introduce more levels into the part hierarchy and devise a way to explode along mutible axes and exploring ways to quasi-naturally animate these behaviours. As ghosting concerned, an interesting addition would be to reduce the opacity of the blocking object only where it ocludes the object of interest and the vicinity of this area, with a smooth transition from transparent to solid in the area around the object of interest.\\
-Furthermore a quanitative evaluation in a user study comparing different visualizations of the same Problem would be interesting, along with a usability overhaul of the User interface reducing its complexity and giving the user a better experience by enabling him to manipulate the view with a touch interface.
