@@ -103,6 +103,19 @@ When given the possibility to view an interactive visualisation from all angles,
 \item Ghosting on the other hand loses one of its key advantages, namely that all parts of the object appear in their original location.
 \end{itemize}
 What outweighs these disadvantages, especially in illustrations of technical assemblies, is that the explosion direction is always preserved and the original position of a displaced object can be easily identified, whereas in e.g. the force-based solution described in chapter 2 the displacement direction is not that clear.\\
-Because the aim is to create a simple and intuitive interactive visualisation, the usability of the system is what bothers me the most though the zooming and viewing direction control is fairly intuitive.
+Because the aim is to create a simple and intuitive interactive visualisation, the usability of the system is what bothers me the most though the zooming and viewing direction control is fairly intuitive.\\
+To achieve expressive Illustrations one also has to consider the limitations of the approach in terms of hierarchy and choose the data accordingly: The best results can be achieved by showing meshes wher a thing is inside another thing, like anatomical objects(see fig \ref{fig:brainstem} and \ref{fig:ship}). Objects where a complex hierarchy is to be demonstrated, mostly man-made-Objects like furniture, machines or architecture don't generate very satisfying results( see fig \ref{fig:ship}).
 \section{Future Work}
 At the moment the explosive view is very basic, with the explosion only along one axis, and a hierarchy that consists of only  an object of interest and its context objects. The next steps to imrove uüpon the visualisation would be to introduce more levels into the part hierarchy and devise a way to explode along mutible axes and exploring ways to quasi-naturally animate these behaviours. As ghosting concerned, an interesting addition would be to reduce the opacity of the blocking object only where it ocludes the object of interest and the vicinity of this area, with a smooth transition from transparent to solid in the area around the object of interest.\\
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{chapters/figures/fetus_comic}
+	\caption{Visualization of a fetus inside a body}
+	\label{fig:fetus}
+\end{figure}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{chapters/figures/ship_comic}
+	\caption{Visualisation of a spaceship}
+	\label{fig:ship}
+\end{figure}
